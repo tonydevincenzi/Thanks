@@ -4,7 +4,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'Thanks' do
-Pod "Parse"
+pod "Parse"
 end
 
 target 'ThanksTests' do
