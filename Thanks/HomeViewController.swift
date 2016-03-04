@@ -8,20 +8,35 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Collection views require you set both delegate and datasource for self, just like table views
+        collectionView.delegate = self
+        collectionView.dataSource = self
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
+    //Required to specify how many items are in the collection, make number dynamic later
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    //Required to specify the unique settings of the cell, will use this later to grab manipulate the Card View via some attributes out of an array
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
+        
+        return cell
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -31,7 +46,5 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    //poop
 
 }
