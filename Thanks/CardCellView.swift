@@ -10,7 +10,6 @@ import UIKit
 
 class CardCellView: UICollectionViewCell {
     
-    @IBOutlet weak var cardContainerView: UIView!
     var cardViewController: UIViewController!
 
     override func awakeFromNib() {
@@ -21,12 +20,12 @@ class CardCellView: UICollectionViewCell {
         
         //Get access to the "CardViewController", which is our template
         cardViewController = storyboard.instantiateViewControllerWithIdentifier("Card") as! CardViewController
-        cardViewController.view.frame = cardContainerView.bounds
+        cardViewController.view.frame = self.contentView.bounds
         
         //Arbitrary scale to show how to transform it within the container view cell
         cardViewController.view.transform = CGAffineTransformMakeScale(0.5, 0.5)
         
         //Add the CardView to the UICollectionViewCell
-        cardContainerView.addSubview(cardViewController.view)
+        self.contentView.addSubview(cardViewController.view)
     }
 }
