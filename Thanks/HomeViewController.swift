@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -18,6 +19,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //Collection views require you set both delegate and datasource for self, just like table views
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        let card = PFObject(className: "cards")
+        card["title"] = "Card Title"
+        card.saveInBackground()
 
     }
 
