@@ -9,9 +9,11 @@
 import UIKit
 import Parse
 
-var cards:NSArray!
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
+    var cards: NSArray!
+//    var cards: [Card]
 
     @IBOutlet weak var collectionView: UICollectionView!
     var numberOfCards: Int!
@@ -19,31 +21,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let query = PFQuery(className:"cards")
-        
-        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            //Declard the total number of cards for user
-            self.numberOfCards = Int(objects!.count)
-            
-            if error == nil{
-                
-                //Save all of the card data
-                cards = objects!
-                
-                //Printing out all card titles, for fun
-                for object in objects!{
-                    //print(object["title"])
-                }
-                
-                //Collection views require you set both delegate and datasource for self, just like table views
-                self.collectionView.delegate = self
-                self.collectionView.dataSource = self
-                
-            }else{
-                //Error, Couldn't load the data
-            }
-        }
+        //Collection views require you set both delegate and datasource for self, just like table views
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+ 
+        let parseService = ParseService()
+        let cards = parseService.getCards()
+        numberOfCards = cards.count
+        print("this should be zero: \(numberOfCards)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +37,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //Required to specify how many items are in the collection, make number dynamic later
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard numberOfCards != nil else {
+            print("Not loaded yet")
+            return 0
+        }
         return numberOfCards
     }
     

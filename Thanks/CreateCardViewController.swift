@@ -12,6 +12,7 @@ import Parse
 class CreateCardViewController: UIViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var bodyTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,12 @@ class CreateCardViewController: UIViewController {
     
     @IBAction func didTapSave(sender: AnyObject) {
         
+        // TODO: (tonydev) Pick up text from textfield then create struct
+        let title = titleTextField.text
+        let body = bodyTextField.text
+        
+        // TODO: (tonydev) Feed image
+//        let card = Card(title: title, body: body, image: nil)
         let card = PFObject(className: "cards")
         card["title"] = "New Card"
         card.saveInBackground()
