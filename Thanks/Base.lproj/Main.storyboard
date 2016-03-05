@@ -52,7 +52,7 @@
         <!--Home View-->
         <scene sceneID="gDO-dg-vJV">
             <objects>
-                <viewController id="R9e-Pp-7UG" customClass="HomeViewController" customModule="Thanks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" id="R9e-Pp-7UG" customClass="HomeViewController" customModule="Thanks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I4W-1L-IB0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
