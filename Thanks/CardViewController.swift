@@ -11,15 +11,14 @@ import UIKit
 class CardViewController: UIViewController {
 
     @IBOutlet var cardView: UIView!
-    var homeViewController: UIViewController!
-    var testCard: Int!
+    var index: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        homeViewController = storyboard.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
-
+        
+        if (index != nil) {
+            print(index)
+        }
     }
 
     override func didReceiveMemoryWarning() {

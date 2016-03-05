@@ -9,15 +9,15 @@
 import UIKit
 import Parse
 
+var cards:NSArray!
+
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var numberOfCards: Int!
-    var cards:NSArray!
     
-    override func viewWillAppear(animated: Bool) {
-        numberOfCards = 1
-        cards = []
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         let query = PFQuery(className:"cards")
         
@@ -29,35 +29,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if error == nil{
                 
                 //Save all of the card data
-                self.cards = objects!
+                cards = objects!
                 
                 //Printing out all card titles, for fun
                 for object in objects!{
-                    print(object["title"])
+                    //print(object["title"])
                 }
                 
-                self.collectionView.reloadData()
-                
-                print(self.cards)
+                //Collection views require you set both delegate and datasource for self, just like table views
+                self.collectionView.delegate = self
+                self.collectionView.dataSource = self
                 
             }else{
                 //Error, Couldn't load the data
             }
-            
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //Collection views require you set both delegate and datasource for self, just like table views
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        //let card = PFObject(className: "cards")
-        //card["title"] = "Card Title"
-        //card.saveInBackground()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,9 +58,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //Required to specify the unique settings of the cell, will use this later to grab manipulate the Card View via some attributes out of an array
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
-
+        
+        //Here we pass through the specific card's data, so that it can properly render itself
+        cell.cardData = cards[indexPath.row] as! PFObject
+        cell.cardIndex = indexPath.row
+                
         return cell
-    }
+    }	
     
     /*
     // MARK: - Navigation
