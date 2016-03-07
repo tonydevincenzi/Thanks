@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="R9e-Pp-7UG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="GJn-xn-7Gl">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -89,9 +89,9 @@
                                 <segue destination="t7N-kt-Mnd" kind="modal" modalTransitionStyle="crossDissolve" id="7ei-lo-uyE"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Reminders" id="523-mA-hru">
+                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="523-mA-hru">
                             <connections>
-                                <segue destination="lpv-Tv-mmM" kind="push" id="v2Y-QK-Hty"/>
+                                <action selector="didTapRefresh:" destination="R9e-Pp-7UG" id="WTB-hE-coK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -126,7 +126,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card Title" textAlignment="natural" minimumFontSize="17" id="CqK-Uu-MX9">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Card Title" borderStyle="roundedRect" placeholder="Card Title" textAlignment="natural" minimumFontSize="17" id="CqK-Uu-MX9">
                                 <rect key="frame" x="78" y="301" width="205" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -138,10 +138,9 @@
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="didTapSave:" destination="t7N-kt-Mnd" eventType="touchUpInside" id="T1m-aE-pio"/>
-                                    <action selector="didTouchSave:" destination="t7N-kt-Mnd" eventType="touchUpInside" id="Jto-fd-k8r"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What is your message?" textAlignment="natural" minimumFontSize="17" id="w0a-vh-MWQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Body Copy" borderStyle="roundedRect" placeholder="What is your message?" textAlignment="natural" minimumFontSize="17" id="w0a-vh-MWQ">
                                 <rect key="frame" x="78" y="347" width="205" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -159,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocJ-Ub-74z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2975.5" y="405.5"/>
+            <point key="canvasLocation" x="2940.5" y="405.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="t1E-jK-m6W">
@@ -199,43 +198,5 @@
             </objects>
             <point key="canvasLocation" x="1911" y="406"/>
         </scene>
-        <!--Card View Controller-->
-        <scene sceneID="GIj-Gi-Qdl">
-            <objects>
-                <viewController storyboardIdentifier="Card" id="QsY-hd-b2j" customClass="CardViewController" customModule="Thanks" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="iIP-lO-AdZ">
-                        <rect key="frame" x="0.0" y="0.0" width="340" height="340"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" id="CFc-Na-bPb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Card" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2zm-1I-DQa">
-                                        <rect key="frame" x="0.0" y="120" width="342" height="72"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.3803921569" green="0.82745098039999998" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="340" height="340"/>
-                    <connections>
-                        <outlet property="cardView" destination="iIP-lO-AdZ" id="nNX-j7-b1I"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4vP-V9-mMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2475" y="-188"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="v2Y-QK-Hty"/>
-    </inferredMetricsTieBreakers>
 </document>

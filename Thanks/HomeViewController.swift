@@ -20,10 +20,38 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshCollection:", name:"refresh", object: nil)
+
+        
         //Collection views require you set both delegate and datasource for self, just like table views
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
  
+        loadData()
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake {
+            let alert = UIAlertController(title: "Delete all Cards?", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Delete", style: .Default, handler: { action in
+                switch action.style{
+                case .Default:
+                    ParseService().deleteAllCards()
+                    NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
+                case .Cancel:
+                    print("cancel")
+                case .Destructive:
+                    print("destructive")
+                }
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func loadData() {
+        
         //All Parse related stuff handled in the ParseService class
         let parseService = ParseService()
         
@@ -37,6 +65,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func refreshCollection(notification: NSNotification){
+        loadData()
+        //collectionView.reloadData()
     }
     
     //Required to specify how many items are in the collection, make number dynamic later
@@ -55,14 +88,19 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //Here we pass through the specific card's data, so that it can properly render itself
         var cardTemplate = NSBundle.mainBundle().loadNibNamed("CardTemplate", owner: self,options: [:])[0] as! CardTemplate
         
+        //TODO: For some reason, setting params in the new CardTemplate view is not working - it might have to do with how CollectionViews are handled?
         cardTemplate.indexNumber = indexPath.row
-        print(cardTemplate.indexNumber)
-        
         cell.addSubview(cardTemplate)
         //print(indexPath.row)
 
         return cell
-    }	
+    }
+    
+    @IBAction func didTapRefresh(sender: AnyObject) {
+        //TODO: Should not always requery data on refresh, sometimes should just append the existing list (i.e., from new card call)
+        loadData()
+        //collectionView.reloadData()
+    }
     
     /*
     // MARK: - Navigation

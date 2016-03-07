@@ -24,7 +24,6 @@
 		EAD896151C8E265F00C3AA4E /* CardTemplate.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAD896141C8E265F00C3AA4E /* CardTemplate.xib */; };
 		EAD896171C8E279100C3AA4E /* CardTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD896161C8E279100C3AA4E /* CardTemplate.swift */; };
 		EADEBF7B1C88F6C10065DA0F /* CardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */; };
-		EADEBF7F1C88FBB30065DA0F /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADEBF7E1C88FBB30065DA0F /* CardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +70,6 @@
 		EAD896141C8E265F00C3AA4E /* CardTemplate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardTemplate.xib; sourceTree = "<group>"; };
 		EAD896161C8E279100C3AA4E /* CardTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTemplate.swift; sourceTree = "<group>"; };
 		EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellView.swift; sourceTree = "<group>"; };
-		EADEBF7E1C88FBB30065DA0F /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,13 +136,13 @@
 				EA3F2B981C86298700AC0101 /* AppDelegate.swift */,
 				93CFEFF81C8B984800CD37DC /* Card.swift */,
 				EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */,
+				EAD896161C8E279100C3AA4E /* CardTemplate.swift */,
 				93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */,
 				EA3F2B9C1C86298700AC0101 /* Main.storyboard */,
 				EAD896141C8E265F00C3AA4E /* CardTemplate.xib */,
-				EAD896161C8E279100C3AA4E /* CardTemplate.swift */,
-				EA3F2B9F1C86298700AC0101 /* Assets.xcassets */,
 				EA3F2BA11C86298700AC0101 /* LaunchScreen.storyboard */,
 				EA3F2BA41C86298700AC0101 /* Info.plist */,
+				EA3F2B9F1C86298700AC0101 /* Assets.xcassets */,
 			);
 			path = Thanks;
 			sourceTree = "<group>";
@@ -171,7 +169,6 @@
 			isa = PBXGroup;
 			children = (
 				EA3F2B9A1C86298700AC0101 /* ViewController.swift */,
-				EADEBF7E1C88FBB30065DA0F /* CardViewController.swift */,
 				EA3F2BC61C86587000AC0101 /* CreateCardViewController.swift */,
 				EA3F2BC81C86588200AC0101 /* HomeViewController.swift */,
 				EA3F2BCC1C8658A500AC0101 /* OnboardingViewController.swift */,
@@ -260,6 +257,7 @@
 				TargetAttributes = {
 					EA3F2B941C86298700AC0101 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 568JQG4TRT;
 					};
 					EA3F2BA81C86298700AC0101 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -380,7 +378,6 @@
 				EA3F2BC71C86587000AC0101 /* CreateCardViewController.swift in Sources */,
 				EA3F2BCF1C8658BB00AC0101 /* RemindersViewController.swift in Sources */,
 				EA3F2BCD1C8658A500AC0101 /* OnboardingViewController.swift in Sources */,
-				EADEBF7F1C88FBB30065DA0F /* CardViewController.swift in Sources */,
 				EA3F2B9B1C86298700AC0101 /* ViewController.swift in Sources */,
 				EA3F2B991C86298700AC0101 /* AppDelegate.swift in Sources */,
 				EA3F2BC91C86588200AC0101 /* HomeViewController.swift in Sources */,
@@ -529,10 +526,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Thanks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.friendly.Thanks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Thanks-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -545,10 +544,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Thanks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.friendly.Thanks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Thanks-Bridging-Header.h";
 			};
 			name = Release;

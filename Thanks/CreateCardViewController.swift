@@ -26,21 +26,21 @@ class CreateCardViewController: UIViewController {
     }
     
 
-    @IBAction func didTouchSave(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    }
     
     @IBAction func didTapSave(sender: AnyObject) {
+      
         
-        // TODO: (tonydev) Pick up text from textfield then create struct
-        let title = titleTextField.text
-        let body = bodyTextField.text
+        let title = titleTextField.text!
+        let body = bodyTextField.text!
+        let card = Card(title: title, body: body, image: nil)
         
-        // TODO: (tonydev) Feed image
-//        let card = Card(title: title, body: body, image: nil)
-        let card = PFObject(className: "cards")
-        card["title"] = "New Card"
-        card.saveInBackground()
+        //Pass the card to ParseService, save, and return
+        //TODO: Some error handling here
+         ParseService().saveCard(card) {
+            (result: Card) in
+                self.dismissViewControllerAnimated(true, completion: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
+        }
     }
     
     /*

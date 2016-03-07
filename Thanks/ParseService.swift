@@ -47,4 +47,24 @@ final class ParseService {
             onComplete(self.cards)
         }
     }
+    
+    func saveCard(card: Card, completion: (result: Card) -> Void) {
+        
+        let cardToSave = PFObject(className: "cards")
+        cardToSave["title"] = card.title
+        cardToSave["body"] = card.body
+        cardToSave.saveInBackground()
+
+        completion(result: card)
+    }
+    
+    func deleteAllCards() {
+        
+        //NOTE: Careful here, this is very nasty and actually does delete everything, it should be removed at some point
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            for object in objects! {
+                object.deleteEventually()
+            }
+        }
+    }
 }
