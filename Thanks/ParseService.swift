@@ -11,44 +11,40 @@ import Parse
 
 final class ParseService {
     
-    var query = PFQuery(className: "Cards")
-    
-    // TODO: add completion handler
-    func getCards() -> [Card] {
+    var query = PFQuery(className: "cards")
+    var cards: [Card] = []
 
-        var card: [Card] = []
+    func getCards(onComplete: ([Card]) -> ()) {
         
-        // completion block
-        getObjects()
-        return []
-    }
-    
-    func getObjects() {
+        //Ask Parse for the everything in the table
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
                 print("Error in getting objects: \(error)")
             }
-
-            print(objects)
+            
             // TODO: (tonydev) error handling
+            
             if let returnedObjects = objects {
+                
+                //Loop through the returned objects, and create and return a card per object
                 for object in returnedObjects {
-                    // make this data and create card
-                    // TODO: (tonydev) Figure out the correct syntax for retrieving column from Parse.
-                    let title = object["title"]
-                    let body = object["body"]
-                    let image = object["image"]
                     
-                    // TODO: make sure type on column matches type on struct
-//                    let newCard = Card(title: title as String,
-//                                       body: body as String,
-//                                       image: image? as UIImage)
+                    let title = object["title"] as! String
+                    let body = object["body"] as! String
+                    // TODO: fetch and assign the image
+                    
+                    let card = Card(title: title,
+                        body: body,
+                        image: nil)
+                    
                     // append to array
-//                    card.append(newCard)
-                    
+                    self.cards.append(card)
                 }
             }
+
+            //Once we have built the entire array, trigger the callback
+            onComplete(self.cards)
         }
     }
 }

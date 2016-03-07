@@ -12,8 +12,7 @@ import Parse
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    var cards: NSArray!
-//    var cards: [Card]
+    var cards: [Card] = []
 
     @IBOutlet weak var collectionView: UICollectionView!
     var numberOfCards: Int!
@@ -25,10 +24,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
  
+        //All Parse related stuff handled in the ParseService class
         let parseService = ParseService()
-        let cards = parseService.getCards()
-        numberOfCards = cards.count
-        print("this should be zero: \(numberOfCards)")
+        
+        parseService.getCards { (cards) in
+            //Completion handler returns cards, assign them and redraw
+            self.cards = cards
+            self.numberOfCards = cards.count
+            self.collectionView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,9 +53,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
         
         //Here we pass through the specific card's data, so that it can properly render itself
-        cell.cardData = cards[indexPath.row] as! PFObject
-        cell.cardIndex = indexPath.row
-                
+        var cardTemplate = NSBundle.mainBundle().loadNibNamed("CardTemplate", owner: self,options: [:])[0] as! CardTemplate
+        
+        cardTemplate.indexNumber = indexPath.row
+        print(cardTemplate.indexNumber)
+        
+        cell.addSubview(cardTemplate)
+        //print(indexPath.row)
+
         return cell
     }	
     
