@@ -21,8 +21,6 @@
 		EA3F2BC91C86588200AC0101 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F2BC81C86588200AC0101 /* HomeViewController.swift */; };
 		EA3F2BCD1C8658A500AC0101 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F2BCC1C8658A500AC0101 /* OnboardingViewController.swift */; };
 		EA3F2BCF1C8658BB00AC0101 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F2BCE1C8658BB00AC0101 /* RemindersViewController.swift */; };
-		EAD896151C8E265F00C3AA4E /* CardTemplate.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAD896141C8E265F00C3AA4E /* CardTemplate.xib */; };
-		EAD896171C8E279100C3AA4E /* CardTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD896161C8E279100C3AA4E /* CardTemplate.swift */; };
 		EADEBF7B1C88F6C10065DA0F /* CardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,8 +65,6 @@
 		EA3F2BCC1C8658A500AC0101 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		EA3F2BCE1C8658BB00AC0101 /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		EACDEA0E1C8A523A00FC44A5 /* Thanks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thanks-Bridging-Header.h"; sourceTree = "<group>"; };
-		EAD896141C8E265F00C3AA4E /* CardTemplate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardTemplate.xib; sourceTree = "<group>"; };
-		EAD896161C8E279100C3AA4E /* CardTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardTemplate.swift; sourceTree = "<group>"; };
 		EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,10 +132,8 @@
 				EA3F2B981C86298700AC0101 /* AppDelegate.swift */,
 				93CFEFF81C8B984800CD37DC /* Card.swift */,
 				EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */,
-				EAD896161C8E279100C3AA4E /* CardTemplate.swift */,
 				93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */,
 				EA3F2B9C1C86298700AC0101 /* Main.storyboard */,
-				EAD896141C8E265F00C3AA4E /* CardTemplate.xib */,
 				EA3F2BA11C86298700AC0101 /* LaunchScreen.storyboard */,
 				EA3F2BA41C86298700AC0101 /* Info.plist */,
 				EA3F2B9F1C86298700AC0101 /* Assets.xcassets */,
@@ -299,7 +293,6 @@
 				EA3F2BA31C86298700AC0101 /* LaunchScreen.storyboard in Resources */,
 				EA3F2BA01C86298700AC0101 /* Assets.xcassets in Resources */,
 				EA3F2B9E1C86298700AC0101 /* Main.storyboard in Resources */,
-				EAD896151C8E265F00C3AA4E /* CardTemplate.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +367,6 @@
 			files = (
 				EADEBF7B1C88F6C10065DA0F /* CardCellView.swift in Sources */,
 				93CFEFF91C8B984800CD37DC /* Card.swift in Sources */,
-				EAD896171C8E279100C3AA4E /* CardTemplate.swift in Sources */,
 				EA3F2BC71C86587000AC0101 /* CreateCardViewController.swift in Sources */,
 				EA3F2BCF1C8658BB00AC0101 /* RemindersViewController.swift in Sources */,
 				EA3F2BCD1C8658A500AC0101 /* OnboardingViewController.swift in Sources */,

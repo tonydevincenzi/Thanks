@@ -19,7 +19,7 @@ final class ParseService {
         //Ask Parse for the everything in the table
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             
-            if error == nil {
+            if error != nil {
                 print("Error in getting objects: \(error)")
             }
             

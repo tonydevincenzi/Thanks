@@ -9,7 +9,6 @@
 import UIKit
 import Parse
 
-
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var cards: [Card] = []
@@ -55,10 +54,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //All Parse related stuff handled in the ParseService class
         let parseService = ParseService()
         
-        parseService.getCards { (cards) in
+        parseService.getCards { (returnedCards) in
             //Completion handler returns cards, assign them and redraw
-            self.cards = cards
-            self.numberOfCards = cards.count
+            self.cards = returnedCards
+            self.numberOfCards = returnedCards.count
             self.collectionView.reloadData()
         }
     }
@@ -83,15 +82,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //Required to specify the unique settings of the cell, will use this later to grab manipulate the Card View via some attributes out of an array
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
         
-        //Here we pass through the specific card's data, so that it can properly render itself
-        var cardTemplate = NSBundle.mainBundle().loadNibNamed("CardTemplate", owner: self,options: [:])[0] as! CardTemplate
-        
-        //TODO: For some reason, setting params in the new CardTemplate view is not working - it might have to do with how CollectionViews are handled?
-        cardTemplate.indexNumber = indexPath.row
-        cell.addSubview(cardTemplate)
-        //print(indexPath.row)
+        cell.cardTitle.text = cards[indexPath.row].title
 
         return cell
     }

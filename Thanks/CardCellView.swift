@@ -11,6 +11,8 @@ import Parse
 
 class CardCellView: UICollectionViewCell {
     
+    @IBOutlet weak var cardTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -21,7 +23,7 @@ class CardCellView: UICollectionViewCell {
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-
+        
     }
 
 }
