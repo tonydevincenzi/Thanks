@@ -30,6 +30,16 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didTapShare(sender: AnyObject) {
+        
+        //TODO: Move into Share.swift
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(cardView.frame.width, cardView.frame.height), false, 0);
+        self.cardView.drawViewHierarchyInRect(CGRectMake(0,0,cardView.bounds.size.width,cardView.bounds.size.height), afterScreenUpdates: true)
+        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        let activityItem: [AnyObject] = [image as AnyObject]
+        let avc = UIActivityViewController(activityItems: activityItem as [AnyObject], applicationActivities: nil)
+        self.presentViewController(avc, animated: true, completion: nil)
+    }
     
 }
 

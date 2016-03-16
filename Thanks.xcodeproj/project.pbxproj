@@ -24,6 +24,7 @@
 		EA58D6D81C99C1DD00593381 /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6D71C99C1DD00593381 /* BaseTransition.swift */; };
 		EA58D6DA1C99C1F200593381 /* CellTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6D91C99C1F200593381 /* CellTransition.swift */; };
 		EA58D6DC1C99C24200593381 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6DB1C99C24200593381 /* DetailViewController.swift */; };
+		EA58D6DE1C99E19300593381 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6DD1C99E19300593381 /* Share.swift */; };
 		EADEBF7B1C88F6C10065DA0F /* CardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		EA58D6D71C99C1DD00593381 /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
 		EA58D6D91C99C1F200593381 /* CellTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTransition.swift; sourceTree = "<group>"; };
 		EA58D6DB1C99C24200593381 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EA58D6DD1C99E19300593381 /* Share.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
 		EACDEA0E1C8A523A00FC44A5 /* Thanks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thanks-Bridging-Header.h"; sourceTree = "<group>"; };
 		EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 			children = (
 				EA56B9441C8BB765005AF93C /* View Controllers */,
 				EA3F2B981C86298700AC0101 /* AppDelegate.swift */,
+				EA58D6DD1C99E19300593381 /* Share.swift */,
 				93CFEFF81C8B984800CD37DC /* Card.swift */,
 				EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */,
 				EA58D6D91C99C1F200593381 /* CellTransition.swift */,
@@ -385,6 +388,7 @@
 				EA3F2B9B1C86298700AC0101 /* ViewController.swift in Sources */,
 				EA3F2B991C86298700AC0101 /* AppDelegate.swift in Sources */,
 				EA3F2BC91C86588200AC0101 /* HomeViewController.swift in Sources */,
+				EA58D6DE1C99E19300593381 /* Share.swift in Sources */,
 				93CFEFFB1C8B9A3A00CD37DC /* ParseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
