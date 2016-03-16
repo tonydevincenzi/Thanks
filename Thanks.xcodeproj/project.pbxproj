@@ -72,6 +72,10 @@
 		EA58D6D91C99C1F200593381 /* CellTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTransition.swift; sourceTree = "<group>"; };
 		EA58D6DB1C99C24200593381 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EA58D6DD1C99E19300593381 /* Share.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
+		EA58D6DF1C99E62600593381 /* equip_bold.5feb14f9.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = equip_bold.5feb14f9.cache.otf; sourceTree = "<group>"; };
+		EA58D6E01C99E62600593381 /* equip_regular.4da3acb5.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = equip_regular.4da3acb5.cache.otf; sourceTree = "<group>"; };
+		EA58D6E11C99E62600593381 /* foro_bold.1d3a4711.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = foro_bold.1d3a4711.cache.otf; sourceTree = "<group>"; };
+		EA58D6E21C99E62600593381 /* foro_regular.3941226b.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = foro_regular.3941226b.cache.otf; sourceTree = "<group>"; };
 		EACDEA0E1C8A523A00FC44A5 /* Thanks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thanks-Bridging-Header.h"; sourceTree = "<group>"; };
 		EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +140,7 @@
 		EA3F2B971C86298700AC0101 /* Thanks */ = {
 			isa = PBXGroup;
 			children = (
+				EA58D6E31C99E62F00593381 /* Fonts */,
 				EA56B9441C8BB765005AF93C /* View Controllers */,
 				EA3F2B981C86298700AC0101 /* AppDelegate.swift */,
 				EA58D6DD1C99E19300593381 /* Share.swift */,
@@ -181,6 +186,17 @@
 				EA3F2BCE1C8658BB00AC0101 /* RemindersViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EA58D6E31C99E62F00593381 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EA58D6DF1C99E62600593381 /* equip_bold.5feb14f9.cache.otf */,
+				EA58D6E01C99E62600593381 /* equip_regular.4da3acb5.cache.otf */,
+				EA58D6E11C99E62600593381 /* foro_bold.1d3a4711.cache.otf */,
+				EA58D6E21C99E62600593381 /* foro_regular.3941226b.cache.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		F100CB08556B9B7F9E68FDB9 /* Pods */ = {
