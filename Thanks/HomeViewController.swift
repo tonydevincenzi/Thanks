@@ -15,6 +15,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     @IBOutlet weak var collectionView: UICollectionView!
     var numberOfCards: Int!
+    var cellTransition: CellTransition!
+    var tappedCell: UIView!
+    var tappedCellY: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,8 +89,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
         
         cell.cardTitle.text = cards[indexPath.row].title
+        
+        //Add a tap recognizer on each cell
+        let tapGesture = UITapGestureRecognizer(target: self, action: "tapCell:")
+        
+        cell.userInteractionEnabled = true
+        cell.addGestureRecognizer(tapGesture)
 
         return cell
+    }
+    
+    func tapCell(sender: UITapGestureRecognizer) {
+        
+        //When the cell is tapped, transition to modal
+        tappedCell = sender.view
+        tappedCellY = sender.view!.frame.origin.y
+        performSegueWithIdentifier("showDetail", sender: self)
+        
     }
     
     @IBAction func didTapRefresh(sender: AnyObject) {
@@ -96,14 +114,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //collectionView.reloadData()
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        let destinationViewController = segue.destinationViewController as! DetailViewController
+        destinationViewController.cell = tappedCell
+        
+        destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+        cellTransition = CellTransition()
+        destinationViewController.transitioningDelegate = cellTransition
+        cellTransition.duration = 0.5
+        
     }
-    */
 
 }
