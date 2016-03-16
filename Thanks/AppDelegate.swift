@@ -17,13 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let configuration = ParseClientConfiguration {
-            $0.applicationId = "thanksappid"
-            $0.clientKey = "nothingisasgoodassayingthanks"
-            $0.server = "http://thanksapp.herokuapp.com/parse"
+        if useLocalDataStore == true {
+            Parse.enableLocalDatastore()
+            Parse.setApplicationId("thanksappid", clientKey: "nothingisasgoodassayingthanks")
+        } else {
+            let configuration = ParseClientConfiguration {
+                $0.applicationId = "thanksappid"
+                $0.clientKey = "nothingisasgoodassayingthanks"
+                $0.server = "http://thanksapp.herokuapp.com/parse"
+            }
+            Parse.initializeWithConfiguration(configuration)
         }
-        Parse.initializeWithConfiguration(configuration)
-        
         return true
     }
 

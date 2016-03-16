@@ -17,6 +17,9 @@ final class ParseService {
     func getCards(onComplete: ([Card]) -> ()) {
         
         //Ask Parse for the everything in the table
+        if useLocalDataStore == true {
+            query.fromLocalDatastore()
+        }
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             
             if error != nil {
@@ -53,7 +56,11 @@ final class ParseService {
         let cardToSave = PFObject(className: "cards")
         cardToSave["title"] = card.title
         cardToSave["body"] = card.body
-        cardToSave.saveInBackground()
+        if useLocalDataStore == true {
+            cardToSave.pinInBackground()
+        } else {
+            cardToSave.saveInBackground()
+        }
 
         completion(result: card)
     }
@@ -61,6 +68,9 @@ final class ParseService {
     func deleteAllCards() {
         
         //NOTE: Careful here, this is very nasty and actually does delete everything, it should be removed at some point
+        if useLocalDataStore == true {
+            query.fromLocalDatastore()
+        }
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             for object in objects! {
                 object.deleteEventually()

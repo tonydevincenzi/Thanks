@@ -11,7 +11,6 @@
 		93CFEFF91C8B984800CD37DC /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFEFF81C8B984800CD37DC /* Card.swift */; };
 		93CFEFFB1C8B9A3A00CD37DC /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */; };
 		EA3F2B991C86298700AC0101 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F2B981C86298700AC0101 /* AppDelegate.swift */; };
-		EA3F2B9B1C86298700AC0101 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F2B9A1C86298700AC0101 /* ViewController.swift */; };
 		EA3F2B9E1C86298700AC0101 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA3F2B9C1C86298700AC0101 /* Main.storyboard */; };
 		EA3F2BA01C86298700AC0101 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3F2B9F1C86298700AC0101 /* Assets.xcassets */; };
 		EA3F2BA31C86298700AC0101 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA3F2BA11C86298700AC0101 /* LaunchScreen.storyboard */; };
@@ -53,7 +52,6 @@
 		D1050E4BEBBBFBA7BB01E04F /* Pods-Thanks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thanks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Thanks/Pods-Thanks.debug.xcconfig"; sourceTree = "<group>"; };
 		EA3F2B951C86298700AC0101 /* Thanks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thanks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3F2B981C86298700AC0101 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EA3F2B9A1C86298700AC0101 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EA3F2B9D1C86298700AC0101 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA3F2B9F1C86298700AC0101 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA3F2BA21C86298700AC0101 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 		EA56B9441C8BB765005AF93C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EA3F2B9A1C86298700AC0101 /* ViewController.swift */,
 				EA58D6DB1C99C24200593381 /* DetailViewController.swift */,
 				EA3F2BC61C86587000AC0101 /* CreateCardViewController.swift */,
 				EA3F2BC81C86588200AC0101 /* HomeViewController.swift */,
@@ -401,7 +398,6 @@
 				EA3F2BC71C86587000AC0101 /* CreateCardViewController.swift in Sources */,
 				EA3F2BCF1C8658BB00AC0101 /* RemindersViewController.swift in Sources */,
 				EA3F2BCD1C8658A500AC0101 /* OnboardingViewController.swift in Sources */,
-				EA3F2B9B1C86298700AC0101 /* ViewController.swift in Sources */,
 				EA3F2B991C86298700AC0101 /* AppDelegate.swift in Sources */,
 				EA3F2BC91C86588200AC0101 /* HomeViewController.swift in Sources */,
 				EA58D6DE1C99E19300593381 /* Share.swift in Sources */,

@@ -114,7 +114,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCellView" id="1AH-0J-dbm" customClass="CardCellView" customModule="Thanks" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="84" width="340" height="480"/>
+                                        <rect key="frame" x="17.5" y="84" width="340" height="480"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="340" height="480"/>
@@ -240,7 +240,6 @@
         <!--Navigation Controller-->
         <scene sceneID="kbh-RR-6X6">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5qU-Mv-5zX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GJn-xn-7Gl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -253,6 +252,7 @@
                         <segue destination="R9e-Pp-7UG" kind="relationship" relationship="rootViewController" id="uxg-qo-ua3"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5qU-Mv-5zX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1911" y="406"/>
         </scene>

@@ -9,6 +9,12 @@
 import UIKit
 import Parse
 
+/* Global config: */
+
+var useLocalDataStore:Bool = true
+
+/*                */
+
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     var cards: [Card] = []
@@ -30,6 +36,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.collectionView.dataSource = self
  
         loadData()
+        registerNotifications()
     }
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
@@ -50,6 +57,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             self.presentViewController(alert, animated: true, completion: nil)
         }
+    }
+    
+    func registerNotifications() {
+        let localNotification:UILocalNotification = UILocalNotification()
+        localNotification.alertAction = "Time to say thanks..."
+        localNotification.alertBody = "Gentle reminder to say thank you to someone"
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 5)
+        
+        localNotification.repeatInterval = NSCalendarUnit.Day
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     
     func loadData() {
