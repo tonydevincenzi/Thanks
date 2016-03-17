@@ -25,6 +25,12 @@
 		EA58D6DC1C99C24200593381 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6DB1C99C24200593381 /* DetailViewController.swift */; };
 		EA58D6DE1C99E19300593381 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6DD1C99E19300593381 /* Share.swift */; };
 		EADEBF7B1C88F6C10065DA0F /* CardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */; };
+		EAF8BE4B1C9A719D00A66071 /* equip_bold.5feb14f9.cache.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAF8BE471C9A719D00A66071 /* equip_bold.5feb14f9.cache.otf */; };
+		EAF8BE4C1C9A719D00A66071 /* equip_regular.4da3acb5.cache.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAF8BE481C9A719D00A66071 /* equip_regular.4da3acb5.cache.otf */; };
+		EAF8BE4D1C9A719D00A66071 /* foro_bold.1d3a4711.cache.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAF8BE491C9A719D00A66071 /* foro_bold.1d3a4711.cache.otf */; };
+		EAF8BE4E1C9A719D00A66071 /* foro_regular.3941226b.cache.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAF8BE4A1C9A719D00A66071 /* foro_regular.3941226b.cache.otf */; };
+		EAF8BE511C9A71BE00A66071 /* sinanova_italic.9508db81.cache.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAF8BE4F1C9A71BE00A66071 /* sinanova_italic.9508db81.cache.otf */; };
+		EAF8BE521C9A71BE00A66071 /* sinanova_regular.34912673.cache.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAF8BE501C9A71BE00A66071 /* sinanova_regular.34912673.cache.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,12 +76,14 @@
 		EA58D6D91C99C1F200593381 /* ImageTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransition.swift; sourceTree = "<group>"; };
 		EA58D6DB1C99C24200593381 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EA58D6DD1C99E19300593381 /* Share.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
-		EA58D6DF1C99E62600593381 /* equip_bold.5feb14f9.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = equip_bold.5feb14f9.cache.otf; sourceTree = "<group>"; };
-		EA58D6E01C99E62600593381 /* equip_regular.4da3acb5.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = equip_regular.4da3acb5.cache.otf; sourceTree = "<group>"; };
-		EA58D6E11C99E62600593381 /* foro_bold.1d3a4711.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = foro_bold.1d3a4711.cache.otf; sourceTree = "<group>"; };
-		EA58D6E21C99E62600593381 /* foro_regular.3941226b.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = foro_regular.3941226b.cache.otf; sourceTree = "<group>"; };
 		EACDEA0E1C8A523A00FC44A5 /* Thanks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thanks-Bridging-Header.h"; sourceTree = "<group>"; };
 		EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellView.swift; sourceTree = "<group>"; };
+		EAF8BE471C9A719D00A66071 /* equip_bold.5feb14f9.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = equip_bold.5feb14f9.cache.otf; sourceTree = "<group>"; };
+		EAF8BE481C9A719D00A66071 /* equip_regular.4da3acb5.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = equip_regular.4da3acb5.cache.otf; sourceTree = "<group>"; };
+		EAF8BE491C9A719D00A66071 /* foro_bold.1d3a4711.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = foro_bold.1d3a4711.cache.otf; sourceTree = "<group>"; };
+		EAF8BE4A1C9A719D00A66071 /* foro_regular.3941226b.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = foro_regular.3941226b.cache.otf; sourceTree = "<group>"; };
+		EAF8BE4F1C9A71BE00A66071 /* sinanova_italic.9508db81.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sinanova_italic.9508db81.cache.otf; sourceTree = "<group>"; };
+		EAF8BE501C9A71BE00A66071 /* sinanova_regular.34912673.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sinanova_regular.34912673.cache.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,10 +196,12 @@
 		EA58D6E31C99E62F00593381 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				EA58D6DF1C99E62600593381 /* equip_bold.5feb14f9.cache.otf */,
-				EA58D6E01C99E62600593381 /* equip_regular.4da3acb5.cache.otf */,
-				EA58D6E11C99E62600593381 /* foro_bold.1d3a4711.cache.otf */,
-				EA58D6E21C99E62600593381 /* foro_regular.3941226b.cache.otf */,
+				EAF8BE471C9A719D00A66071 /* equip_bold.5feb14f9.cache.otf */,
+				EAF8BE481C9A719D00A66071 /* equip_regular.4da3acb5.cache.otf */,
+				EAF8BE4F1C9A71BE00A66071 /* sinanova_italic.9508db81.cache.otf */,
+				EAF8BE501C9A71BE00A66071 /* sinanova_regular.34912673.cache.otf */,
+				EAF8BE491C9A719D00A66071 /* foro_bold.1d3a4711.cache.otf */,
+				EAF8BE4A1C9A719D00A66071 /* foro_regular.3941226b.cache.otf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -315,8 +325,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAF8BE521C9A71BE00A66071 /* sinanova_regular.34912673.cache.otf in Resources */,
 				EA3F2BA31C86298700AC0101 /* LaunchScreen.storyboard in Resources */,
+				EAF8BE4D1C9A719D00A66071 /* foro_bold.1d3a4711.cache.otf in Resources */,
+				EAF8BE511C9A71BE00A66071 /* sinanova_italic.9508db81.cache.otf in Resources */,
 				EA3F2BA01C86298700AC0101 /* Assets.xcassets in Resources */,
+				EAF8BE4C1C9A719D00A66071 /* equip_regular.4da3acb5.cache.otf in Resources */,
+				EAF8BE4B1C9A719D00A66071 /* equip_bold.5feb14f9.cache.otf in Resources */,
+				EAF8BE4E1C9A719D00A66071 /* foro_regular.3941226b.cache.otf in Resources */,
 				EA3F2B9E1C86298700AC0101 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

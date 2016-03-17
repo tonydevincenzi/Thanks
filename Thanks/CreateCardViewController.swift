@@ -9,30 +9,93 @@
 import UIKit
 import Parse
 
-class CreateCardViewController: UIViewController {
+extension String {
+    func sizeForWidth(width: CGFloat, font: UIFont) -> CGSize {
+        let attr = [NSFontAttributeName: font]
+        let height = NSString(string: self).boundingRectWithSize(CGSize(width: width, height: CGFloat.max), options:.UsesLineFragmentOrigin, attributes: attr, context: nil).height
+        return CGSize(width: width, height: ceil(height))
+    }
+}
 
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var bodyTextField: UITextField!
+class CreateCardViewController: UIViewController, UITextViewDelegate {
+
+    @IBOutlet weak var bodyTextView: UITextView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var dateLabelView: UILabel!
+    @IBOutlet weak var placeholderLabel: UILabel!
+    @IBOutlet weak var cardView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        bodyTextView.delegate = self;
+        cardView.layer.cornerRadius = 6
+        setDate()
+        
+        nameTextField.frame.origin.y = placeholderLabel.frame.origin.y + placeholderLabel.frame.height
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
+    func resizeTextView() {
+        let fixedWidth = bodyTextView.frame.size.width
+        bodyTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        let newSize = bodyTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        var newFrame = bodyTextView.frame
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        bodyTextView.frame = newFrame;
+        bodyTextView.frame.origin.y = cardView.frame.height/2 - bodyTextView.frame.height/2 - 25
+        
+        placeholderLabel.frame.origin.y = bodyTextView.frame.origin.y + 4
+    }
     
+    func setDate() {
+        let dateFormatter = NSDateFormatter()
+        let currentDate = NSDate()
+        dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+        let convertedDate = dateFormatter.stringFromDate(currentDate)
+        dateLabelView.text = convertedDate
+    }
+    
+    func setNameTextFieldLocation() {
+        UIView.animateWithDuration(0.1) { () -> Void in
+            self.nameTextField.frame.origin.y = self.bodyTextView.frame.origin.y + self.bodyTextView.frame.height
+        }
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        
+        let numLines = bodyTextView.text.sizeForWidth(bodyTextView.contentSize.width, font: bodyTextView.font!).height / bodyTextView.font!.lineHeight
+        
+        if numLines < 10 {
+            resizeTextView()
+            setNameTextFieldLocation()
+        }
+        
+        if bodyTextView.text.characters.count > 0 {
+            placeholderLabel.hidden = true
+        } else {
+            placeholderLabel.hidden = false
+            nameTextField.frame.origin.y = placeholderLabel.frame.origin.y + placeholderLabel.frame.height
+        }
+    }
+
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            //Uncomment if we want return/enter not to add a new line
+            //textView.resignFirstResponder()
+        }
+
+        return true
+    }
+
+
     @IBAction func didTapSave(sender: AnyObject) {
       
-        
-        let title = titleTextField.text!
-        let body = bodyTextField.text!
-        let card = Card(title: title, body: body, image: nil)
+        let body = bodyTextView.text!
+        let card = Card(body: body, image: nil)
         
         //Pass the card to ParseService, save, and return
         //TODO: Some error handling here
@@ -43,14 +106,10 @@ class CreateCardViewController: UIViewController {
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //Hide status bar
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
-    */
+    
 
 }

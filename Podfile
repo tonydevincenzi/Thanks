@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'Thanks' do
 pod "Parse"
+pod 'SZTextView'
 end
 
 target 'ThanksTests' do

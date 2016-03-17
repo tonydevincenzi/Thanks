@@ -105,7 +105,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
         
-        cell.cardTitle.text = cards[indexPath.row].title
+        //cell.cardTitle.text = cards[indexPath.row].title
         
         //Add a tap recognizer on each cell
         let tapGesture = UITapGestureRecognizer(target: self, action: "tapCell:")

@@ -37,8 +37,7 @@ final class ParseService {
                     let body = object["body"] as! String
                     // TODO: fetch and assign the image
                     
-                    let card = Card(title: title,
-                        body: body,
+                    let card = Card(body: body,
                         image: nil)
                     
                     // append to array
@@ -54,7 +53,6 @@ final class ParseService {
     func saveCard(card: Card, completion: (result: Card) -> Void) {
         
         let cardToSave = PFObject(className: "cards")
-        cardToSave["title"] = card.title
         cardToSave["body"] = card.body
         if useLocalDataStore == true {
             cardToSave.pinInBackground()

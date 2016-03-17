@@ -9,7 +9,6 @@
 import Foundation
 
 struct Card {
-    var title: String
     var body: String
     var image: UIImage?
 }

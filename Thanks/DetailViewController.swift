@@ -11,7 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var cardView: UIView!
-    var imageTransition: CellTransition!
+    var imageTransition: ImageTransition!
     var cell: UIView!
     
     override func viewDidLoad() {
@@ -40,6 +40,8 @@ class DetailViewController: UIViewController {
         let avc = UIActivityViewController(activityItems: activityItem as [AnyObject], applicationActivities: nil)
         self.presentViewController(avc, animated: true, completion: nil)
     }
+    
+
     
 }
 

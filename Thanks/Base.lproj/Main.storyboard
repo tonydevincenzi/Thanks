@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="w9K-WL-ucu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="t7N-kt-Mnd">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="sinanova_italic.9508db81.cache.otf">
+            <string>SinaNova-Italic</string>
+        </mutableArray>
+        <mutableArray key="sinanova_regular.34912673.cache.otf">
+            <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Onboarding-->
         <scene sceneID="tne-QT-ifu">
@@ -178,48 +187,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. Edit/create Card Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="T3E-Oo-52f">
-                                <rect key="frame" x="92" y="216" width="191" height="21"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete-me" id="Xxu-J4-VV9">
+                                <rect key="frame" x="2" y="0.0" width="370" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. View Card Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6fX-TN-ges">
-                                <rect key="frame" x="116" y="158" width="143" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Card Title" borderStyle="roundedRect" placeholder="Card Title" textAlignment="natural" minimumFontSize="17" id="CqK-Uu-MX9">
-                                <rect key="frame" x="78" y="301" width="205" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tCn-aG-OcU">
-                                <rect key="frame" x="170" y="390" width="34" height="30"/>
+                                <rect key="frame" x="328" y="11" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="didTapSave:" destination="t7N-kt-Mnd" eventType="touchUpInside" id="T1m-aE-pio"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Body Copy" borderStyle="roundedRect" placeholder="What is your message?" textAlignment="natural" minimumFontSize="17" id="w0a-vh-MWQ">
-                                <rect key="frame" x="78" y="347" width="205" height="30"/>
+                            <view contentMode="scaleToFill" id="BUk-Wq-BeB">
+                                <rect key="frame" x="12" y="53" width="350" height="465"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Fh-WW-VXv">
+                                        <rect key="frame" x="27" y="17" width="297" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                        <color key="textColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is where your message will go, make sure and say something nice!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cJe-yd-6n8">
+                                        <rect key="frame" x="23" y="169" width="292" height="102"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
+                                        <color key="textColor" red="0.73725490196078436" green="0.73725490196078436" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" id="6Wa-R7-fhh" customClass="SZTextView">
+                                        <rect key="frame" x="20" y="169" width="310" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="- Your Name" textAlignment="natural" minimumFontSize="17" id="BHk-aV-SsW">
+                                        <rect key="frame" x="20" y="335" width="310" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SinaNova-Italic" family="Sina Nova" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.12581033909574468" green="0.12581033909574468" blue="0.12581033909574468" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Createn View" id="AOO-lH-xm5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="bodyTextField" destination="w0a-vh-MWQ" id="RJr-AZ-LLb"/>
-                        <outlet property="titleTextField" destination="CqK-Uu-MX9" id="eX3-6C-YUH"/>
+                        <outlet property="bodyTextView" destination="6Wa-R7-fhh" id="WMA-g1-ksg"/>
+                        <outlet property="cardView" destination="BUk-Wq-BeB" id="4HX-th-sea"/>
+                        <outlet property="dateLabelView" destination="7Fh-WW-VXv" id="3LU-W7-yVe"/>
+                        <outlet property="nameTextField" destination="BHk-aV-SsW" id="a2D-6q-8c7"/>
+                        <outlet property="placeholderLabel" destination="cJe-yd-6n8" id="kUJ-8F-uSy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocJ-Ub-74z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -246,6 +273,9 @@
             <point key="canvasLocation" x="376" y="406"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="delete-me" width="740" height="1334"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="96D-ur-4le"/>
     </inferredMetricsTieBreakers>
