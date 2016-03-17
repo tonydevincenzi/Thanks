@@ -281,7 +281,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" id="6Wa-R7-fhh" customClass="SZTextView">
-                                        <rect key="frame" x="20" y="169" width="310" height="47"/>
+                                        <rect key="frame" x="20" y="169" width="310" height="102"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>

@@ -45,9 +45,8 @@ class AddEmojiViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print(allEmojis[indexPath.row])
         self.dismissViewControllerAnimated(true, completion: nil)
-        //NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("addEmoji", object: allEmojis[indexPath.row])
     }
 
 

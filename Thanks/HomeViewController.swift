@@ -16,6 +16,10 @@ var colorBlue = 0x4A90E2
 var colorGray = 0x9B9B9B
 var colorLightGray = 0xDFDFDF
 
+var globalAnimationSpeed:NSTimeInterval = 0.8
+var globalSpringDampening:CGFloat = 0.7
+var globalSpringVelocity:CGFloat = 1
+
 /*                */
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
