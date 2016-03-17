@@ -38,7 +38,6 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         bodyTextView.delegate = self;
         cardView.layer.cornerRadius = 6
         setDate()
@@ -95,7 +94,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         createdEmoji.text = String(notification.object!)
         createdEmoji.font = UIFont(name: ".SFUIText-Light", size: 150)
         createdEmoji.textAlignment = .Center
-        createdEmoji.frame = CGRectMake(view.bounds.width/2 - 75, 20, 150, 150)
+        createdEmoji.frame = CGRectMake(view.bounds.width/2 - 75, 20, 225, 225)
         
         self.createdEmoji.transform = CGAffineTransformMakeScale(0.7, 0.7)
         UIView.animateWithDuration(0.5, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: [], animations: { () -> Void in
@@ -202,6 +201,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         let translation = sender.translationInView(view)
         dismissKeyboard()
         endEmojiDeleteMode(nil)
+        cardView.bringSubviewToFront(createdEmoji)
         
         if sender.state == UIGestureRecognizerState.Began {
             createdEmoji = sender.view as! UILabel
