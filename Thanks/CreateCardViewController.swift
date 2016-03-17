@@ -24,6 +24,20 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     @IBOutlet weak var dateLabelView: UILabel!
     @IBOutlet weak var placeholderLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var emojiContainer: UIView!
+    
+    @IBOutlet weak var photoButton: UIButton!
+    @IBOutlet weak var photoLabel: UILabel!
+    
+    @IBOutlet weak var simpleButton: UIButton!
+    @IBOutlet weak var simpleLabel: UILabel!
+    
+    @IBOutlet weak var colorButton: UIButton!
+    @IBOutlet weak var colorLabel: UILabel!
+    
+    var cardStyles = ["simple", "color", "photo"]
+    var currentCardStyle = 0
+    
     var createdEmojiOriginalCenter: CGPoint!
     var cardOriginalCenter: CGPoint!
     var createdEmoji: UILabel!
@@ -40,6 +54,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         
         bodyTextView.delegate = self;
         cardView.layer.cornerRadius = 6
+        emojiContainer.layer.cornerRadius = 6
         setDate()
         
         nameTextField.frame.origin.y = placeholderLabel.frame.origin.y + placeholderLabel.frame.height
@@ -51,7 +66,11 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "AddEmojiToCard:", name:"addEmoji", object: nil)
 
         cardView.addSubview(addEmojiButton)
-        cardView.clipsToBounds = true
+        cardView.clipsToBounds = false
+        cardView.layer.shadowColor = UIColor.blackColor().CGColor
+        cardView.layer.shadowOffset = CGSize(width: 0, height: 10)
+        cardView.layer.shadowOpacity = 0.3
+        cardView.layer.shadowRadius = 15
         cardOriginalCenter = cardView.center
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
@@ -59,6 +78,12 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         
         let panCardView: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "panCardView:")
         cardView.addGestureRecognizer(panCardView)
+        
+        simpleButton.layer.cornerRadius = 6
+        colorButton.layer.cornerRadius = 6
+        photoButton.layer.cornerRadius = 6
+        
+        resetStyleButton(currentCardStyle)
     }
     
     func panCardView(sender: UIPanGestureRecognizer) {
@@ -117,7 +142,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         createdEmoji.addGestureRecognizer(rotate)
         
         createdEmoji.userInteractionEnabled = true
-        cardView.addSubview(createdEmoji)
+        emojiContainer.addSubview(createdEmoji)
     }
     
     func longPressEmoji(sender: UILongPressGestureRecognizer) {
@@ -151,7 +176,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         view.addGestureRecognizer(tap)
 
         let delete = UIButton()
-        delete.frame = CGRect(x: -5, y: -5, width: 44, height: 44)
+        delete.frame = CGRect(x: 20, y: 20, width: 44, height: 44)
         delete.backgroundColor = UIColor(white: 1, alpha: 0.9)
         delete.layer.cornerRadius = 22
         delete.layer.shadowColor = UIColor.blackColor().CGColor
@@ -201,7 +226,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         let translation = sender.translationInView(view)
         dismissKeyboard()
         endEmojiDeleteMode(nil)
-        cardView.bringSubviewToFront(createdEmoji)
+        emojiContainer.bringSubviewToFront(createdEmoji)
         
         if sender.state == UIGestureRecognizerState.Began {
             createdEmoji = sender.view as! UILabel
@@ -327,6 +352,77 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
                 NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
         }
     }
+    
+    func setSimpleCardStyle() {
+        currentCardStyle = 0
+    }
+    
+    func setColorCardStyle() {
+        currentCardStyle = 1
+        
+        //Change backround color
+        
+        //Change font colors to white
+        
+        //Change button colors
+        
+        //Enable background color picker picker
+    }
+    
+    func setPhotoCardStyle() {
+        currentCardStyle = 2
+    }
+    
+    func resetStyleButton(style: Int) {
+        
+        simpleButton.alpha = 0.5
+        simpleLabel.alpha = 0.5
+        colorButton.alpha = 0.5
+        colorLabel.alpha = 0.5
+        photoButton.alpha = 0.5
+        photoLabel.alpha = 0.5
+        
+        simpleButton.enabled = true
+        colorButton.enabled = true
+        photoButton.enabled = true
+        
+        switch (cardStyles[style]) {
+        case "simple":
+            setSimpleCardStyle()
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.simpleButton.alpha = 1
+                self.simpleLabel.alpha = 1
+            })
+            simpleButton.enabled = false
+            break;
+        case "color":
+            setColorCardStyle()
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.colorButton.alpha = 1
+                self.colorLabel.alpha = 1
+            })
+            colorButton.enabled = false
+            
+            break;
+        case "photo":
+            setPhotoCardStyle()
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.photoButton.alpha = 1
+                self.photoLabel.alpha = 1
+            })
+            photoButton.enabled = false
+            
+            break;
+            
+        default:
+            break;
+        }
+    }
+    
+    @IBAction func didTapStyleButton(sender: AnyObject?) {
+        resetStyleButton(sender!.tag)
+    }
+    
     
     //Hide status bar
     override func prefersStatusBarHidden() -> Bool {
