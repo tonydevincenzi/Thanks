@@ -180,6 +180,66 @@
             </objects>
             <point key="canvasLocation" x="1847.5" y="405.5"/>
         </scene>
+        <!--Add Emoji View Controller-->
+        <scene sceneID="9Jk-YQ-Vqv">
+            <objects>
+                <viewController id="Y5C-6z-0Fy" customClass="AddEmojiViewController" customModule="Thanks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wn3-79-JCO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="86K-f0-eiB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="D6g-OB-X8z">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oCW-mv-gdR">
+                                    <size key="itemSize" width="82" height="81"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="com.thanks.EmojiCell" id="1Ag-Zi-EZm" customClass="EmojiCell" customModule="Thanks" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="82" height="81"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="82" height="81"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😘" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G92-4U-Jop">
+                                                    <rect key="frame" x="0.0" y="0.0" width="82" height="81"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="emojiLabel" destination="G92-4U-Jop" id="f6A-5v-UlM"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionView" destination="D6g-OB-X8z" id="5ac-Vu-0nE"/>
+                        <outlet property="overlayView" destination="86K-f0-eiB" id="FRu-Et-oBZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VM9-nt-BOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2295.5" y="1170.5"/>
+        </scene>
         <!--Create View-->
         <scene sceneID="D0v-Iw-Zox">
             <objects>
@@ -248,6 +308,7 @@
                         <outlet property="dateLabelView" destination="7Fh-WW-VXv" id="3LU-W7-yVe"/>
                         <outlet property="nameTextField" destination="BHk-aV-SsW" id="a2D-6q-8c7"/>
                         <outlet property="placeholderLabel" destination="cJe-yd-6n8" id="kUJ-8F-uSy"/>
+                        <segue destination="Y5C-6z-0Fy" kind="modal" identifier="addEmoji" id="Jep-xA-6Uf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocJ-Ub-74z" userLabel="First Responder" sceneMemberID="firstResponder"/>

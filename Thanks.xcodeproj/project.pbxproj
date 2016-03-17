@@ -26,6 +26,10 @@
 		EA58D6DA1C99C1F200593381 /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6D91C99C1F200593381 /* ImageTransition.swift */; };
 		EA58D6DC1C99C24200593381 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6DB1C99C24200593381 /* DetailViewController.swift */; };
 		EA58D6DE1C99E19300593381 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6DD1C99E19300593381 /* Share.swift */; };
+		EA8BBC381C9B0DB500FA2A1E /* EmojiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BBC371C9B0DB500FA2A1E /* EmojiList.swift */; };
+		EA8BBC3A1C9B0EAE00FA2A1E /* AddEmojiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BBC391C9B0EAE00FA2A1E /* AddEmojiViewController.swift */; };
+		EA8BBC3C1C9B0F5600FA2A1E /* EmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BBC3B1C9B0F5600FA2A1E /* EmojiCell.swift */; };
+		EA8BBC3E1C9B12B000FA2A1E /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BBC3D1C9B12B000FA2A1E /* FadeTransition.swift */; };
 		EADEBF7B1C88F6C10065DA0F /* CardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */; };
 		EAF8BE4B1C9A719D00A66071 /* equip_bold.5feb14f9.cache.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAF8BE471C9A719D00A66071 /* equip_bold.5feb14f9.cache.otf */; };
 		EAF8BE4C1C9A719D00A66071 /* equip_regular.4da3acb5.cache.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAF8BE481C9A719D00A66071 /* equip_regular.4da3acb5.cache.otf */; };
@@ -81,6 +85,10 @@
 		EA58D6D91C99C1F200593381 /* ImageTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransition.swift; sourceTree = "<group>"; };
 		EA58D6DB1C99C24200593381 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EA58D6DD1C99E19300593381 /* Share.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
+		EA8BBC371C9B0DB500FA2A1E /* EmojiList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiList.swift; sourceTree = "<group>"; };
+		EA8BBC391C9B0EAE00FA2A1E /* AddEmojiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEmojiViewController.swift; sourceTree = "<group>"; };
+		EA8BBC3B1C9B0F5600FA2A1E /* EmojiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiCell.swift; sourceTree = "<group>"; };
+		EA8BBC3D1C9B12B000FA2A1E /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		EACDEA0E1C8A523A00FC44A5 /* Thanks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thanks-Bridging-Header.h"; sourceTree = "<group>"; };
 		EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellView.swift; sourceTree = "<group>"; };
 		EAF8BE471C9A719D00A66071 /* equip_bold.5feb14f9.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = equip_bold.5feb14f9.cache.otf; sourceTree = "<group>"; };
@@ -159,9 +167,11 @@
 				EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */,
 				EA58D6D91C99C1F200593381 /* ImageTransition.swift */,
 				EA58D6D71C99C1DD00593381 /* BaseTransition.swift */,
+				EA8BBC3D1C9B12B000FA2A1E /* FadeTransition.swift */,
 				93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */,
 				3D73D4611C9B09840074DB39 /* CustomCollectionViewFlowLayout.h */,
 				3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */,
+				EA8BBC3B1C9B0F5600FA2A1E /* EmojiCell.swift */,
 				EA3F2B9C1C86298700AC0101 /* Main.storyboard */,
 				EA3F2BA11C86298700AC0101 /* LaunchScreen.storyboard */,
 				EA3F2BA41C86298700AC0101 /* Info.plist */,
@@ -195,7 +205,11 @@
 				EA3F2BCC1C8658A500AC0101 /* OnboardingViewController.swift */,
 				EA3F2BC81C86588200AC0101 /* HomeViewController.swift */,
 				EA58D6DB1C99C24200593381 /* DetailViewController.swift */,
+				EA8BBC391C9B0EAE00FA2A1E /* AddEmojiViewController.swift */,
 				EA3F2BC61C86587000AC0101 /* CreateCardViewController.swift */,
+				EA3F2BC81C86588200AC0101 /* HomeViewController.swift */,
+				EA8BBC371C9B0DB500FA2A1E /* EmojiList.swift */,
+				EA3F2BCC1C8658A500AC0101 /* OnboardingViewController.swift */,
 				EA3F2BCE1C8658BB00AC0101 /* RemindersViewController.swift */,
 			);
 			name = "View Controllers";
@@ -414,19 +428,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA8BBC381C9B0DB500FA2A1E /* EmojiList.swift in Sources */,
 				EADEBF7B1C88F6C10065DA0F /* CardCellView.swift in Sources */,
 				EA58D6D81C99C1DD00593381 /* BaseTransition.swift in Sources */,
 				EA58D6DA1C99C1F200593381 /* ImageTransition.swift in Sources */,
 				EA58D6DC1C99C24200593381 /* DetailViewController.swift in Sources */,
 				3D73D4631C9B09840074DB39 /* CustomCollectionViewFlowLayout.m in Sources */,
+				EA8BBC3A1C9B0EAE00FA2A1E /* AddEmojiViewController.swift in Sources */,
 				93CFEFF91C8B984800CD37DC /* Card.swift in Sources */,
 				EA3F2BC71C86587000AC0101 /* CreateCardViewController.swift in Sources */,
 				EA3F2BCF1C8658BB00AC0101 /* RemindersViewController.swift in Sources */,
+				EA8BBC3E1C9B12B000FA2A1E /* FadeTransition.swift in Sources */,
 				EA3F2BCD1C8658A500AC0101 /* OnboardingViewController.swift in Sources */,
 				EA3F2B991C86298700AC0101 /* AppDelegate.swift in Sources */,
 				EA3F2BC91C86588200AC0101 /* HomeViewController.swift in Sources */,
 				EA58D6DE1C99E19300593381 /* Share.swift in Sources */,
 				EA1D00FA1C9AFC01007A5814 /* ThanksButton.swift in Sources */,
+				EA8BBC3C1C9B0F5600FA2A1E /* EmojiCell.swift in Sources */,
 				93CFEFFB1C8B9A3A00CD37DC /* ParseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,7 +17,7 @@ extension String {
     }
 }
 
-class CreateCardViewController: UIViewController, UITextViewDelegate {
+class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var bodyTextView: UITextView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -25,10 +25,15 @@ class CreateCardViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var placeholderLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     
+    var fadeTransition: FadeTransition!
+    
     let addEmojiButton:ThanksButton = ThanksButton()
+    let addEmojiContainer: UIView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(allEmojis[2])
         
         bodyTextView.delegate = self;
         cardView.layer.cornerRadius = 6
@@ -72,6 +77,8 @@ class CreateCardViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    
+    
     func textViewDidChange(textView: UITextView) {
         
         let numLines = bodyTextView.text.sizeForWidth(bodyTextView.contentSize.width, font: bodyTextView.font!).height / bodyTextView.font!.lineHeight
@@ -99,7 +106,40 @@ class CreateCardViewController: UIViewController, UITextViewDelegate {
     }
 
     func didTapAddEmoji (sender:UIButton!) {
-        print("add some emoji")
+        //addNewTextField()
+        performSegueWithIdentifier("addEmoji", sender: nil)
+    }
+    
+    func addNewTextField () {
+        
+        addEmojiContainer.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.height)
+        view.addSubview(addEmojiContainer)
+        
+        //Cover the everything with a black view
+        let overlay:UIView = UIView()
+        overlay.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.height)
+        overlay.backgroundColor = UIColor(white: 0, alpha: 0.85)
+        addEmojiContainer.addSubview(overlay)
+        
+        //Create the emoji input field
+        let emojiTextField: UITextField = UITextField()
+        emojiTextField.frame = CGRectMake(0, 0, view.bounds.width, 100)
+        emojiTextField.textColor = UIColor.whiteColor()
+        emojiTextField.delegate = self
+        emojiTextField.keyboardAppearance = .Dark
+        emojiTextField.keyboardType = UIKeyboardType.Default
+
+
+        addEmojiContainer.addSubview(emojiTextField)
+
+        emojiTextField.becomeFirstResponder()
+
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     @IBAction func didTapSave(sender: AnyObject) {
@@ -119,6 +159,18 @@ class CreateCardViewController: UIViewController, UITextViewDelegate {
     //Hide status bar
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let destinationViewController = segue.destinationViewController as! AddEmojiViewController
+        
+        destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+        fadeTransition = FadeTransition()
+        destinationViewController.transitioningDelegate = fadeTransition
+        fadeTransition.duration = 0.5
+        
     }
     
 
