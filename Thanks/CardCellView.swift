@@ -11,7 +11,12 @@ import Parse
 
 class CardCellView: UICollectionViewCell {
     
+    //Outlets
     @IBOutlet weak var cardTitle: UILabel!
+    @IBOutlet weak var cardImage: UIImageView!
+    
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

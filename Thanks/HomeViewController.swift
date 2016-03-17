@@ -19,18 +19,28 @@ var colorLightGray = 0xDFDFDF
 /*                */
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
+    //Outlets
+    @IBOutlet weak var collectionView: UICollectionView!
 
+    //Variables
     var cards: [Card] = []
 
-    @IBOutlet weak var collectionView: UICollectionView!
     var numberOfCards: Int!
     var imageTransition: ImageTransition!
     var tappedCell: UIView!
     var tappedCellY: CGFloat!
     
+    var cardImages = [UIImage(named: "card1"), UIImage(named: "card2"), UIImage(named: "card3")]
+
+    
+    
+    //View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Notification stuff?
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshCollection:", name:"refresh", object: nil)
 
         //Collection views require you set both delegate and datasource for self, just like table views
@@ -41,6 +51,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         registerNotifications()
     }
     
+    
+    //Shake to Undo
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if motion == .MotionShake {
             let alert = UIAlertController(title: "Delete all Cards?", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
@@ -61,6 +73,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    
+    //Notifications
     func registerNotifications() {
         let localNotification:UILocalNotification = UILocalNotification()
         localNotification.alertAction = "Time to say thanks..."
@@ -72,6 +86,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     
+    
+    //Parse loads data
     func loadData() {
         
         //All Parse related stuff handled in the ParseService class
@@ -89,26 +105,42 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.didReceiveMemoryWarning()
     }
     
+    
+    //Refresh
     func refreshCollection(notification: NSNotification){
         loadData()
         //collectionView.reloadData()
     }
     
+    
+    //Tap to Refresh
+    @IBAction func didTapRefresh(sender: AnyObject) {
+        //TODO: Should not always requery data on refresh, sometimes should just append the existing list (i.e., from new card call)
+        loadData()
+        //collectionView.reloadData()
+    }
+    
+    
     //Required to specify how many items are in the collection, make number dynamic later
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard numberOfCards != nil else {
-            print("Not loaded yet")
-            return 0
-        }
-        return numberOfCards
+//        guard numberOfCards != nil else {
+//            print("Not loaded yet")
+//            return 0
+//        }
+//        return numberOfCards
+        
+        return cardImages.count
     }
+    
     
     //Required to specify the unique settings of the cell, will use this later to grab manipulate the Card View via some attributes out of an array
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
         
-        //cell.cardTitle.text = cards[indexPath.row].title
+        //Fill cells with data
+//        cell.cardTitle.text = cards[indexPath.row].title
+        cell.cardImage?.image = self.cardImages[indexPath.row]
         
         //Add a tap recognizer on each cell
         let tapGesture = UITapGestureRecognizer(target: self, action: "tapCell:")
@@ -119,6 +151,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return cell
     }
     
+    
+    //Tap cell recognizer - we might remove this and use the native collectionView functionality
     func tapCell(sender: UITapGestureRecognizer) {
         
         //When the cell is tapped, transition to modal
@@ -128,12 +162,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     
-    @IBAction func didTapRefresh(sender: AnyObject) {
-        //TODO: Should not always requery data on refresh, sometimes should just append the existing list (i.e., from new card call)
-        loadData()
-        //collectionView.reloadData()
-    }
     
+
+    //Passing data in Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         print(sender)
