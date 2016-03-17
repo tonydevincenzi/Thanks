@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CellTransition: BaseTransition {
+class ImageTransition: BaseTransition {
     
     override func presentTransition(containerView: UIView, fromViewController: UIViewController, toViewController: UIViewController) {
         
@@ -17,8 +17,10 @@ class CellTransition: BaseTransition {
         let detailViewController = toViewController as! DetailViewController
         let destinationViewFrame = detailViewController.cardView.frame
 
-        //Here we are moving the actual UIView from tappedCell into movingView, not copying. This is why we see a flash. Need to debug.
+        //movingView should be grabbing the image view from homeViewController
+        //also, movingView should be a UIImageView
         let movingView = homeViewController.tappedCell
+        
         movingView.frame = homeViewController.tappedCell.frame
 
         movingView.frame.origin.y -= homeViewController.collectionView.contentOffset.y
@@ -54,6 +56,7 @@ class CellTransition: BaseTransition {
         
         destinationViewFrame.origin.y -= homeViewController.collectionView.contentOffset.y
         
+        //movingView should be grabbing the image view from homeViewController
         let movingView = detailViewController.cardView
         movingView.frame = detailViewController.cardView.frame
         

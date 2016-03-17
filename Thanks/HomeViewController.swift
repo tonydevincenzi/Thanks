@@ -21,7 +21,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     @IBOutlet weak var collectionView: UICollectionView!
     var numberOfCards: Int!
-    var cellTransition: CellTransition!
+    var imageTransition: ImageTransition!
     var tappedCell: UIView!
     var tappedCellY: CGFloat!
     
@@ -30,7 +30,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshCollection:", name:"refresh", object: nil)
 
-        
         //Collection views require you set both delegate and datasource for self, just like table views
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
@@ -134,13 +133,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        print(sender)
+        
         let destinationViewController = segue.destinationViewController as! DetailViewController
         destinationViewController.cell = tappedCell
         
         destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
-        cellTransition = CellTransition()
-        destinationViewController.transitioningDelegate = cellTransition
-        cellTransition.duration = 0.5
+        imageTransition = ImageTransition()
+        destinationViewController.transitioningDelegate = imageTransition
+        imageTransition.duration = 0.5
         
     }
 

@@ -21,7 +21,7 @@
 		EA3F2BCD1C8658A500AC0101 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F2BCC1C8658A500AC0101 /* OnboardingViewController.swift */; };
 		EA3F2BCF1C8658BB00AC0101 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F2BCE1C8658BB00AC0101 /* RemindersViewController.swift */; };
 		EA58D6D81C99C1DD00593381 /* BaseTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6D71C99C1DD00593381 /* BaseTransition.swift */; };
-		EA58D6DA1C99C1F200593381 /* CellTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6D91C99C1F200593381 /* CellTransition.swift */; };
+		EA58D6DA1C99C1F200593381 /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6D91C99C1F200593381 /* ImageTransition.swift */; };
 		EA58D6DC1C99C24200593381 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6DB1C99C24200593381 /* DetailViewController.swift */; };
 		EA58D6DE1C99E19300593381 /* Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58D6DD1C99E19300593381 /* Share.swift */; };
 		EADEBF7B1C88F6C10065DA0F /* CardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */; };
@@ -67,7 +67,7 @@
 		EA3F2BCC1C8658A500AC0101 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		EA3F2BCE1C8658BB00AC0101 /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		EA58D6D71C99C1DD00593381 /* BaseTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTransition.swift; sourceTree = "<group>"; };
-		EA58D6D91C99C1F200593381 /* CellTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTransition.swift; sourceTree = "<group>"; };
+		EA58D6D91C99C1F200593381 /* ImageTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransition.swift; sourceTree = "<group>"; };
 		EA58D6DB1C99C24200593381 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EA58D6DD1C99E19300593381 /* Share.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Share.swift; sourceTree = "<group>"; };
 		EA58D6DF1C99E62600593381 /* equip_bold.5feb14f9.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = equip_bold.5feb14f9.cache.otf; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 				EA58D6DD1C99E19300593381 /* Share.swift */,
 				93CFEFF81C8B984800CD37DC /* Card.swift */,
 				EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */,
-				EA58D6D91C99C1F200593381 /* CellTransition.swift */,
+				EA58D6D91C99C1F200593381 /* ImageTransition.swift */,
 				EA58D6D71C99C1DD00593381 /* BaseTransition.swift */,
 				93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */,
 				EA3F2B9C1C86298700AC0101 /* Main.storyboard */,
@@ -392,7 +392,7 @@
 			files = (
 				EADEBF7B1C88F6C10065DA0F /* CardCellView.swift in Sources */,
 				EA58D6D81C99C1DD00593381 /* BaseTransition.swift in Sources */,
-				EA58D6DA1C99C1F200593381 /* CellTransition.swift in Sources */,
+				EA58D6DA1C99C1F200593381 /* ImageTransition.swift in Sources */,
 				EA58D6DC1C99C24200593381 /* DetailViewController.swift in Sources */,
 				93CFEFF91C8B984800CD37DC /* Card.swift in Sources */,
 				EA3F2BC71C86587000AC0101 /* CreateCardViewController.swift in Sources */,
