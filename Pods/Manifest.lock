@@ -2,15 +2,15 @@ PODS:
   - Bolts/Tasks (1.6.0)
   - Parse (1.12.0):
     - Bolts/Tasks (~> 1.5)
-  - SZTextView (1.2.2)
+  - SwiftHEXColors (1.0.2)
 
 DEPENDENCIES:
   - Parse
-  - SZTextView
+  - SwiftHEXColors
 
 SPEC CHECKSUMS:
   Bolts: f52a250053bb517ca874523c3913776359ab3def
   Parse: de2c52a9a1421b91ae7594ab8ce191afd184f19b
-  SZTextView: 3a81174dce0710a9ab069bc73a813e6df53b9c82
+  SwiftHEXColors: 1238ce6ee5c698ef9caf00fad72876602ecd9df6
 
 COCOAPODS: 0.39.0

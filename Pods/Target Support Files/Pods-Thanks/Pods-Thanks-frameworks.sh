@@ -86,10 +86,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Thanks/Bolts.framework"
   install_framework "Pods-Thanks/Parse.framework"
-  install_framework "Pods-Thanks/SZTextView.framework"
+  install_framework "Pods-Thanks/SwiftHEXColors.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Thanks/Bolts.framework"
   install_framework "Pods-Thanks/Parse.framework"
-  install_framework "Pods-Thanks/SZTextView.framework"
+  install_framework "Pods-Thanks/SwiftHEXColors.framework"
 fi

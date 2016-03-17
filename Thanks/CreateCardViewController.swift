@@ -25,6 +25,8 @@ class CreateCardViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var placeholderLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     
+    let addEmojiButton:ThanksButton = ThanksButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,11 @@ class CreateCardViewController: UIViewController, UITextViewDelegate {
         setDate()
         
         nameTextField.frame.origin.y = placeholderLabel.frame.origin.y + placeholderLabel.frame.height
+        
+        addEmojiButton.format("Add Emoji  🎉", image: nil, tag: 0, xpos: cardView.frame.width/2 - 75, ypos: cardView.frame.height - 50, width: 150, height: 30, shadow: false)
+        addEmojiButton.addTarget(self, action: "didTapAddEmoji:", forControlEvents: UIControlEvents.TouchUpInside)
+
+        cardView.addSubview(addEmojiButton)
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,6 +98,9 @@ class CreateCardViewController: UIViewController, UITextViewDelegate {
         return true
     }
 
+    func didTapAddEmoji (sender:UIButton!) {
+        print("add some emoji")
+    }
 
     @IBAction func didTapSave(sender: AnyObject) {
       

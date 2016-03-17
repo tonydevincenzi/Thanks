@@ -10,6 +10,7 @@
 		5DFE360403C2AB029F34402D /* Pods_Thanks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A73399B9E41BA524E49DA89 /* Pods_Thanks.framework */; };
 		93CFEFF91C8B984800CD37DC /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFEFF81C8B984800CD37DC /* Card.swift */; };
 		93CFEFFB1C8B9A3A00CD37DC /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */; };
+		EA1D00FA1C9AFC01007A5814 /* ThanksButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1D00F91C9AFC01007A5814 /* ThanksButton.swift */; };
 		EA3F2B991C86298700AC0101 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3F2B981C86298700AC0101 /* AppDelegate.swift */; };
 		EA3F2B9E1C86298700AC0101 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA3F2B9C1C86298700AC0101 /* Main.storyboard */; };
 		EA3F2BA01C86298700AC0101 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3F2B9F1C86298700AC0101 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseService.swift; sourceTree = "<group>"; };
 		B0E13387BC4327216A6BBDE9 /* Pods-Thanks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thanks.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thanks/Pods-Thanks.release.xcconfig"; sourceTree = "<group>"; };
 		D1050E4BEBBBFBA7BB01E04F /* Pods-Thanks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thanks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Thanks/Pods-Thanks.debug.xcconfig"; sourceTree = "<group>"; };
+		EA1D00F91C9AFC01007A5814 /* ThanksButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThanksButton.swift; sourceTree = "<group>"; };
 		EA3F2B951C86298700AC0101 /* Thanks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thanks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3F2B981C86298700AC0101 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA3F2B9D1C86298700AC0101 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				EA3F2BA11C86298700AC0101 /* LaunchScreen.storyboard */,
 				EA3F2BA41C86298700AC0101 /* Info.plist */,
 				EA3F2B9F1C86298700AC0101 /* Assets.xcassets */,
+				EA1D00F91C9AFC01007A5814 /* ThanksButton.swift */,
 			);
 			path = Thanks;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				EA3F2B991C86298700AC0101 /* AppDelegate.swift in Sources */,
 				EA3F2BC91C86588200AC0101 /* HomeViewController.swift in Sources */,
 				EA58D6DE1C99E19300593381 /* Share.swift in Sources */,
+				EA1D00FA1C9AFC01007A5814 /* ThanksButton.swift in Sources */,
 				93CFEFFB1C8B9A3A00CD37DC /* ParseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

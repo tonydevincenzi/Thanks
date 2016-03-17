@@ -12,6 +12,9 @@ import Parse
 /* Global config: */
 
 var useLocalDataStore:Bool = true
+var colorBlue = 0x4A90E2
+var colorGray = 0x9B9B9B
+var colorLightGray = 0xDFDFDF
 
 /*                */
 
