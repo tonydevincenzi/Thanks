@@ -8,15 +8,20 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class CardCellView: UICollectionViewCell {
     
     //Outlets
     @IBOutlet weak var cardTitle: UILabel!
-    @IBOutlet weak var cardImage: UIImageView!
+    @IBOutlet weak var cardImage: PFImageView!
     
-    
-    
+//    var instagramPost: PFObject! {
+//        didSet {
+//            //self.cardImage.file = instagramPost["image"] as? PFFile
+//            self.cardImage.loadInBackground()
+//        }
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -8,10 +8,11 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 /* Global config: */
 
-var useLocalDataStore:Bool = true
+var useLocalDataStore:Bool = false
 var colorBlue = 0x4A90E2
 var colorGray = 0x9B9B9B
 var colorLightGray = 0xDFDFDF
@@ -57,7 +58,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         registerNotifications()
     }
     
-    
     //Shake to Undo
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if motion == .MotionShake {
@@ -79,7 +79,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    
     //Notifications
     func registerNotifications() {
         let localNotification:UILocalNotification = UILocalNotification()
@@ -91,7 +90,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
-    
     
     //Parse loads data
     func loadData() {
@@ -129,24 +127,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //Required to specify how many items are in the collection, make number dynamic later
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        guard numberOfCards != nil else {
-//            print("Not loaded yet")
-//            return 0
-//        }
-//        return numberOfCards
-        
-        return cardImages.count
+        guard numberOfCards != nil else {
+            print("Not loaded yet")
+            return 0
+        }
+        return numberOfCards
     }
     
-    
-    //Required to specify the unique settings of the cell, will use this later to grab manipulate the Card View via some attributes out of an array
+    //Required to specify the unique settings of the cell
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
         
-        //Fill cells with data
-//        cell.cardTitle.text = cards[indexPath.row].title
-        cell.cardImage?.image = self.cardImages[indexPath.row]
+        //Set the cardImage (which is a PFImageView) to the PFFile returned by parse
+        cell.cardImage.file = cards[indexPath.row].image
+        cell.cardImage.loadInBackground()
         
         //Add a tap recognizer on each cell
         let tapGesture = UITapGestureRecognizer(target: self, action: "tapCell:")
@@ -156,7 +151,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
         return cell
     }
-    
     
     //Tap cell recognizer - we might remove this and use the native collectionView functionality
     func tapCell(sender: UITapGestureRecognizer) {
@@ -173,7 +167,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //Passing data in Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        print(sender)
+        //This lets us use the newCard segue without using the DetailView code below
+        if segue.identifier == "newCard" {
+            return
+        }
         
         let destinationViewController = segue.destinationViewController as! DetailViewController
         destinationViewController.cell = tappedCell
