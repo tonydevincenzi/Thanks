@@ -512,7 +512,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     func requestPhotoPicker() {
         let vc = UIImagePickerController()
         vc.delegate = self
-        vc.allowsEditing = true
+        vc.allowsEditing = false
         vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(vc, animated: true, completion: nil)
     }

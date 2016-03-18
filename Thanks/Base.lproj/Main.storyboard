@@ -109,7 +109,6 @@
                     <connections>
                         <outlet property="cardImageView" destination="Ls0-rc-Uae" id="kGs-Ly-EuG"/>
                         <outlet property="cardView" destination="JFa-hS-7OZ" id="S8b-gT-e0a"/>
-                        <segue destination="R9e-Pp-7UG" kind="modal" identifier="showHomeView" animates="NO" id="8Cu-Ko-zOB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OgS-qL-Wpi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -337,7 +336,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tCn-aG-OcU">
-                                <rect key="frame" x="173" y="11" width="34" height="30"/>
+                                <rect key="frame" x="328" y="16" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -493,14 +492,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gIU-3M-4tx">
-                                <rect key="frame" x="328" y="11" width="32" height="30"/>
+                                <rect key="frame" x="328" y="16" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapPhotoNext:" destination="t7N-kt-Mnd" eventType="touchUpInside" id="R34-eA-uIw"/>
-                                    <action selector="didTapSave:" destination="t7N-kt-Mnd" eventType="touchUpInside" id="dOL-Eg-Rcd"/>
                                 </connections>
                             </button>
                         </subviews>
