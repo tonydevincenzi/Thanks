@@ -15,6 +15,8 @@ var useLocalDataStore:Bool = true
 var colorBlue = 0x4A90E2
 var colorGray = 0x9B9B9B
 var colorLightGray = 0xDFDFDF
+var colorDarkGray = 0x4A4A4A
+var colorOrange = 0xDE4A4A
 
 var globalAnimationSpeed:NSTimeInterval = 0.8
 var globalSpringDampening:CGFloat = 0.7

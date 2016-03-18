@@ -17,7 +17,7 @@ extension String {
     }
 }
 
-class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {
+class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var bodyTextView: UITextView!
     @IBOutlet weak var nameTextField: UITextField!
@@ -25,6 +25,9 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     @IBOutlet weak var placeholderLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var emojiContainer: UIView!
+    @IBOutlet weak var gradientView: UIView!
+    @IBOutlet weak var photoContainerView: UIView!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var photoLabel: UILabel!
@@ -46,6 +49,8 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     var fadeTransition: FadeTransition!
     
     let addEmojiButton:ThanksButton = ThanksButton()
+    let changeColorButton:ThanksButton = ThanksButton()
+    
     let addEmojiContainer: UIView = UIView()
     var currentEmoji: UILabel = UILabel()
     
@@ -55,17 +60,28 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         bodyTextView.delegate = self;
         cardView.layer.cornerRadius = 6
         emojiContainer.layer.cornerRadius = 6
+        gradientView.layer.cornerRadius = 6
+        photoContainerView.layer.cornerRadius = 6
+        photoContainerView.clipsToBounds = true
+        photoContainerView.hidden = true
         setDate()
         
         nameTextField.frame.origin.y = placeholderLabel.frame.origin.y + placeholderLabel.frame.height
         
-        addEmojiButton.format("Add Emoji  🎉", image: nil, tag: 0, xpos: cardView.frame.width/2 - 75, ypos: cardView.frame.height - 50, width: 150, height: 30, shadow: false)
+        addEmojiButton.format("🎉  Add Emoji", image: nil, tag: 0, xpos: cardView.frame.width/2 - 75, ypos: cardView.frame.height - 50, width: 150, height: 30, shadow: false)
         addEmojiButton.addTarget(self, action: "didTapAddEmoji:", forControlEvents: UIControlEvents.TouchUpInside)
         
+        changeColorButton.format("Change Color", image: nil, tag: 0, xpos: cardView.frame.width/2 + 5, ypos: cardView.frame.height - 50, width: 150, height: 30, shadow: false)
+        changeColorButton.addTarget(self, action: "didTapChangeColor:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         //Register to receive an emoji from AddEmojiView
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "AddEmojiToCard:", name:"addEmoji", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "addEmojiToCard:", name:"addEmoji", object: nil)
+        
+        //Register to receive a color from ChangeColorView
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeColorOfCard:", name:"changeColor", object: nil)
 
         cardView.addSubview(addEmojiButton)
+        cardView.addSubview(changeColorButton)
         cardView.clipsToBounds = false
         cardView.layer.shadowColor = UIColor.blackColor().CGColor
         cardView.layer.shadowOffset = CGSize(width: 0, height: 10)
@@ -112,7 +128,34 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         }
     }
     
-    func AddEmojiToCard(notification: NSNotification) {
+    func changeColorOfCard(notification: NSNotification) {
+        
+        let newColor = notification.object as! NSArray
+        let hex: String!
+        let hexB: String!
+        
+        if newColor.count > 1 {
+            //Gradient
+            hex = String(newColor[0])
+            hexB = String(newColor[1])
+            
+            let layer = CAGradientLayer()
+            layer.frame = CGRect(x: 0, y: 0, width: cardView.frame.width, height: cardView.frame.height)
+            layer.colors = [UIColor(hexString: hex)!.CGColor, UIColor(hexString: hexB)!.CGColor]
+            
+            gradientView.layer.addSublayer(layer)
+            gradientView.hidden = false
+            
+        } else {
+            //Solid
+            hex = String(newColor[0])
+            cardView.backgroundColor = UIColor(hexString: hex)
+            gradientView.hidden = true
+        }
+
+    }
+    
+    func addEmojiToCard(notification: NSNotification) {
         print(notification.object)
         
         createdEmoji = UILabel()
@@ -326,8 +369,12 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         return true
     }
 
-    func didTapAddEmoji (sender:UIButton!) {
+    func didTapAddEmoji(sender:UIButton!) {
         performSegueWithIdentifier("addEmoji", sender: nil)
+    }
+    
+    func didTapChangeColor(sender:UIButton!) {
+        performSegueWithIdentifier("changeColor", sender: nil)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -337,6 +384,30 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     
     func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func shakeCardWithAnimation() {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.10
+        animation.repeatCount = 2
+        animation.autoreverses = true
+        animation.fromValue = NSValue(CGPoint: CGPointMake(cardView.center.x - 10, cardView.center.y))
+        animation.toValue = NSValue(CGPoint: CGPointMake(cardView.center.x + 10, cardView.center.y))
+        cardView.layer.addAnimation(animation, forKey: "position")
+    }
+    
+    func bounceCardWithAnimation() {
+        UIView.animateWithDuration(0.1, delay: 0, options: [], animations: { () -> Void in
+            self.cardView.transform = CGAffineTransformMakeScale(0.95, 0.95)
+            }) { (Bool) -> Void in
+                
+                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: [], animations: { () -> Void in
+                        self.cardView.transform = CGAffineTransformMakeScale(1, 1)
+                    }, completion: { (Bool) -> Void in
+                        //
+                })
+                
+        }
     }
 
     @IBAction func didTapSave(sender: AnyObject) {
@@ -355,22 +426,77 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     
     func setSimpleCardStyle() {
         currentCardStyle = 0
+        
+        changeColorButton.hidden = true
+        photoContainerView.hidden = true
+        
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            self.cardView.backgroundColor = UIColor.whiteColor()
+            self.bodyTextView.textColor = UIColor(hex: colorDarkGray)
+            self.placeholderLabel.textColor = UIColor(hex: colorGray)
+            self.nameTextField.textColor = UIColor(hex: colorGray)
+            self.addEmojiButton.frame.origin.x = self.cardView.frame.width/2 - 75
+        })
+        
+        addEmojiButton.setStyleDark()
     }
     
     func setColorCardStyle() {
         currentCardStyle = 1
         
-        //Change backround color
+        changeColorButton.hidden = false
+        photoContainerView.hidden = true
+
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            self.cardView.backgroundColor = UIColor(hex: colorOrange)
+            self.bodyTextView.textColor = UIColor.whiteColor()
+            self.placeholderLabel.textColor = UIColor.whiteColor()
+            self.nameTextField.textColor = UIColor.whiteColor()
+            self.addEmojiButton.frame.origin.x = 20
+        })
         
-        //Change font colors to white
-        
-        //Change button colors
-        
-        //Enable background color picker picker
+        addEmojiButton.setStyleLight()
     }
     
     func setPhotoCardStyle() {
         currentCardStyle = 2
+        
+        changeColorButton.hidden = true
+        photoContainerView.hidden = false
+        
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        
+        self.presentViewController(vc, animated: true, completion: nil)
+        
+        //TODO: try for a vibrant here
+        addEmojiButton.setStyleLight()
+    }
+    
+    func imagePickerController(picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+            // Get the image captured by the UIImagePickerController
+            let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+            
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.cardView.backgroundColor = UIColor(hex: colorOrange)
+                self.bodyTextView.textColor = UIColor.whiteColor()
+                self.placeholderLabel.textColor = UIColor.whiteColor()
+                self.nameTextField.textColor = UIColor.whiteColor()
+                self.addEmojiButton.frame.origin.x = 20
+            })
+            
+            setPhotoInFrame(editedImage)
+           
+            dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func setPhotoInFrame(image: UIImage) {
+        //Allow the user to adjust the photo coordinates
+         photoImageView.image = image
     }
     
     func resetStyleButton(style: Int) {
@@ -421,6 +547,10 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     
     @IBAction func didTapStyleButton(sender: AnyObject?) {
         resetStyleButton(sender!.tag)
+        
+        //Option: shake
+        // shakeCardWithAnimation()
+        bounceCardWithAnimation()
     }
     
     
@@ -430,13 +560,20 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        var destinationViewController:UIViewController!
         
-        let destinationViewController = segue.destinationViewController as! AddEmojiViewController
+        if segue.identifier! == "changeColor" {
+            destinationViewController = segue.destinationViewController as! ChangeColorViewController
+        }
         
+        if segue.identifier! == "addEmoji" {
+           destinationViewController = segue.destinationViewController as! AddEmojiViewController
+        }
+    
         destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
         fadeTransition = FadeTransition()
         destinationViewController.transitioningDelegate = fadeTransition
         fadeTransition.duration = 0.5
-        
     }
 }

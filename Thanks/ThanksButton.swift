@@ -27,15 +27,11 @@ class ThanksButton: UIButton {
         
         self.setTitle(title, forState: UIControlState.Normal)
         self.frame = CGRectMake(xpos, ypos, width, height)
-        self.setTitleColor(UIColor(hex: colorGray), forState: UIControlState.Normal)
-        //self.setTitleColor(UIColor(hex: colorLightGray), forState: UIControlState.Highlighted)
 
         self.titleLabel!.font = UIFont(name: ".SFUIText-Regular", size: 14)
         
         self.backgroundColor = UIColor.clearColor()
-        self.setTitleColor(UIColor(hex: colorGray), forState: .Normal)
         
-        self.layer.borderColor = UIColor(hex: colorLightGray)?.CGColor
         self.layer.cornerRadius = 15
         self.layer.borderWidth = 1
         
@@ -55,6 +51,17 @@ class ThanksButton: UIButton {
         self.addTarget(self, action: "buttonTouchDown:", forControlEvents: UIControlEvents.TouchDown)
         self.addTarget(self, action: "buttonTouchUp:", forControlEvents: UIControlEvents.TouchUpInside)
 
+        setStyleLight()
+    }
+    
+    func setStyleLight () {
+        self.setTitleColor(UIColor(white: 1, alpha: 0.5), forState: UIControlState.Normal)
+        self.layer.borderColor = UIColor(white: 1, alpha: 0.2).CGColor
+    }
+    
+    func setStyleDark() {
+        self.setTitleColor(UIColor(white: 0, alpha: 0.5), forState: UIControlState.Normal)
+        self.layer.borderColor = UIColor(white: 0, alpha: 0.2).CGColor
     }
     
     func buttonTouchDown(sender:UIButton)

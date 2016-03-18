@@ -245,6 +245,77 @@
             </objects>
             <point key="canvasLocation" x="2295.5" y="1170.5"/>
         </scene>
+        <!--Change Color View Controller-->
+        <scene sceneID="wkR-AV-lxQ">
+            <objects>
+                <viewController id="lIi-MJ-sNI" customClass="ChangeColorViewController" customModule="Thanks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Htz-DA-6Zl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="lz4-2b-e0w">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="oWa-ez-LOl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dTC-PW-Auk">
+                                    <size key="itemSize" width="85" height="85"/>
+                                    <size key="headerReferenceSize" width="0.0" height="130"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="com.thanks.ColorCell" id="d89-Nk-WUW" customClass="ColorCell" customModule="Thanks" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="130" width="85" height="85"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" id="KqR-pi-YGt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.89411764709999997" green="0.23921568630000001" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="colorView" destination="KqR-pi-YGt" id="UPH-gN-TgN"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BT4-wf-3ju">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DUO-Kg-Z6B">
+                                <rect key="frame" x="137" y="601" width="102" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="closemodal"/>
+                                <connections>
+                                    <action selector="didTapDismiss:" destination="lIi-MJ-sNI" eventType="touchUpInside" id="gDL-p0-S9x"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionView" destination="oWa-ez-LOl" id="nmc-Yc-c5y"/>
+                        <outlet property="dismissButton" destination="DUO-Kg-Z6B" id="fbj-rG-jDE"/>
+                        <outlet property="overlayView" destination="lz4-2b-e0w" id="cbw-7j-jkE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iJh-Jq-XBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2295.5" y="1908.5"/>
+        </scene>
         <!--Create View-->
         <scene sceneID="D0v-Iw-Zox">
             <objects>
@@ -337,11 +408,27 @@
                                 <rect key="frame" x="12" y="53" width="350" height="465"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" id="pHc-G8-fDb">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="465"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="rzB-uD-hM2">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="465"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="P4I-lf-oSt">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="465"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Fh-WW-VXv">
                                         <rect key="frame" x="27" y="17" width="297" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                                        <color key="textColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.14901960780000001" green="0.1529411765" blue="0.16862745100000001" alpha="0.24919471153846154" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is where your message will go, make sure and say something nice!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cJe-yd-6n8">
@@ -385,13 +472,17 @@
                         <outlet property="colorLabel" destination="pMM-uy-l6b" id="mHD-Bc-Fxy"/>
                         <outlet property="dateLabelView" destination="7Fh-WW-VXv" id="3LU-W7-yVe"/>
                         <outlet property="emojiContainer" destination="whh-zo-j8d" id="CaW-Hx-Qgg"/>
+                        <outlet property="gradientView" destination="pHc-G8-fDb" id="uB0-vX-xYA"/>
                         <outlet property="nameTextField" destination="BHk-aV-SsW" id="a2D-6q-8c7"/>
                         <outlet property="photoButton" destination="UBm-z5-3AR" id="2dy-Xd-Q0n"/>
+                        <outlet property="photoContainerView" destination="rzB-uD-hM2" id="3x0-n6-FY7"/>
+                        <outlet property="photoImageView" destination="P4I-lf-oSt" id="n7x-4O-0yZ"/>
                         <outlet property="photoLabel" destination="93j-9k-6VR" id="Bi4-De-k70"/>
                         <outlet property="placeholderLabel" destination="cJe-yd-6n8" id="kUJ-8F-uSy"/>
                         <outlet property="simpleButton" destination="GkO-cU-r3I" id="wo1-0V-UWb"/>
                         <outlet property="simpleLabel" destination="1pK-Zz-bvF" id="7mW-cg-cBL"/>
                         <segue destination="Y5C-6z-0Fy" kind="modal" identifier="addEmoji" id="Jep-xA-6Uf"/>
+                        <segue destination="lIi-MJ-sNI" kind="modal" identifier="changeColor" id="cEm-Sl-edh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocJ-Ub-74z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -419,6 +510,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="closemodal" width="39" height="39"/>
         <image name="delete-me" width="740" height="1334"/>
     </resources>
     <inferredMetricsTieBreakers>
