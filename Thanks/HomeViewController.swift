@@ -175,13 +175,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         print(sender)
         
-        let destinationViewController = segue.destinationViewController as! DetailViewController
-        destinationViewController.cell = tappedCell
+        if segue.identifier == "showDetail" {
+            let destinationViewController = segue.destinationViewController as! DetailViewController
+            destinationViewController.cell = tappedCell
+            
+            destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+            imageTransition = ImageTransition()
+            destinationViewController.transitioningDelegate = imageTransition
+            imageTransition.duration = 0.5
+        }
         
-        destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
-        imageTransition = ImageTransition()
-        destinationViewController.transitioningDelegate = imageTransition
-        imageTransition.duration = 0.5
+        
         
     }
 

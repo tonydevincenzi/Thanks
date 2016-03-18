@@ -33,7 +33,7 @@ final class ParseService {
                 //Loop through the returned objects, and create and return a card per object
                 for object in returnedObjects {
                     
-                    let title = object["title"] as! String
+//                    let title = object["title"] as! String
                     let body = object["body"] as! String
                     // TODO: fetch and assign the image
                     
