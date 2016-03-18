@@ -94,6 +94,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //Parse loads data
     func loadData() {
         
+        print("Loading data...")
+        
         //All Parse related stuff handled in the ParseService class
         let parseService = ParseService()
         
@@ -113,7 +115,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //Refresh
     func refreshCollection(notification: NSNotification){
         loadData()
-        //collectionView.reloadData()
     }
     
     
@@ -121,7 +122,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBAction func didTapRefresh(sender: AnyObject) {
         //TODO: Should not always requery data on refresh, sometimes should just append the existing list (i.e., from new card call)
         loadData()
-        //collectionView.reloadData()
     }
     
     

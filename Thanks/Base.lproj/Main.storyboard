@@ -154,7 +154,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8ls-t6-H85">
-                                <rect key="frame" x="299" y="20" width="31" height="30"/>
+                                <rect key="frame" x="172" y="20" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="New">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -553,6 +553,6 @@
         <image name="closemodal" width="39" height="39"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LsM-ZU-Fam"/>
+        <segue reference="7ei-lo-uyE"/>
     </inferredMetricsTieBreakers>
 </document>
