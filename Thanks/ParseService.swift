@@ -33,6 +33,10 @@ final class ParseService {
                 //Loop through the returned objects, and create and return a card per object
                 for object in returnedObjects {
                     
+<<<<<<< HEAD
+=======
+//                    let title = object["title"] as! String
+>>>>>>> origin/master
                     let body = object["body"] as! String
                     let author = object["author"] as! String
                     let image = object["image"] as! PFFile
