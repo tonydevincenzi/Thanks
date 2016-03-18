@@ -5,7 +5,8 @@ use_frameworks!
 
 target 'Thanks' do
 pod "Parse"
-pod 'SwiftHEXColors'
+pod “SwiftHEXColors”
+pod “ParseUI”
 end
 
 target 'ThanksTests' do
