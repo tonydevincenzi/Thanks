@@ -764,11 +764,9 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
             destinationViewController.cell = cardView
             
             destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
-            imageTransition = ImageTransition()
-            destinationViewController.transitioningDelegate = imageTransition
-            imageTransition.duration = 0.5
+            saveTransition = SaveTransition()
+            destinationViewController.transitioningDelegate = saveTransition
+            saveTransition.duration = 0.5
         }
-    
-       
     }
 }

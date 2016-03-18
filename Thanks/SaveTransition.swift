@@ -32,7 +32,6 @@ class SaveTransition: BaseTransition {
         createViewController.cardView.hidden = true
         detailViewController.cardView.hidden = true
         
-        
         UIView.animateWithDuration(duration, animations: {
             
             toViewController.view.alpha = 1
@@ -41,7 +40,7 @@ class SaveTransition: BaseTransition {
             }) { (finished: Bool) -> Void in
                 
                 movingImageView.hidden = true
-                detailViewController.cardView = movingImageView
+                //detailViewController.cardView = movingImageView
                 detailViewController.cardView.hidden = false
                 
                 self.finish()

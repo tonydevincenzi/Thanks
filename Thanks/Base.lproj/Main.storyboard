@@ -71,11 +71,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="JFa-hS-7OZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ls0-rc-Uae">
                                 <rect key="frame" x="17" y="94" width="340" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.9518054387861703" green="0.9518054387861703" blue="0.9518054387861703" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iG0-wj-jSJ">
                                 <rect key="frame" x="320" y="20" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -101,7 +100,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="cardView" destination="JFa-hS-7OZ" id="S8b-gT-e0a"/>
+                        <outlet property="cardImageView" destination="Ls0-rc-Uae" id="kGs-Ly-EuG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OgS-qL-Wpi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -558,6 +557,6 @@
         <image name="thanks_logo" width="135" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WjR-6L-uE6"/>
+        <segue reference="bnl-DM-yLh"/>
     </inferredMetricsTieBreakers>
 </document>
