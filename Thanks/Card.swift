@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import Parse
 
 struct Card {
     var body: String
-    var image: UIImage?
+    var author: String?
+    var image: PFFile?
 }

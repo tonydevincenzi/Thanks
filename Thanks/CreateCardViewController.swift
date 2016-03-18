@@ -60,6 +60,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
 
     var fadeTransition: FadeTransition!
     
+    let cardButtonContainer: UIView = PassThroughView()
     let addEmojiButton:ThanksButton = ThanksButton()
     let changeColorButton:ThanksButton = ThanksButton()
     let changePhotoButton:ThanksButton = ThanksButton()
@@ -96,9 +97,12 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         //Register to receive a color from ChangeColorView
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeColorOfCard:", name:"changeColor", object: nil)
 
-        cardView.addSubview(addEmojiButton)
-        cardView.addSubview(changeColorButton)
-        cardView.addSubview(changePhotoButton)
+        cardView.addSubview(cardButtonContainer)
+        cardButtonContainer.addSubview(addEmojiButton)
+        cardButtonContainer.addSubview(changeColorButton)
+        cardButtonContainer.addSubview(changePhotoButton)
+        cardButtonContainer.userInteractionEnabled = true
+        
         cardView.clipsToBounds = false
         cardView.layer.shadowColor = UIColor.blackColor().CGColor
         cardView.layer.shadowOffset = CGSize(width: 0, height: 10)
@@ -396,6 +400,8 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     }
     
     func didTapChangePhoto(sender:UIButton!) {
+        previousCardStyle = currentCardStyle
+        currentCardStyle = 2
         requestPhotoPicker()
     }
     
@@ -434,7 +440,22 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     @IBAction func didTapSave(sender: AnyObject) {
       
         let body = bodyTextView.text!
-        let card = Card(body: body, image: nil)
+        let author = nameTextField.text
+        
+
+        
+        //capture the image from the view
+        //Hide UI, capture the picture
+        cardButtonContainer.hidden = true
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(cardView.frame.width, cardView.frame.height), false, 0);
+        self.cardView.drawViewHierarchyInRect(CGRectMake(0,0,cardView.bounds.size.width,cardView.bounds.size.height), afterScreenUpdates: true)
+        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        //Image captured, Return UI
+        cardButtonContainer.hidden = false
+        
+        let imageData = UIImagePNGRepresentation(image)
+        let savedImage = PFFile(name:"image.png", data:imageData!)
+        var card = Card(body: body, author: author, image: savedImage)
         
         //Pass the card to ParseService, save, and return
         //TODO: Some error handling here

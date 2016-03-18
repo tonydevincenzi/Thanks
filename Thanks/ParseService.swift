@@ -33,12 +33,13 @@ final class ParseService {
                 //Loop through the returned objects, and create and return a card per object
                 for object in returnedObjects {
                     
-                    let title = object["title"] as! String
                     let body = object["body"] as! String
-                    // TODO: fetch and assign the image
+                    let author = object["author"] as! String
+                    let image = object["image"] as! PFFile
                     
                     let card = Card(body: body,
-                        image: nil)
+                        author:  author,
+                        image: image)
                     
                     // append to array
                     self.cards.append(card)
@@ -54,6 +55,10 @@ final class ParseService {
         
         let cardToSave = PFObject(className: "cards")
         cardToSave["body"] = card.body
+        cardToSave["author"] = card.author
+        cardToSave["image"] = card.image
+
+        
         if useLocalDataStore == true {
             cardToSave.pinInBackground()
         } else {
