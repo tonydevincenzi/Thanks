@@ -739,6 +739,11 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         return true
     }
     
+    func transitionToHomeView() {
+        //returnToHomeView
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         var destinationViewController:UIViewController!

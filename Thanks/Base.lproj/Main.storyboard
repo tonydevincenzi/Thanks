@@ -533,6 +533,7 @@
                         <segue destination="Y5C-6z-0Fy" kind="modal" identifier="addEmoji" id="Jep-xA-6Uf"/>
                         <segue destination="lIi-MJ-sNI" kind="modal" identifier="changeColor" id="cEm-Sl-edh"/>
                         <segue destination="8f4-8X-iaW" kind="modal" identifier="showDetailFromSave" id="WjR-6L-uE6"/>
+                        <segue destination="R9e-Pp-7UG" kind="modal" identifier="returnToHomeView" id="Cvl-8I-BgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocJ-Ub-74z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -566,7 +567,7 @@
         <image name="thanks_logo" width="135" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8Cu-Ko-zOB"/>
-        <segue reference="bnl-DM-yLh"/>
+        <segue reference="Cvl-8I-BgK"/>
+        <segue reference="WjR-6L-uE6"/>
     </inferredMetricsTieBreakers>
 </document>

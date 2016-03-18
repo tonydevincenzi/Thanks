@@ -50,8 +50,7 @@ class SaveTransition: BaseTransition {
         //Do some animation and transitioning here
         let createViewController = toViewController as! CreateCardViewController
         var detailViewController = fromViewController as! DetailViewController
-        
-        detailViewController.returnToHomeView()
+        createViewController.transitionToHomeView()
         self.finish()
     
     }
