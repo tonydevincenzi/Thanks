@@ -10,6 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var cardImageView: UIImageView!
     var imageTransition: ImageTransition!
     var cell: UIView!
