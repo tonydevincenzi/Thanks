@@ -44,6 +44,9 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var photoNextButton: UIButton!
     
+    var saveTransition: SaveTransition!
+    var tappedImage: UIImageView = UIImageView()
+
     var cardHasPhoto:Bool = false
     
     var cardStyles = ["simple", "color", "photo"]
@@ -436,35 +439,6 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
                 })
         }
     }
-
-    @IBAction func didTapSave(sender: AnyObject) {
-      
-        let body = bodyTextView.text!
-        let author = nameTextField.text
-        
-
-        
-        //capture the image from the view
-        //Hide UI, capture the picture
-        cardButtonContainer.hidden = true
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(cardView.frame.width, cardView.frame.height), false, 0);
-        self.cardView.drawViewHierarchyInRect(CGRectMake(0,0,cardView.bounds.size.width,cardView.bounds.size.height), afterScreenUpdates: true)
-        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
-        //Image captured, Return UI
-        cardButtonContainer.hidden = false
-        
-        let imageData = UIImagePNGRepresentation(image)
-        let savedImage = PFFile(name:"image.png", data:imageData!)
-        var card = Card(body: body, author: author, image: savedImage)
-        
-        //Pass the card to ParseService, save, and return
-        //TODO: Some error handling here
-         ParseService().saveCard(card) {
-            (result: Card) in
-                self.dismissViewControllerAnimated(true, completion: nil)
-                NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
-        }
-    }
     
     func setSimpleCardStyle() {
         previousCardStyle = currentCardStyle
@@ -545,10 +519,10 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
             // Get the image captured by the UIImagePickerController
-            //let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-            let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+            let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            //let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
             cardView.backgroundColor = UIColor.clearColor()
-            beginPhotoEditing(editedImage)
+            beginPhotoEditing(originalImage)
             dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -730,6 +704,35 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         bounceCardWithAnimation()
     }
     
+    @IBAction func didTapSave(sender: AnyObject) {
+        
+        let body = bodyTextView.text!
+        let author = nameTextField.text
+        
+        //capture the image from the view
+        //Hide UI, capture the picture
+        cardButtonContainer.hidden = true
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(cardView.frame.width, cardView.frame.height), false, 0);
+        self.cardView.drawViewHierarchyInRect(CGRectMake(0,0,cardView.bounds.size.width,cardView.bounds.size.height), afterScreenUpdates: true)
+        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        //Image captured, Return UI
+        cardButtonContainer.hidden = false
+        
+        let imageData = UIImagePNGRepresentation(image)
+        let savedImage = PFFile(name:"image.png", data:imageData!)
+        var card = Card(body: body, author: author, image: savedImage)
+        
+        //Pass the card to ParseService, save, and return
+        //TODO: Some error handling here
+        ParseService().saveCard(card) {
+            (result: Card) in
+            //self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+        tappedImage.image = image
+        
+        performSegueWithIdentifier("showDetailFromSave", sender: self)
+    }
     
     //Hide status bar
     override func prefersStatusBarHidden() -> Bool {
@@ -742,15 +745,30 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         
         if segue.identifier! == "changeColor" {
             destinationViewController = segue.destinationViewController as! ChangeColorViewController
+            destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+            fadeTransition = FadeTransition()
+            destinationViewController.transitioningDelegate = fadeTransition
+            fadeTransition.duration = 0.3
         }
         
         if segue.identifier! == "addEmoji" {
            destinationViewController = segue.destinationViewController as! AddEmojiViewController
+            destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+            fadeTransition = FadeTransition()
+            destinationViewController.transitioningDelegate = fadeTransition
+            fadeTransition.duration = 0.3
+        }
+        
+        if segue.identifier! == "showDetailFromSave" {
+            let destinationViewController = segue.destinationViewController as! DetailViewController
+            destinationViewController.cell = cardView
+            
+            destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+            imageTransition = ImageTransition()
+            destinationViewController.transitioningDelegate = imageTransition
+            imageTransition.duration = 0.5
         }
     
-        destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
-        fadeTransition = FadeTransition()
-        destinationViewController.transitioningDelegate = fadeTransition
-        fadeTransition.duration = 0.3
+       
     }
 }

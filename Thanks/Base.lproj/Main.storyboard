@@ -130,7 +130,6 @@
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCellView" id="1AH-0J-dbm" customClass="CardCellView" customModule="Thanks" customModuleProvider="target">
                                         <rect key="frame" x="35" y="80" width="305" height="407"/>
-
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="305" height="407"/>
@@ -151,7 +150,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="usr-kX-4Zs">
                                 <rect key="frame" x="20" y="25" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -174,11 +172,7 @@
                         <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home View" id="ckt-xb-Mdj">
-                        <barButtonItem key="leftBarButtonItem" title="Create" id="0JH-t1-IXA">
-                            <connections>
-                                <segue destination="t7N-kt-Mnd" kind="modal" modalTransitionStyle="crossDissolve" id="7ei-lo-uyE"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Create" id="0JH-t1-IXA"/>
                         <barButtonItem key="rightBarButtonItem" title="Refresh" id="523-mA-hru">
                             <connections>
                                 <action selector="didTapRefresh:" destination="R9e-Pp-7UG" id="WTB-hE-coK"/>
@@ -324,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJh-Jq-XBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2295.5" y="1908.5"/>
+            <point key="canvasLocation" x="2701.5" y="1170.5"/>
         </scene>
         <!--Create View-->
         <scene sceneID="D0v-Iw-Zox">
@@ -335,7 +329,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tCn-aG-OcU">
-                                <rect key="frame" x="328" y="11" width="34" height="30"/>
+                                <rect key="frame" x="173" y="11" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -530,11 +524,12 @@
                         <outlet property="simpleLabel" destination="1pK-Zz-bvF" id="7mW-cg-cBL"/>
                         <segue destination="Y5C-6z-0Fy" kind="modal" identifier="addEmoji" id="Jep-xA-6Uf"/>
                         <segue destination="lIi-MJ-sNI" kind="modal" identifier="changeColor" id="cEm-Sl-edh"/>
+                        <segue destination="8f4-8X-iaW" kind="modal" identifier="showDetailFromSave" id="WjR-6L-uE6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocJ-Ub-74z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2295.5" y="405.5"/>
+            <point key="canvasLocation" x="2424.5" y="242.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="t1E-jK-m6W">
@@ -563,6 +558,6 @@
         <image name="thanks_logo" width="135" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7ei-lo-uyE"/>
+        <segue reference="WjR-6L-uE6"/>
     </inferredMetricsTieBreakers>
 </document>

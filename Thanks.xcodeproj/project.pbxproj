@@ -31,6 +31,7 @@
 		EA8BBC3C1C9B0F5600FA2A1E /* EmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BBC3B1C9B0F5600FA2A1E /* EmojiCell.swift */; };
 		EA8BBC3E1C9B12B000FA2A1E /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BBC3D1C9B12B000FA2A1E /* FadeTransition.swift */; };
 		EA8BBC401C9B2A5F00FA2A1E /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BBC3F1C9B2A5F00FA2A1E /* Common.swift */; };
+		EAB6F0F61C9C63D200605C86 /* SaveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB6F0F51C9C63D200605C86 /* SaveTransition.swift */; };
 		EABC9C841C9B5367000ACA7E /* PassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABC9C831C9B5367000ACA7E /* PassThroughView.swift */; };
 		EABC9C861C9B5C92000ACA7E /* ChangeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABC9C851C9B5C92000ACA7E /* ChangeColorViewController.swift */; };
 		EABC9C881C9B642D000ACA7E /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABC9C871C9B642D000ACA7E /* ColorCell.swift */; };
@@ -94,6 +95,7 @@
 		EA8BBC3B1C9B0F5600FA2A1E /* EmojiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiCell.swift; sourceTree = "<group>"; };
 		EA8BBC3D1C9B12B000FA2A1E /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		EA8BBC3F1C9B2A5F00FA2A1E /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		EAB6F0F51C9C63D200605C86 /* SaveTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTransition.swift; sourceTree = "<group>"; };
 		EABC9C831C9B5367000ACA7E /* PassThroughView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassThroughView.swift; sourceTree = "<group>"; };
 		EABC9C851C9B5C92000ACA7E /* ChangeColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeColorViewController.swift; sourceTree = "<group>"; };
 		EABC9C871C9B642D000ACA7E /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */,
 				EA58D6D91C99C1F200593381 /* ImageTransition.swift */,
 				EA58D6D71C99C1DD00593381 /* BaseTransition.swift */,
+				EAB6F0F51C9C63D200605C86 /* SaveTransition.swift */,
 				EA8BBC3D1C9B12B000FA2A1E /* FadeTransition.swift */,
 				93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */,
 				3D73D4611C9B09840074DB39 /* CustomCollectionViewFlowLayout.h */,
@@ -450,6 +453,7 @@
 				93CFEFF91C8B984800CD37DC /* Card.swift in Sources */,
 				EA3F2BC71C86587000AC0101 /* CreateCardViewController.swift in Sources */,
 				EABC9C881C9B642D000ACA7E /* ColorCell.swift in Sources */,
+				EAB6F0F61C9C63D200605C86 /* SaveTransition.swift in Sources */,
 				EA3F2BCF1C8658BB00AC0101 /* RemindersViewController.swift in Sources */,
 				EA8BBC3E1C9B12B000FA2A1E /* FadeTransition.swift in Sources */,
 				EA3F2BCD1C8658A500AC0101 /* OnboardingViewController.swift in Sources */,
