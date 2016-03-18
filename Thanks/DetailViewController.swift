@@ -19,7 +19,12 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         cardView.addSubview(cell)
-
+    }
+    
+    //This function returns us to the home view, but only for when we are in other areas of the app (like create view)
+    func returnToHomeView() {
+        //let secondViewController = self.storyboard!.instantiateViewControllerWithIdentifier("Home") as! HomeViewController
+        //self.navigationController!.pushViewController(secondViewController, animated: true)
     }
     
     @IBAction func didTapDone(sender: AnyObject) {

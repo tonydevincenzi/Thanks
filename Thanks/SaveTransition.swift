@@ -19,13 +19,11 @@ class SaveTransition: BaseTransition {
         
         let movingImageView = UIImageView()
         
-        movingImageView.frame = createViewController.tappedImage.frame
+        movingImageView.frame = createViewController.cardView.frame
         
         movingImageView.image = createViewController.tappedImage.image
         movingImageView.clipsToBounds = createViewController.tappedImage.clipsToBounds
         movingImageView.contentMode = createViewController.tappedImage.contentMode
-        containerView.addSubview(movingImageView)
-        
         containerView.addSubview(movingImageView)
         
         //Hide the initial and final images
@@ -40,7 +38,7 @@ class SaveTransition: BaseTransition {
             }) { (finished: Bool) -> Void in
                 
                 movingImageView.hidden = true
-                //detailViewController.cardView = movingImageView
+                detailViewController.cardImageView.image = createViewController.tappedImage.image
                 detailViewController.cardView.hidden = false
                 
                 self.finish()
@@ -49,39 +47,12 @@ class SaveTransition: BaseTransition {
     
     override func dismissTransition(containerView: UIView, fromViewController: UIViewController, toViewController: UIViewController) {
         
-        let homeViewController = toViewController as! HomeViewController
-        let detailViewController = fromViewController as! DetailViewController
+        //Do some animation and transitioning here
+        let createViewController = toViewController as! CreateCardViewController
+        var detailViewController = fromViewController as! DetailViewController
         
-        var destinationViewFrame = homeViewController.tappedCell.frame
-        destinationViewFrame.origin.y = homeViewController.tappedCellY
-        
-        destinationViewFrame.origin.y -= homeViewController.collectionView.contentOffset.y
-        
-        //movingView should be grabbing the image view from homeViewController
-        let movingView = detailViewController.cardView
-        movingView.frame = detailViewController.cardView.frame
-        
-        containerView.addSubview(movingView)
-        
-        //photoViewController.imageView.hidden = true
-        //newsFeedViewController.tappedImage.hidden = true
-        
-        
-        UIView.animateWithDuration(duration, animations: {
-            
-            movingView.frame = destinationViewFrame
-            fromViewController.view.alpha = 0
-            
-            }) { (finished: Bool) -> Void in
-                
-                //movingView.hidden = true
-                homeViewController.tappedCell.hidden = false
-                homeViewController.tappedCell.frame.origin.y = homeViewController.tappedCellY
-                homeViewController.tappedCell = movingView
-                
-                //detailViewController.cardView.hidden = true
-                
-                self.finish()
-        }
+        detailViewController.returnToHomeView()
+        self.finish()
+    
     }
 }

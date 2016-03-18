@@ -109,11 +109,12 @@
                     <connections>
                         <outlet property="cardImageView" destination="Ls0-rc-Uae" id="kGs-Ly-EuG"/>
                         <outlet property="cardView" destination="JFa-hS-7OZ" id="S8b-gT-e0a"/>
+                        <segue destination="R9e-Pp-7UG" kind="modal" identifier="showHomeView" animates="NO" id="8Cu-Ko-zOB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OgS-qL-Wpi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1847.5" y="1170.5"/>
+            <point key="canvasLocation" x="1876.5" y="1288.5"/>
         </scene>
         <!--Home View-->
         <scene sceneID="gDO-dg-vJV">
@@ -565,6 +566,7 @@
         <image name="thanks_logo" width="135" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8Cu-Ko-zOB"/>
         <segue reference="bnl-DM-yLh"/>
     </inferredMetricsTieBreakers>
 </document>
