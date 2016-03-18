@@ -44,8 +44,10 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var photoNextButton: UIButton!
     
+    var cardHasPhoto:Bool = false
     
     var cardStyles = ["simple", "color", "photo"]
+    var previousCardStyle = 0
     var currentCardStyle = 0
     
     var photoOriginalCenter: CGPoint!
@@ -60,6 +62,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     
     let addEmojiButton:ThanksButton = ThanksButton()
     let changeColorButton:ThanksButton = ThanksButton()
+    let changePhotoButton:ThanksButton = ThanksButton()
     
     let addEmojiContainer: UIView = UIView()
     var currentEmoji: UILabel = UILabel()
@@ -84,6 +87,9 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         changeColorButton.format("Change Color", image: nil, tag: 0, xpos: cardView.frame.width/2 + 5, ypos: cardView.frame.height - 50, width: 150, height: 30, shadow: false)
         changeColorButton.addTarget(self, action: "didTapChangeColor:", forControlEvents: UIControlEvents.TouchUpInside)
         
+        changePhotoButton.format("Change Photo", image: nil, tag: 0, xpos: cardView.frame.width/2 + 5, ypos: cardView.frame.height - 50, width: 150, height: 30, shadow: false)
+        changePhotoButton.addTarget(self, action: "didTapChangePhoto:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         //Register to receive an emoji from AddEmojiView
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "addEmojiToCard:", name:"addEmoji", object: nil)
         
@@ -92,6 +98,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
 
         cardView.addSubview(addEmojiButton)
         cardView.addSubview(changeColorButton)
+        cardView.addSubview(changePhotoButton)
         cardView.clipsToBounds = false
         cardView.layer.shadowColor = UIColor.blackColor().CGColor
         cardView.layer.shadowOffset = CGSize(width: 0, height: 10)
@@ -102,8 +109,9 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
-        let panCardView: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "panCardView:")
-        cardView.addGestureRecognizer(panCardView)
+        //Uncomment to allow card to pan
+        //let panCardView: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "panCardView:")
+        //cardView.addGestureRecognizer(panCardView)
         
         simpleButton.layer.cornerRadius = 6
         colorButton.layer.cornerRadius = 6
@@ -387,6 +395,10 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         performSegueWithIdentifier("changeColor", sender: nil)
     }
     
+    func didTapChangePhoto(sender:UIButton!) {
+        requestPhotoPicker()
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -416,7 +428,6 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
                     }, completion: { (Bool) -> Void in
                         //
                 })
-                
         }
     }
 
@@ -435,10 +446,12 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     }
     
     func setSimpleCardStyle() {
+        previousCardStyle = currentCardStyle
         currentCardStyle = 0
         
         changeColorButton.hidden = true
         photoContainerView.hidden = true
+        changePhotoButton.hidden = true
         
         UIView.animateWithDuration(0.2, animations: { () -> Void in
             self.cardView.backgroundColor = UIColor.whiteColor()
@@ -447,68 +460,86 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
             self.nameTextField.textColor = UIColor(hex: colorGray)
             self.addEmojiButton.frame.origin.x = self.cardView.frame.width/2 - 75
             self.gradientView.alpha = 0
+            self.dateLabelView.textColor = UIColor(hex: colorGray)
         })
         
         addEmojiButton.setStyleDark()
     }
     
     func setColorCardStyle() {
+        previousCardStyle = currentCardStyle
         currentCardStyle = 1
         
         changeColorButton.hidden = false
         photoContainerView.hidden = true
+        changePhotoButton.hidden = true
+
 
         UIView.animateWithDuration(0.2, animations: { () -> Void in
             self.cardView.backgroundColor = UIColor(hex: colorOrange)
             self.bodyTextView.textColor = UIColor.whiteColor()
-            self.placeholderLabel.textColor = UIColor.whiteColor()
+            self.placeholderLabel.textColor = UIColor(white: 1, alpha: 0.5)
             self.nameTextField.textColor = UIColor.whiteColor()
             self.addEmojiButton.frame.origin.x = 20
             self.gradientView.alpha = 1
+            self.dateLabelView.textColor = UIColor(white: 0, alpha: 0.3)
         })
         
         addEmojiButton.setStyleLight()
     }
     
     func setPhotoCardStyle() {
+        previousCardStyle = currentCardStyle
         currentCardStyle = 2
         
         changeColorButton.hidden = true
         photoContainerView.hidden = false
         
-        let vc = UIImagePickerController()
-        vc.delegate = self
-        vc.allowsEditing = true
-        vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        
-        self.presentViewController(vc, animated: true, completion: nil)
+        if cardHasPhoto == false {
+            requestPhotoPicker()
+        } else {
+            UIView.animateWithDuration(0.2, animations: { () -> Void in
+                self.bodyTextView.textColor = UIColor.whiteColor()
+                self.placeholderLabel.textColor = UIColor(white: 1, alpha: 0.5)
+                self.nameTextField.textColor = UIColor.whiteColor()
+                self.addEmojiButton.frame.origin.x = 20
+                self.cardView.backgroundColor = UIColor.clearColor()
+                self.gradientView.alpha = 0
+                self.changePhotoButton.hidden = false
+                self.dateLabelView.textColor = UIColor(white: 1, alpha: 0.5)
+            })
+        }
         
         //TODO: try for a vibrant here
         addEmojiButton.setStyleLight()
     }
     
-    func imagePickerController(picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func requestPhotoPicker() {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
             // Get the image captured by the UIImagePickerController
             //let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
-            
-            UIView.animateWithDuration(0.2, animations: { () -> Void in
-                self.cardView.backgroundColor = UIColor(hex: colorOrange)
-                self.bodyTextView.textColor = UIColor.whiteColor()
-                self.placeholderLabel.textColor = UIColor.whiteColor()
-                self.nameTextField.textColor = UIColor.whiteColor()
-                self.addEmojiButton.frame.origin.x = 20
-            })
             cardView.backgroundColor = UIColor.clearColor()
-            
             beginPhotoEditing(editedImage)
-           
             dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        resetStyleButton(previousCardStyle)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func beginPhotoEditing(image: UIImage) {
-        //Allow the user to adjust the photo coordinates
+        
+        //Set this once, to not open camera roll by default
+        cardHasPhoto = true
         photoOverlayView.hidden = true
         photoImageView.image = image
         maskedPhotoView.image = image
@@ -522,6 +553,8 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         cardView.layer.borderWidth = 1
         photoNextButton.hidden = false
         gradientView.hidden = true
+        changePhotoButton.hidden = true
+        
         //Eventually hide change photo button
         
         let pan = UIPanGestureRecognizer(target: self, action: "panPhoto:")
@@ -545,21 +578,24 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
                         //
                 })
                 
-        }
-}
+            }
+    }
     
     func endPhotoEditing() {
+        setPhotoCardStyle()
         photoOverlayView.hidden = false
         maskedPhotoView.hidden = true
         buttonsContainerView.hidden = false
         saveButton.hidden = false
         cardComponentsContainerView.hidden = false
         addEmojiButton.hidden = false
-        cardView.backgroundColor = UIColor.whiteColor()
+        //cardView.backgroundColor = UIColor.whiteColor()
         cardView.layer.borderWidth = 0
         photoNextButton.hidden = true
         gradientView.hidden = false
-        
+        dateLabelView.textColor = UIColor(white: 1, alpha: 0.5)
+        changePhotoButton.hidden = false
+
         UIView.animateWithDuration(0.3, delay: 0, options: [], animations: { () -> Void in
             self.photoImageView.transform = CGAffineTransformScale(self.photoImageView.transform, 0.97, 0.97)
             }) { (Bool) -> Void in
@@ -694,6 +730,6 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
         fadeTransition = FadeTransition()
         destinationViewController.transitioningDelegate = fadeTransition
-        fadeTransition.duration = 0.5
+        fadeTransition.duration = 0.3
     }
 }

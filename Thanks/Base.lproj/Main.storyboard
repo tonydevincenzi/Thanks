@@ -462,7 +462,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="- Your Name" textAlignment="natural" minimumFontSize="17" id="BHk-aV-SsW">
-                                                <rect key="frame" x="40" y="355" width="310" height="30"/>
+                                                <rect key="frame" x="45" y="355" width="310" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="textColor" red="0.74622921300746814" green="1" blue="0.8933924483498713" alpha="1" colorSpace="calibratedRGB"/>
