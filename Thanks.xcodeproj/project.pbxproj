@@ -31,6 +31,9 @@
 		EA8BBC3C1C9B0F5600FA2A1E /* EmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BBC3B1C9B0F5600FA2A1E /* EmojiCell.swift */; };
 		EA8BBC3E1C9B12B000FA2A1E /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BBC3D1C9B12B000FA2A1E /* FadeTransition.swift */; };
 		EA8BBC401C9B2A5F00FA2A1E /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BBC3F1C9B2A5F00FA2A1E /* Common.swift */; };
+		EABC9C841C9B5367000ACA7E /* PassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABC9C831C9B5367000ACA7E /* PassThroughView.swift */; };
+		EABC9C861C9B5C92000ACA7E /* ChangeColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABC9C851C9B5C92000ACA7E /* ChangeColorViewController.swift */; };
+		EABC9C881C9B642D000ACA7E /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABC9C871C9B642D000ACA7E /* ColorCell.swift */; };
 		EADEBF7B1C88F6C10065DA0F /* CardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */; };
 		EAF8BE4B1C9A719D00A66071 /* equip_bold.5feb14f9.cache.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAF8BE471C9A719D00A66071 /* equip_bold.5feb14f9.cache.otf */; };
 		EAF8BE4C1C9A719D00A66071 /* equip_regular.4da3acb5.cache.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAF8BE481C9A719D00A66071 /* equip_regular.4da3acb5.cache.otf */; };
@@ -91,6 +94,9 @@
 		EA8BBC3B1C9B0F5600FA2A1E /* EmojiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiCell.swift; sourceTree = "<group>"; };
 		EA8BBC3D1C9B12B000FA2A1E /* FadeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		EA8BBC3F1C9B2A5F00FA2A1E /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		EABC9C831C9B5367000ACA7E /* PassThroughView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassThroughView.swift; sourceTree = "<group>"; };
+		EABC9C851C9B5C92000ACA7E /* ChangeColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeColorViewController.swift; sourceTree = "<group>"; };
+		EABC9C871C9B642D000ACA7E /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		EACDEA0E1C8A523A00FC44A5 /* Thanks-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Thanks-Bridging-Header.h"; sourceTree = "<group>"; };
 		EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCellView.swift; sourceTree = "<group>"; };
 		EAF8BE471C9A719D00A66071 /* equip_bold.5feb14f9.cache.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = equip_bold.5feb14f9.cache.otf; sourceTree = "<group>"; };
@@ -174,12 +180,15 @@
 				93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */,
 				3D73D4611C9B09840074DB39 /* CustomCollectionViewFlowLayout.h */,
 				3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */,
+				EA1D00F91C9AFC01007A5814 /* ThanksButton.swift */,
 				EA8BBC3B1C9B0F5600FA2A1E /* EmojiCell.swift */,
+				EABC9C871C9B642D000ACA7E /* ColorCell.swift */,
+				EA8BBC371C9B0DB500FA2A1E /* EmojiList.swift */,
+				EABC9C831C9B5367000ACA7E /* PassThroughView.swift */,
 				EA3F2B9C1C86298700AC0101 /* Main.storyboard */,
 				EA3F2BA11C86298700AC0101 /* LaunchScreen.storyboard */,
 				EA3F2BA41C86298700AC0101 /* Info.plist */,
 				EA3F2B9F1C86298700AC0101 /* Assets.xcassets */,
-				EA1D00F91C9AFC01007A5814 /* ThanksButton.swift */,
 			);
 			path = Thanks;
 			sourceTree = "<group>";
@@ -205,13 +214,11 @@
 		EA56B9441C8BB765005AF93C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EA3F2BCC1C8658A500AC0101 /* OnboardingViewController.swift */,
-				EA3F2BC81C86588200AC0101 /* HomeViewController.swift */,
 				EA58D6DB1C99C24200593381 /* DetailViewController.swift */,
+				EABC9C851C9B5C92000ACA7E /* ChangeColorViewController.swift */,
 				EA8BBC391C9B0EAE00FA2A1E /* AddEmojiViewController.swift */,
 				EA3F2BC61C86587000AC0101 /* CreateCardViewController.swift */,
 				EA3F2BC81C86588200AC0101 /* HomeViewController.swift */,
-				EA8BBC371C9B0DB500FA2A1E /* EmojiList.swift */,
 				EA3F2BCC1C8658A500AC0101 /* OnboardingViewController.swift */,
 				EA3F2BCE1C8658BB00AC0101 /* RemindersViewController.swift */,
 			);
@@ -311,7 +318,7 @@
 				TargetAttributes = {
 					EA3F2B941C86298700AC0101 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 59X4Y9UZMB;
+						DevelopmentTeam = U84M4VJLY3;
 					};
 					EA3F2BA81C86298700AC0101 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -434,6 +441,7 @@
 				EA8BBC381C9B0DB500FA2A1E /* EmojiList.swift in Sources */,
 				EADEBF7B1C88F6C10065DA0F /* CardCellView.swift in Sources */,
 				EA58D6D81C99C1DD00593381 /* BaseTransition.swift in Sources */,
+				EABC9C841C9B5367000ACA7E /* PassThroughView.swift in Sources */,
 				EA58D6DA1C99C1F200593381 /* ImageTransition.swift in Sources */,
 				EA8BBC401C9B2A5F00FA2A1E /* Common.swift in Sources */,
 				EA58D6DC1C99C24200593381 /* DetailViewController.swift in Sources */,
@@ -441,12 +449,14 @@
 				EA8BBC3A1C9B0EAE00FA2A1E /* AddEmojiViewController.swift in Sources */,
 				93CFEFF91C8B984800CD37DC /* Card.swift in Sources */,
 				EA3F2BC71C86587000AC0101 /* CreateCardViewController.swift in Sources */,
+				EABC9C881C9B642D000ACA7E /* ColorCell.swift in Sources */,
 				EA3F2BCF1C8658BB00AC0101 /* RemindersViewController.swift in Sources */,
 				EA8BBC3E1C9B12B000FA2A1E /* FadeTransition.swift in Sources */,
 				EA3F2BCD1C8658A500AC0101 /* OnboardingViewController.swift in Sources */,
 				EA3F2B991C86298700AC0101 /* AppDelegate.swift in Sources */,
 				EA3F2BC91C86588200AC0101 /* HomeViewController.swift in Sources */,
 				EA58D6DE1C99E19300593381 /* Share.swift in Sources */,
+				EABC9C861C9B5C92000ACA7E /* ChangeColorViewController.swift in Sources */,
 				EA1D00FA1C9AFC01007A5814 /* ThanksButton.swift in Sources */,
 				EA8BBC3C1C9B0F5600FA2A1E /* EmojiCell.swift in Sources */,
 				93CFEFFB1C8B9A3A00CD37DC /* ParseService.swift in Sources */,
@@ -597,7 +607,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Thanks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.moopoints;
+				PRODUCT_BUNDLE_IDENTIFIER = com.friendly.thanks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Thanks-Bridging-Header.h";
@@ -615,7 +625,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Thanks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.moopoints;
+				PRODUCT_BUNDLE_IDENTIFIER = com.friendly.thanks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Thanks-Bridging-Header.h";

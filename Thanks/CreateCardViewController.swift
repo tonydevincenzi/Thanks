@@ -19,6 +19,8 @@ extension String {
 
 class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    
+    @IBOutlet weak var cardComponentsContainerView: UIView!
     @IBOutlet weak var bodyTextView: UITextView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dateLabelView: UILabel!
@@ -28,18 +30,26 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var photoContainerView: UIView!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var maskedPhotoView: UIImageView!
+    @IBOutlet weak var photoOverlayView: UIView!
     
+    @IBOutlet weak var buttonsContainerView: UIView!
     @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var photoLabel: UILabel!
-    
     @IBOutlet weak var simpleButton: UIButton!
     @IBOutlet weak var simpleLabel: UILabel!
-    
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet weak var colorLabel: UILabel!
     
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var photoNextButton: UIButton!
+    
+    
     var cardStyles = ["simple", "color", "photo"]
     var currentCardStyle = 0
+    
+    var photoOriginalCenter: CGPoint!
+    var maskedPhotoOriginalCenter: CGPoint!
     
     var createdEmojiOriginalCenter: CGPoint!
     var cardOriginalCenter: CGPoint!
@@ -436,6 +446,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
             self.placeholderLabel.textColor = UIColor(hex: colorGray)
             self.nameTextField.textColor = UIColor(hex: colorGray)
             self.addEmojiButton.frame.origin.x = self.cardView.frame.width/2 - 75
+            self.gradientView.alpha = 0
         })
         
         addEmojiButton.setStyleDark()
@@ -453,6 +464,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
             self.placeholderLabel.textColor = UIColor.whiteColor()
             self.nameTextField.textColor = UIColor.whiteColor()
             self.addEmojiButton.frame.origin.x = 20
+            self.gradientView.alpha = 1
         })
         
         addEmojiButton.setStyleLight()
@@ -478,7 +490,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     func imagePickerController(picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [String : AnyObject]) {
             // Get the image captured by the UIImagePickerController
-            let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+            //let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
             let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
             
             UIView.animateWithDuration(0.2, animations: { () -> Void in
@@ -488,15 +500,123 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
                 self.nameTextField.textColor = UIColor.whiteColor()
                 self.addEmojiButton.frame.origin.x = 20
             })
+            cardView.backgroundColor = UIColor.clearColor()
             
-            setPhotoInFrame(editedImage)
+            beginPhotoEditing(editedImage)
            
             dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func setPhotoInFrame(image: UIImage) {
+    func beginPhotoEditing(image: UIImage) {
         //Allow the user to adjust the photo coordinates
-         photoImageView.image = image
+        photoOverlayView.hidden = true
+        photoImageView.image = image
+        maskedPhotoView.image = image
+        maskedPhotoView.hidden = false
+        buttonsContainerView.hidden = true
+        saveButton.hidden = true
+        cardComponentsContainerView.hidden = true
+        addEmojiButton.hidden = true
+        cardView.backgroundColor = UIColor.clearColor()
+        cardView.layer.borderColor = UIColor(white: 1, alpha: 0.5).CGColor
+        cardView.layer.borderWidth = 1
+        photoNextButton.hidden = false
+        gradientView.hidden = true
+        //Eventually hide change photo button
+        
+        let pan = UIPanGestureRecognizer(target: self, action: "panPhoto:")
+        photoImageView.userInteractionEnabled = true
+        photoImageView.addGestureRecognizer(pan)
+        
+        let pinch = UIPinchGestureRecognizer(target: self, action: "pinchPhoto:")
+        pinch.delegate = self
+        photoImageView.addGestureRecognizer(pinch)
+
+        let rotate = UIRotationGestureRecognizer(target: self, action: "rotatePhoto:")
+        photoImageView.addGestureRecognizer(rotate)
+        
+        UIView.animateWithDuration(0.3, delay: 0, options: [], animations: { () -> Void in
+            self.photoImageView.transform = CGAffineTransformMakeScale(0.97, 0.97)
+            }) { (Bool) -> Void in
+                
+                UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: [], animations: { () -> Void in
+                    self.photoImageView.transform = CGAffineTransformMakeScale(1, 1)
+                    }, completion: { (Bool) -> Void in
+                        //
+                })
+                
+        }
+}
+    
+    func endPhotoEditing() {
+        photoOverlayView.hidden = false
+        maskedPhotoView.hidden = true
+        buttonsContainerView.hidden = false
+        saveButton.hidden = false
+        cardComponentsContainerView.hidden = false
+        addEmojiButton.hidden = false
+        cardView.backgroundColor = UIColor.whiteColor()
+        cardView.layer.borderWidth = 0
+        photoNextButton.hidden = true
+        gradientView.hidden = false
+        
+        UIView.animateWithDuration(0.3, delay: 0, options: [], animations: { () -> Void in
+            self.photoImageView.transform = CGAffineTransformScale(self.photoImageView.transform, 0.97, 0.97)
+            }) { (Bool) -> Void in
+                
+                UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: [], animations: { () -> Void in
+                    self.photoImageView.transform = CGAffineTransformScale(self.photoImageView.transform,1, 1)
+                    }, completion: { (Bool) -> Void in
+                        //
+                })
+                
+        }
+
+        for gs in photoImageView.gestureRecognizers! {
+            photoImageView.removeGestureRecognizer(gs)
+        }
+    }
+    
+    func panPhoto(sender: UIPanGestureRecognizer) {
+        
+        //let point = sender.locationInView(view)
+        //let velocity = sender.velocityInView(view)
+        let translation = sender.translationInView(view)
+        
+        if sender.state == UIGestureRecognizerState.Began {
+            photoOriginalCenter = photoImageView.center
+            maskedPhotoOriginalCenter = maskedPhotoView.center
+            
+        } else if sender.state == UIGestureRecognizerState.Changed {
+            photoImageView.center = CGPoint(x: photoOriginalCenter.x + translation.x, y: photoOriginalCenter.y + translation.y)
+            
+            maskedPhotoView.center = CGPoint(x: maskedPhotoOriginalCenter.x + translation.x, y: maskedPhotoOriginalCenter.y + translation.y)
+        } else if sender.state == UIGestureRecognizerState.Ended {
+            
+        }
+    }
+    
+    func pinchPhoto(pinchGestureRecognizer: UIPinchGestureRecognizer) {
+        
+        let scale = pinchGestureRecognizer.scale
+        photoImageView = pinchGestureRecognizer.view as! UIImageView
+        photoImageView.transform = CGAffineTransformScale(photoImageView.transform, scale, scale)
+          maskedPhotoView.transform = CGAffineTransformScale(maskedPhotoView.transform, scale, scale)
+        pinchGestureRecognizer.scale = 1
+        
+    }
+
+    func rotatePhoto(rotationGestureRecognizer: UIRotationGestureRecognizer) {
+        
+        rotation = rotationGestureRecognizer.rotation
+        photoImageView = rotationGestureRecognizer.view as! UIImageView
+        photoImageView.transform = CGAffineTransformRotate(photoImageView.transform, rotation)
+        maskedPhotoView.transform = CGAffineTransformRotate(maskedPhotoView.transform, rotation)
+        rotationGestureRecognizer.rotation = 0
+    }
+    
+    @IBAction func didTapPhotoNext(sender: AnyObject) {
+        endPhotoEditing()
     }
     
     func resetStyleButton(style: Int) {
