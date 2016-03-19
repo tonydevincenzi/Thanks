@@ -9,25 +9,57 @@
 import UIKit
 import Parse
 import ParseUI
+import AFNetworking
 
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var cardImageView: PFImageView!
-//    var imageTransition: ImageTransition!
-//    var cell: UIView!
+    //    var imageTransition: ImageTransition!
+    //    var cell: UIView!
+    
+//    //Alternative 1 using PFImageView and loading the file, will cause Crash unrecognized selector bullshit
+//    @IBOutlet weak var cardImageView: PFImageView!
+
+//    Alternative 2 using ImageView and then loading the data via NSURL, works but slow and not the right solution
+    @IBOutlet weak var cardImageView: UIImageView!
     
     var passedImage: PFFile!
+
     
+    //Failed attempts with various variables and unwrapping stuff
+//    var image : UIImage = UIImage(named: "passedImage")!
+    
+    
+    //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        cardView.addSubview(cell)
-            print("PASSEDIMAGE + \(passedImage)")
-        cardImageView.file = passedImage
-        cardImageView.loadInBackground()
-//        print("CARDIMAGEVIEW +\(cardImageView)")
+        print("PASSEDIMAGE + \(passedImage)")
+        print("PASSEDIMAGURL + \(passedImage.url)")
+        
+        
+        //Alternative 1 using PFImage View and loading file, will cause Crash unrecozngized selector bullshit
+        //        cardImageView.file = passedImage
+        //        cardImageView.loadInBackground()
+        //        print("CARDIMAGEVIEW +\(cardImageView.file)")
+
+        
+        //Alternative 2 via NSURL
+        let cardUrlString = passedImage.url! as String
+        let cardURL = NSURL(string: cardUrlString)!
+        cardImageView.setImageWithURL(cardURL)
+        
+        
+        //Failed attempts
+        //        self.cardImageView?.image = image
+        //        cardView.addSubview(cell)
+        
+    
+
     }
+    
+
+    
     
     @IBAction func didTapDone(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)

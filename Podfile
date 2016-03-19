@@ -7,6 +7,7 @@ target 'Thanks' do
 pod "Parse"
 pod “SwiftHEXColors”
 pod “ParseUI”
+pod “AFNetworking”
 end
 
 target 'ThanksTests' do

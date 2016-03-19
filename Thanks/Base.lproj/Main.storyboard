@@ -107,7 +107,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="cardImageView" destination="Ls0-rc-Uae" id="kGs-Ly-EuG"/>
+                        <outlet property="cardImageView" destination="Ls0-rc-Uae" id="CC4-VZ-uam"/>
                         <outlet property="cardView" destination="JFa-hS-7OZ" id="S8b-gT-e0a"/>
                     </connections>
                 </viewController>
