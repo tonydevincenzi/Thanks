@@ -35,12 +35,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var cards: [Card] = []
 
     var numberOfCards: Int!
-    var imageTransition: ImageTransition!
+    var detailTransition: DetailTransition!
     var tappedCell: UIView!
     var tappedCellY: CGFloat!
     
-    var cardImages = [UIImage(named: "card1"), UIImage(named: "card2"), UIImage(named: "card3")]
-
     
     
     //View Did Load
@@ -140,28 +138,34 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
         
         //Set the cardImage (which is a PFImageView) to the PFFile returned by parse
-        cell.cardImage.file = cards[indexPath.row].image
+        cell.cardImage?.file = cards[indexPath.row].image
         cell.cardImage.loadInBackground()
         
-        //Add a tap recognizer on each cell
-        let tapGesture = UITapGestureRecognizer(target: self, action: "tapCell:")
-        
-        cell.userInteractionEnabled = true
-        cell.addGestureRecognizer(tapGesture)
+//        //Add a tap recognizer on each cell
+//        let tapGesture = UITapGestureRecognizer(target: self, action: "tapCell:")
+//        
+//        cell.userInteractionEnabled = true
+//        cell.addGestureRecognizer(tapGesture)
 
         return cell
     }
     
-    //Tap cell recognizer - we might remove this and use the native collectionView functionality
-    func tapCell(sender: UITapGestureRecognizer) {
-        
-        //When the cell is tapped, transition to modal
-        tappedCell = sender.view
-        tappedCellY = sender.view!.frame.origin.y
-        performSegueWithIdentifier("showDetail", sender: self)
-        
-    }
+//    //Tap cell recognizer - we might remove this and use the native collectionView functionality
+//    func tapCell(sender: UITapGestureRecognizer) {
+//        
+//        //When the cell is tapped, transition to modal
+//        tappedCell = sender.view
+//        tappedCellY = sender.view!.frame.origin.y
+//        performSegueWithIdentifier("showDetail", sender: self)
+//        
+//    }
     
+    
+    //Segue for Cell
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showDetail", sender: self)
+        print(indexPath.row)
+    }
     
 
     //Passing data in Segue
@@ -172,14 +176,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             return
         }
         
+        
+        //Segue to Detail View Controller
         if segue.identifier == "showDetail" {
+            
+            let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
+            let indexPath = indexPaths[0] as NSIndexPath
+            print("INDEXPATH +\(indexPath.row)")
+            print("INDEXPATH +\(cards[indexPath.row].image)")
+            
             let destinationViewController = segue.destinationViewController as! DetailViewController
-            destinationViewController.cell = tappedCell
+            destinationViewController.passedImage = self.cards[indexPath.row].image!
+            
             
             destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
-            imageTransition = ImageTransition()
-            destinationViewController.transitioningDelegate = imageTransition
-            imageTransition.duration = 0.5
+            detailTransition = DetailTransition()
+            destinationViewController.transitioningDelegate = detailTransition
+            detailTransition.duration = 0.3
         }
         
         

@@ -132,11 +132,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="contentInset" minX="0.0" minY="80" maxX="0.0" maxY="0.0"/>
                                 <collectionViewLayout key="collectionViewLayout" id="rTF-Tx-TDS" customClass="CustomCollectionViewFlowLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCellView" id="1AH-0J-dbm" customClass="CardCellView" customModule="Thanks" customModuleProvider="target">
-                                        <rect key="frame" x="35" y="80" width="305" height="407"/>
+                                        <rect key="frame" x="35" y="0.0" width="305" height="407"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="305" height="407"/>
@@ -174,6 +173,11 @@
                                 <rect key="frame" x="153" y="28" width="68" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="thanks_logo"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MJv-Nv-KcE">
+                                <rect key="frame" x="121" y="564" width="132" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="share_button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
@@ -562,10 +566,11 @@
         <image name="closemodal" width="39" height="39"/>
         <image name="new_card_icon" width="76" height="100"/>
         <image name="settings_icon" width="100" height="100"/>
+        <image name="share_button" width="264" height="95"/>
         <image name="thanks_logo" width="135" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="bnl-DM-yLh"/>
         <segue reference="Cvl-8I-BgK"/>
-        <segue reference="WjR-6L-uE6"/>
     </inferredMetricsTieBreakers>
 </document>

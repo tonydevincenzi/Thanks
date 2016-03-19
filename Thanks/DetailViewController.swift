@@ -7,18 +7,26 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var cardImageView: UIImageView!
-    var imageTransition: ImageTransition!
-    var cell: UIView!
+    @IBOutlet weak var cardImageView: PFImageView!
+//    var imageTransition: ImageTransition!
+//    var cell: UIView!
+    
+    var passedImage: PFFile!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cardView.addSubview(cell)
+//        cardView.addSubview(cell)
+            print("PASSEDIMAGE + \(passedImage)")
+        cardImageView.file = passedImage
+        cardImageView.loadInBackground()
+//        print("CARDIMAGEVIEW +\(cardImageView)")
     }
     
     @IBAction func didTapDone(sender: AnyObject) {

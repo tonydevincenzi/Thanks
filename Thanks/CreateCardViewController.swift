@@ -766,7 +766,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         
         if segue.identifier! == "showDetailFromSave" {
             let destinationViewController = segue.destinationViewController as! DetailViewController
-            destinationViewController.cell = cardView
+//            destinationViewController.cell = cardView
             
             destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
             saveTransition = SaveTransition()
