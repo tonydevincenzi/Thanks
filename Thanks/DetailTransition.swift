@@ -16,12 +16,14 @@ class DetailTransition: BaseTransition {
         let homeViewController = fromViewController as! HomeViewController
         let detailViewController = toViewController as! DetailViewController
         let destinationViewFrame = detailViewController.cardView.frame
-        
 
         let movingImageView = PFImageView()
         
         //Set the frame for the moving view from the tapped cell
         movingImageView.frame = homeViewController.tappedCellFrame
+        
+        //Set the origin of the selectedImage according to scroll
+        movingImageView.frame.origin.x -= homeViewController.collectionView.contentOffset.x
         
         //Assign the image through using the tappedCellData PFFile
         movingImageView.file = homeViewController.tappedCellData

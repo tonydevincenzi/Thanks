@@ -145,24 +145,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cell.cardImage?.file = cards[indexPath.row].image!
         cell.cardImage.loadInBackground()
         
-//        //Add a tap recognizer on each cell
-//        let tapGesture = UITapGestureRecognizer(target: self, action: "tapCell:")
-//        
-//        cell.userInteractionEnabled = true
-//        cell.addGestureRecognizer(tapGesture)
-
         return cell
     }
     
-//    //Tap cell recognizer - we might remove this and use the native collectionView functionality
-//    func tapCell(sender: UITapGestureRecognizer) {
-//        
-//        //When the cell is tapped, transition to modal
-//        tappedCell = sender.view
-//        tappedCellY = sender.view!.frame.origin.y
-//        performSegueWithIdentifier("showDetail", sender: self)
-//        
-//    }
     
     
     //Segue for Cell
@@ -186,6 +171,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.performSegueWithIdentifier("showDetail", sender: self)
     }
     
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        print(collectionView.contentOffset.x)
+        
+    }
+    
 
     //Passing data in Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -201,11 +193,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
             let indexPath = indexPaths[0] as NSIndexPath
-            //print("INDEXPATH +\(indexPath.row)")
-            //print("INDEXPATH +\(cards[indexPath.row].image)")
             
             let destinationViewController = segue.destinationViewController as! DetailViewController
-            
             destinationViewController.passedImage = self.cards[indexPath.row].image!
             
             
