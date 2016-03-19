@@ -75,7 +75,7 @@
                                 <rect key="frame" x="17" y="94" width="340" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ls0-rc-Uae">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ls0-rc-Uae" customClass="PFImageView">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="480"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -107,7 +107,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="cardImageView" destination="Ls0-rc-Uae" id="CC4-VZ-uam"/>
+                        <outlet property="cardImageView" destination="Ls0-rc-Uae" id="9FC-wJ-rs4"/>
                         <outlet property="cardView" destination="JFa-hS-7OZ" id="S8b-gT-e0a"/>
                     </connections>
                 </viewController>

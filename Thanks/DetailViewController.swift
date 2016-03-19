@@ -21,7 +21,7 @@ class DetailViewController: UIViewController {
 //    @IBOutlet weak var cardImageView: PFImageView!
 
 //    Alternative 2 using ImageView and then loading the data via NSURL, works but slow and not the right solution
-    @IBOutlet weak var cardImageView: UIImageView!
+    @IBOutlet weak var cardImageView: PFImageView!
     
     var passedImage: PFFile!
 
@@ -34,8 +34,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("PASSEDIMAGE + \(passedImage)")
-        print("PASSEDIMAGURL + \(passedImage.url)")
+        cardImageView.file = passedImage
+        //print("PASSEDIMAGURL + \(passedImage.url)")
         
         
         //Alternative 1 using PFImage View and loading file, will cause Crash unrecozngized selector bullshit
@@ -43,11 +43,15 @@ class DetailViewController: UIViewController {
         //        cardImageView.loadInBackground()
         //        print("CARDIMAGEVIEW +\(cardImageView.file)")
 
+        //cell.cardImage?.file = cards[indexPath.row].image
+        //cell.cardImage.loadInBackground()
+        
+        
         
         //Alternative 2 via NSURL
-        let cardUrlString = passedImage.url! as String
-        let cardURL = NSURL(string: cardUrlString)!
-        cardImageView.setImageWithURL(cardURL)
+        //let cardUrlString = passedImage.url! as String
+        //let cardURL = NSURL(string: cardUrlString)!
+        //cardImageView.setImageWithURL(cardURL)
         
         
         //Failed attempts

@@ -138,7 +138,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
         
         //Set the cardImage (which is a PFImageView) to the PFFile returned by parse
-        cell.cardImage?.file = cards[indexPath.row].image
+        
+        print(cards[indexPath.row].image!)
+        
+        cell.cardImage?.file = cards[indexPath.row].image!
         cell.cardImage.loadInBackground()
         
 //        //Add a tap recognizer on each cell
@@ -182,10 +185,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
             let indexPath = indexPaths[0] as NSIndexPath
-            print("INDEXPATH +\(indexPath.row)")
-            print("INDEXPATH +\(cards[indexPath.row].image)")
+            //print("INDEXPATH +\(indexPath.row)")
+            //print("INDEXPATH +\(cards[indexPath.row].image)")
             
             let destinationViewController = segue.destinationViewController as! DetailViewController
+            
             destinationViewController.passedImage = self.cards[indexPath.row].image!
             
             
