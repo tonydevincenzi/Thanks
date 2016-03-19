@@ -7,14 +7,37 @@
 //
 
 import UIKit
+import ParseUI
 
 class DetailTransition: BaseTransition {
     
     override func presentTransition(containerView: UIView, fromViewController: UIViewController, toViewController: UIViewController) {
         
+        let homeViewController = fromViewController as! HomeViewController
+        let detailViewController = toViewController as! DetailViewController
+        let destinationViewFrame = detailViewController.cardView.frame
+        
+
+        let movingImageView = PFImageView()
+        
+        //Set the frame for the moving view from the tapped cell
+        movingImageView.frame = homeViewController.tappedCellFrame
+        
+        //Assign the image through using the tappedCellData PFFile
+        movingImageView.file = homeViewController.tappedCellData
+        
+        containerView.addSubview(movingImageView)
+
+        //Hide the initial and final images
+        homeViewController.tappedCell.hidden = true
+        detailViewController.cardView.hidden = true
+        
         toViewController.view.alpha = 0
+        
         UIView.animateWithDuration(duration, animations: {
             toViewController.view.alpha = 1
+            movingImageView.frame = destinationViewFrame
+
             }) { (finished: Bool) -> Void in
                 self.finish()
         }

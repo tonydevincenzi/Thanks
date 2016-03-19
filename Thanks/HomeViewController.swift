@@ -37,7 +37,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var numberOfCards: Int!
     var detailTransition: DetailTransition!
     var tappedCell: UIView!
-    var tappedCellY: CGFloat!
+    var tappedCellData: PFFile!
+    var tappedCellFrame: CGRect!
     
     
     
@@ -166,8 +167,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //Segue for Cell
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell: UICollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath)!
+        let cellAttributes: UICollectionViewLayoutAttributes = self.collectionView.layoutAttributesForItemAtIndexPath(indexPath)!
+        let frame = cellAttributes.frame
+        
+        let data: PFFile = cards[indexPath.row].image!
+        
+        //Save the selected cell's PFData
+        tappedCellData = data
+        
+        //Save the actual selected cell
+        tappedCell = cell
+        
+        //Save the selected cell's frame, you cannot infer this from the saved cell (tappedCell), you have to save via layoutAttributesForItemAtIndexPath... see *cellAttributes* above
+        tappedCellFrame = frame
+        
         self.performSegueWithIdentifier("showDetail", sender: self)
-        print(indexPath.row)
     }
     
 

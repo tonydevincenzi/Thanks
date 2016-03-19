@@ -52,7 +52,6 @@ class ImageTransition: BaseTransition {
         let detailViewController = fromViewController as! DetailViewController
         
         var destinationViewFrame = homeViewController.tappedCell.frame
-        destinationViewFrame.origin.y = homeViewController.tappedCellY
         
         destinationViewFrame.origin.y -= homeViewController.collectionView.contentOffset.y
         
@@ -75,7 +74,6 @@ class ImageTransition: BaseTransition {
                 
                 //movingView.hidden = true
                 homeViewController.tappedCell.hidden = false
-                homeViewController.tappedCell.frame.origin.y = homeViewController.tappedCellY
                 homeViewController.tappedCell = movingView
                
                 //detailViewController.cardView.hidden = true
