@@ -180,7 +180,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="new_card_icon"/>
                                 <connections>
-                                    <segue destination="t7N-kt-Mnd" kind="modal" id="Ym9-Uz-327"/>
+                                    <segue destination="t7N-kt-Mnd" kind="modal" identifier="newCard" id="Ym9-Uz-327"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NNT-es-lSd">

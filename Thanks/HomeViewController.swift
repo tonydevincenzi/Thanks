@@ -36,6 +36,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     var numberOfCards: Int!
     var detailTransition: DetailTransition!
+    var fadeTransition: FadeTransition!
     var tappedCell: UIView!
     var tappedCellData: PFFile!
     var tappedCellFrame: CGRect!
@@ -184,7 +185,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         //This lets us use the newCard segue without using the DetailView code below
         if segue.identifier == "newCard" {
-            return
+            
+            let destinationViewController = segue.destinationViewController as! CreateCardViewController
+            destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+            fadeTransition = FadeTransition()
+            destinationViewController.transitioningDelegate = fadeTransition
+            fadeTransition.duration = 0.3
         }
         
         
@@ -201,7 +207,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
             detailTransition = DetailTransition()
             destinationViewController.transitioningDelegate = detailTransition
-            detailTransition.duration = 0.3
+            detailTransition.duration = 0.4
         }
         
         
