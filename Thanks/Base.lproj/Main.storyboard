@@ -82,7 +82,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1FR-Ij-301">
-                                <rect key="frame" x="89" y="587" width="196" height="48"/>
+                                <rect key="frame" x="89" y="564" width="196" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Share" image="share_button_large">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.71174031825153372" colorSpace="calibratedRGB"/>

@@ -47,7 +47,7 @@ final class ParseService {
             }
 
             //Once we have built the entire array, trigger the callback
-            onComplete(self.cards)
+            onComplete(self.cards.reverse())
         }
     }
     
