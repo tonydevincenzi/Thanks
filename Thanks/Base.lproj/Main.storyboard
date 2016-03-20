@@ -71,44 +71,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="JFa-hS-7OZ">
-                                <rect key="frame" x="17" y="94" width="340" height="480"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iG0-wj-jSJ">
+                                <rect key="frame" x="1" y="17" width="38" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ls0-rc-Uae" customClass="PFImageView">
-                                        <rect key="frame" x="0.0" y="0.0" width="340" height="480"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.9518054387861703" green="0.9518054387861703" blue="0.9518054387861703" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iG0-wj-jSJ">
-                                <rect key="frame" x="320" y="20" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done">
+                                <state key="normal" image="back_icon">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapDone:" destination="8f4-8X-iaW" eventType="touchUpInside" id="IYn-UZ-xVa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1FR-Ij-301">
-                                <rect key="frame" x="167" y="605" width="40" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1FR-Ij-301">
+                                <rect key="frame" x="89" y="587" width="196" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Share">
+                                <state key="normal" title="Share" image="share_button_large">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.71174031825153372" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapShare:" destination="8f4-8X-iaW" eventType="touchUpInside" id="hgM-81-N8J"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ANx-6z-ji5">
+                                <rect key="frame" x="329" y="18" width="46" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="trash_icon"/>
+                            </button>
+                            <view contentMode="scaleToFill" id="JFa-hS-7OZ">
+                                <rect key="frame" x="12" y="58" width="350" height="466"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ls0-rc-Uae" customClass="PFImageView">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="466"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.71174031825153372" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.14901960780000001" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="backButton" destination="iG0-wj-jSJ" id="mgj-Jm-yaq"/>
                         <outlet property="cardImageView" destination="Ls0-rc-Uae" id="9FC-wJ-rs4"/>
                         <outlet property="cardView" destination="JFa-hS-7OZ" id="S8b-gT-e0a"/>
+                        <outlet property="shareButton" destination="1FR-Ij-301" id="h5M-xj-dcE"/>
+                        <outlet property="trashButton" destination="ANx-6z-ji5" id="3yw-ZM-Z9L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OgS-qL-Wpi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -157,12 +164,12 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="usr-kX-4Zs">
-                                <rect key="frame" x="20" y="25" width="25" height="25"/>
+                                <rect key="frame" x="12" y="25" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="settings_icon"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Deh-H4-tQX">
-                                <rect key="frame" x="327" y="25" width="19" height="25"/>
+                                <rect key="frame" x="342" y="25" width="19" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="new_card_icon"/>
                                 <connections>
@@ -563,11 +570,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="back_icon" width="12" height="21"/>
         <image name="closemodal" width="39" height="39"/>
         <image name="new_card_icon" width="76" height="100"/>
         <image name="settings_icon" width="100" height="100"/>
         <image name="share_button" width="264" height="95"/>
+        <image name="share_button_large" width="401" height="95"/>
         <image name="thanks_logo" width="135" height="37"/>
+        <image name="trash_icon" width="21" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bnl-DM-yLh"/>

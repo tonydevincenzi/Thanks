@@ -17,6 +17,10 @@ class DetailViewController: UIViewController {
     //Outlets
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var cardImageView: PFImageView!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var trashButton: UIButton!
+    
     
     
     //Variables
