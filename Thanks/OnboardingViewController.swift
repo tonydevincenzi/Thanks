@@ -21,6 +21,12 @@ class OnboardingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    //Hide status bar
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 
     /*
     // MARK: - Navigation

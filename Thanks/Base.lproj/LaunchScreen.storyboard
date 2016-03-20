@@ -20,14 +20,21 @@
                                 <color key="textColor" red="0.39315990691489366" green="0.39315990691489366" blue="0.39315990691489366" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="0.40251354858077532" green="0.43052506228659881" blue="0.43919340093085102" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="splash_screen" id="V6X-ym-5lB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.15686274509803921" green="0.68627450980392157" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28" y="355"/>
+            <point key="canvasLocation" x="27.5" y="354.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splash_screen" width="370" height="667"/>
+    </resources>
 </document>
