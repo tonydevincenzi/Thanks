@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D5E3AF91C9F1EBA00B68A75 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5E3AF81C9F1EBA00B68A75 /* SettingsViewController.swift */; };
 		3D70BDF01C9CD78600014AC0 /* DetailTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D70BDEF1C9CD78600014AC0 /* DetailTransition.swift */; };
 		3D73D4631C9B09840074DB39 /* CustomCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */; };
 		5DFE360403C2AB029F34402D /* Pods_Thanks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A73399B9E41BA524E49DA89 /* Pods_Thanks.framework */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		0A73399B9E41BA524E49DA89 /* Pods_Thanks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thanks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D5E3AF81C9F1EBA00B68A75 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3D70BDEF1C9CD78600014AC0 /* DetailTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTransition.swift; sourceTree = "<group>"; };
 		3D73D4611C9B09840074DB39 /* CustomCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewFlowLayout.m; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				EA58D6DB1C99C24200593381 /* DetailViewController.swift */,
 				EABC9C851C9B5C92000ACA7E /* ChangeColorViewController.swift */,
 				EA3F2BC61C86587000AC0101 /* CreateCardViewController.swift */,
+				3D5E3AF81C9F1EBA00B68A75 /* SettingsViewController.swift */,
 				EA8BBC391C9B0EAE00FA2A1E /* AddEmojiViewController.swift */,
 				EA3F2BCE1C8658BB00AC0101 /* RemindersViewController.swift */,
 			);
@@ -452,6 +455,7 @@
 				EA8BBC401C9B2A5F00FA2A1E /* Common.swift in Sources */,
 				EA58D6DC1C99C24200593381 /* DetailViewController.swift in Sources */,
 				3D73D4631C9B09840074DB39 /* CustomCollectionViewFlowLayout.m in Sources */,
+				3D5E3AF91C9F1EBA00B68A75 /* SettingsViewController.swift in Sources */,
 				EA8BBC3A1C9B0EAE00FA2A1E /* AddEmojiViewController.swift in Sources */,
 				93CFEFF91C8B984800CD37DC /* Card.swift in Sources */,
 				EA3F2BC71C86587000AC0101 /* CreateCardViewController.swift in Sources */,

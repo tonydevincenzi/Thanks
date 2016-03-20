@@ -193,6 +193,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             fadeTransition.duration = 0.3
         }
         
+        //Settings Segue
+        if segue.identifier == "settingsSegue" {
+            
+            let destinationViewController = segue.destinationViewController as! SettingsViewController
+            destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+            fadeTransition = FadeTransition()
+            destinationViewController.transitioningDelegate = fadeTransition
+            fadeTransition.duration = 0.3
+        }
+        
         
         //Segue to Detail View Controller
         if segue.identifier == "showDetail" {
@@ -207,7 +217,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
             detailTransition = DetailTransition()
             destinationViewController.transitioningDelegate = detailTransition
-            detailTransition.duration = 0.4
+            detailTransition.duration = 0.3
         }
         
         

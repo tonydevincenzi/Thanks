@@ -129,6 +129,31 @@
             </objects>
             <point key="canvasLocation" x="1876.5" y="1288.5"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="yVB-2o-umT">
+            <objects>
+                <viewController id="Pzm-g4-oO1" customClass="SettingsViewController" customModule="Thanks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vkE-qa-bID">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R9V-Rm-lE1">
+                                <rect key="frame" x="1" y="17" width="38" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back_icon"/>
+                                <connections>
+                                    <action selector="didTapBack:" destination="Pzm-g4-oO1" eventType="touchUpInside" id="i5f-DZ-ZDp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.14901960780000001" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ouu-kz-TmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1853.5" y="-432.5"/>
+        </scene>
         <!--Home View-->
         <scene sceneID="gDO-dg-vJV">
             <objects>
@@ -174,6 +199,9 @@
                                 <rect key="frame" x="12" y="25" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="settings_icon"/>
+                                <connections>
+                                    <segue destination="Pzm-g4-oO1" kind="modal" identifier="settingsSegue" id="DDX-5R-JsH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Deh-H4-tQX">
                                 <rect key="frame" x="342" y="25" width="19" height="25"/>
