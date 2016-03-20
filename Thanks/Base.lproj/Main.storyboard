@@ -71,6 +71,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="F0w-35-CIC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="JFa-hS-7OZ">
+                                        <rect key="frame" x="12" y="58" width="350" height="466"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ls0-rc-Uae" customClass="PFImageView">
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="466"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iG0-wj-jSJ">
                                 <rect key="frame" x="1" y="17" width="38" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -96,24 +113,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="trash_icon"/>
                             </button>
-                            <view contentMode="scaleToFill" id="JFa-hS-7OZ">
-                                <rect key="frame" x="12" y="58" width="350" height="466"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ls0-rc-Uae" customClass="PFImageView">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="466"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.14901960780000001" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="backButton" destination="iG0-wj-jSJ" id="mgj-Jm-yaq"/>
                         <outlet property="cardImageView" destination="Ls0-rc-Uae" id="9FC-wJ-rs4"/>
                         <outlet property="cardView" destination="JFa-hS-7OZ" id="S8b-gT-e0a"/>
+                        <outlet property="scrollView" destination="F0w-35-CIC" id="Y2T-9Z-ijV"/>
                         <outlet property="shareButton" destination="1FR-Ij-301" id="h5M-xj-dcE"/>
                         <outlet property="trashButton" destination="ANx-6z-ji5" id="3yw-ZM-Z9L"/>
                     </connections>

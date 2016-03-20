@@ -11,7 +11,7 @@ import Parse
 import ParseUI
 import AFNetworking
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     
     //Outlets
@@ -20,6 +20,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var trashButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     
@@ -33,6 +34,13 @@ class DetailViewController: UIViewController {
         
         //Load passed image into cardImageView
         cardImageView.file = passedImage
+        
+        //Set scrollView content size
+        scrollView.contentSize = CGSize(width: 375, height: 667)
+        
+        //Register for scroll events
+        scrollView.delegate = self
+        
     }
     
 
@@ -47,6 +55,76 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //Scrollview begins scrolling
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        print("begin dragging")
+        
+        UIView.animateWithDuration(0.05) { () -> Void in
+            self.backButton.alpha = 0
+            self.trashButton.alpha = 0
+            self.shareButton.alpha = 0
+        }
+    }
+    
+    
+    //Scrollview is scrolling
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        print("hallo")
+        print(scrollView.contentOffset.y)
+        
+        //Convert background alpha according to scroll offset
+        let convertedAlphaPos = convertValue(scrollView.contentOffset.y, r1Min: 0, r1Max: 250, r2Min: 1, r2Max: 0)
+        let convertedAlphaNeg = convertValue(scrollView.contentOffset.y, r1Min: 0, r1Max: -250, r2Min: 1, r2Max: 0)
+        
+        //Change background alpha based on scrolling
+        if scrollView.contentOffset.y > 0 {
+            scrollView.backgroundColor = UIColor(white: 0, alpha: convertedAlphaPos)
+        } else if scrollView.contentOffset.y < 0 {
+            scrollView.backgroundColor = UIColor(white: 0, alpha: convertedAlphaNeg)
+        }
+        
+    }
+    
+    
+    
+    //Scrollview ended dragging
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        print("end dragging")
+        if scrollView.contentOffset.y >= 70 {
+            dismissViewControllerAnimated(true, completion: nil)
+        } else if scrollView.contentOffset.y <= -70 {
+            dismissViewControllerAnimated(true, completion: nil)
+        } else if scrollView.contentOffset.y > 0 && scrollView.contentOffset.y < 70 {
+            print("should animate back")
+            
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.scrollView.contentOffset.y = 0
+                }, completion: { (Bool) -> Void in
+                    
+                    UIView.animateWithDuration(0.5, animations: { () -> Void in
+                        self.backButton.alpha = 1
+                        self.trashButton.alpha = 1
+                        self.shareButton.alpha = 1
+                    })
+
+            })
+            
+
+        } else if scrollView.contentOffset.y < 0 && scrollView.contentOffset.y > -70 {
+            
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.backButton.alpha = 1
+                self.trashButton.alpha = 1
+                self.shareButton.alpha = 1
+            })
+        }
+    }
+    
+    
+    
+    
+    //Share Button
     @IBAction func didTapShare(sender: AnyObject) {
         
         //TODO: Move into Share.swift
