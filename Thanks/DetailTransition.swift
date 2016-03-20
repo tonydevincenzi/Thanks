@@ -92,6 +92,10 @@ class DetailTransition: BaseTransition {
         var destinationViewFrame = homeViewController.tappedCellFrame
         destinationViewFrame.origin.x -= homeViewController.collectionView.contentOffset.x
         
+        //Set the origin of the cloned image before the animation to be according to scroll on Detail VC
+        movingImageView.frame.origin.y -= detailViewController.scrollView.contentOffset.y
+        
+        
         //Add cloned image
         containerView.addSubview(movingImageView)
         

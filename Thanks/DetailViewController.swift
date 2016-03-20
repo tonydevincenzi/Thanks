@@ -60,7 +60,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         print("begin dragging")
         
-        UIView.animateWithDuration(0.05) { () -> Void in
+        UIView.animateWithDuration(0.1) { () -> Void in
             self.backButton.alpha = 0
             self.trashButton.alpha = 0
             self.shareButton.alpha = 0
