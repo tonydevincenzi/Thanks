@@ -547,6 +547,14 @@
                                     <action selector="didTapPhotoNext:" destination="t7N-kt-Mnd" eventType="touchUpInside" id="R34-eA-uIw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cWL-94-xO0">
+                                <rect key="frame" x="12" y="15" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="CANCEL"/>
+                                <connections>
+                                    <action selector="didTapCancel:" destination="t7N-kt-Mnd" eventType="touchUpInside" id="H7r-Jp-edY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                     </view>

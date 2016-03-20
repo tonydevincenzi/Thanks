@@ -739,6 +739,14 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         return true
     }
     
+    
+    //Cancel create flow
+    @IBAction func didTapCancel(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    
     func transitionToHomeView() {
         //returnToHomeView
         self.dismissViewControllerAnimated(true, completion: nil)
