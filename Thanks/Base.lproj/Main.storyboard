@@ -16,6 +16,7 @@
         <mutableArray key="sinanova_regular.34912673.cache.otf">
             <string>SinaNova-Regular</string>
             <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -68,16 +69,42 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lpv-Tv-mmM" kind="push" id="2si-PG-57Y"/>
+                                    <segue destination="lpv-Tv-mmM" kind="push" identifier="createAccount" id="2si-PG-57Y"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="label_name" id="xsj-Xq-7T4">
+                                <rect key="frame" x="82" y="72" width="211" height="28"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="separator" id="bPM-YB-oPc">
+                                <rect key="frame" x="61" y="189" width="253" height="1"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" id="7lP-rF-ByP">
+                                <rect key="frame" x="66" y="160" width="243" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.87058823529411766" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="b21-hA-X2W" appends="YES" id="TgQ-ci-1Z2"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="2HV-b2-Z8b"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="nameField" destination="7lP-rF-ByP" id="l4N-zh-een"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvd-jU-8ZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="b21-hA-X2W">
+                    <connections>
+                        <action selector="tappedView:" destination="fZ7-xM-bwD" id="rqz-0H-ANa"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1798.5" y="405.5"/>
         </scene>
@@ -664,10 +691,12 @@
     <resources>
         <image name="back_icon" width="12" height="21"/>
         <image name="closemodal" width="39" height="39"/>
+        <image name="label_name" width="211" height="28"/>
         <image name="new_card_icon" width="76" height="100"/>
         <image name="next_button" width="30" height="10"/>
         <image name="onboarding1" width="286" height="242"/>
         <image name="save_button" width="32" height="11"/>
+        <image name="separator" width="253" height="1"/>
         <image name="settings_icon" width="100" height="100"/>
         <image name="share_button" width="264" height="95"/>
         <image name="share_button_large" width="401" height="95"/>
