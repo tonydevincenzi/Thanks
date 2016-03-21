@@ -77,6 +77,12 @@ final class ParseService {
         
     }
     
+    func requestUserPasswordReset() {
+        print("Resetting password")
+        PFUser.requestPasswordResetForEmailInBackground("Tonydev@gmail.com")
+
+    }
+    
     func deleteUser() {
         //This is destructive and permanently delets the current user.
         let user = PFUser.currentUser()

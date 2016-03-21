@@ -42,7 +42,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         emailField.hidden = true
         passwordField.hidden = true
         skipButton.hidden = true
-        showLoginButton.hidden = true
+        showLoginButton.hidden = false
         createAccountButton.hidden = true
         backButton.hidden = true
         emailField.alpha = 0
@@ -244,10 +244,18 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         showLoginButton.hidden = true
         loginButton.alpha = 1
         createAccountButton.alpha = 0
-
+        emailField.hidden = false
+        passwordField.hidden = false
+        emailField.alpha = 0
+        passwordField.alpha = 0
+        self.nameField.alpha = 1
+        
         UIView.animateWithDuration(0.3) { () -> Void in
+            self.emailField.alpha = 1
+            self.passwordField.alpha = 1
             self.nameField.alpha = 0
-            self.fieldsContainer.frame.origin.y -= 30
+            self.headerLabel.frame.origin.y = 65
+            self.fieldsContainer.frame.origin.y = 130
         }
     }
     
