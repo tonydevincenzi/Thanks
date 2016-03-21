@@ -106,7 +106,8 @@ class RemindersViewController: UIViewController {
             default:
             break;
         }
-        
+                
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         
     }
