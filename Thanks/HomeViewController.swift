@@ -114,6 +114,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //Refresh
     func refreshCollection(notification: NSNotification){
+        print("refreshing...")
         loadData()
     }
     

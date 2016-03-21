@@ -44,6 +44,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func didTapDone(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -80,8 +81,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
-    
-    
     //Scrollview ended dragging
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView.contentOffset.y >= 70 {
@@ -103,7 +102,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    
     @IBAction func didTapDelete(sender: AnyObject) {
         
         //TODO: Show alert sheet
@@ -120,6 +118,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                     self.cardView.alpha = 0
                     }, completion: { (Bool) -> Void in
                         //self.cardView.removeFromSuperview()
+                        NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
                         self.dismissViewControllerAnimated(true, completion: nil)
                 })
         })
