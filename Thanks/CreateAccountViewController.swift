@@ -25,14 +25,10 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     var states = ["login", "signup"]
     var currentState = ""
     
-    //let createAccountButton:ThanksButton = ThanksButton()
-    //let loginButton:ThanksButton = ThanksButton()
-
-    //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var currentState = states[0]
+        currentState = states[0]
 
         //Text field delegate to be able to cause actions from keyboard return key
         nameField.delegate = self
@@ -49,25 +45,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         showLoginButton.hidden = true
         createAccountButton.hidden = true
         backButton.hidden = true
-        
         emailField.alpha = 0
         passwordField.alpha = 0
-        
-        //
-        //Below blocks are implimentaiton of larger create & login buttons. May revisit later.
-        //
-        //        createAccountButton.format(" Create Account", image: nil, tag: 0, xpos: fieldsContainer.frame.width/2 - 125, ypos:fieldsContainer.frame.height - 130, width: 250, height: 30, shadow: false)
-        //        createAccountButton.setStyleWhite("BE3739")
-        //        createAccountButton.hidden = true
-        //        createAccountButton.addTarget(self, action: "didTapCreateAccount:", forControlEvents: UIControlEvents.TouchUpInside)
-        //        fieldsContainer.addSubview(createAccountButton)
-        //        
-        //        loginButton.format("Login", image: nil, tag: 0, xpos: fieldsContainer.frame.width/2 - 125, ypos:fieldsContainer.frame.height - 70, width: 250, height: 30, shadow: false)
-        //        loginButton.setStyleWhite("BE3739")
-        //        loginButton.hidden = true
-        //        loginButton.addTarget(self, action: "didTapLogin:", forControlEvents: UIControlEvents.TouchUpInside)
-        //        
-        //        fieldsContainer.addSubview(loginButton)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
 
@@ -75,6 +54,10 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         //NOTE: This should be removed later if this view is reuused to convert the signup at a later point
         let parseService = ParseService()
         parseService.logOutUser()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        nameField.becomeFirstResponder()
     }
     
     func editedField(sender: UITextField?) {
@@ -193,19 +176,11 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         sender.layer.addSublayer(border)
         sender.layer.masksToBounds = true
     }
-
-    //ViewDidAppear
-    override func viewDidAppear(animated: Bool) {
-        nameField.becomeFirstResponder()
-    }
-    
     
     //Hook up keyboard return key action
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
         nameField.resignFirstResponder()
         showSignUp()
-        //nextStep()
         return true
     }
     
@@ -225,9 +200,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         passwordField.addTarget(self, action:"editedField:", forControlEvents:UIControlEvents.EditingChanged)
         emailField.becomeFirstResponder()
         headerLabel.text = "Create an account and we will save your cards."
-        editedField(nil)
-
         showLoginButton.alpha = 0
+        editedField(nil)
 
         UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.headerLabel.frame.origin.y = 65
@@ -235,7 +209,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 self.emailField.alpha = 1
                 self.passwordField.alpha = 1
                 self.nameField.alpha = 1
-                //self.createAccountButton.alpha = 1
             }) { (Bool) -> Void in
                 UIView.animateWithDuration(0.2, animations: { () -> Void in
                     self.showLoginButton.alpha = 0.5
@@ -289,14 +262,11 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         //action events
     }
     
-    
-    
     //Hide status bar
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
 
-    
     //Hide keyboard on tap
     @IBAction func tappedView(sender: AnyObject) {
         //view.endEditing(true)
@@ -307,7 +277,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         let keyboardFrame:NSValue = userInfo.valueForKey(UIKeyboardFrameEndUserInfoKey) as! NSValue
         let keyboardRectangle = keyboardFrame.CGRectValue()
         let keyboardHeight = keyboardRectangle.height
-        
         showLoginButton.frame.origin.y = self.view.frame.height - keyboardHeight - showLoginButton.frame.height - 15
 
     }
