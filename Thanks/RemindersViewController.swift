@@ -92,13 +92,13 @@ class RemindersViewController: UIViewController {
                 localNotification.repeatInterval = NSCalendarUnit.Day
             break;
             case 1: // Weekly
-                localNotification.repeatInterval = NSCalendarUnit.Weekday // Not sure this is every 7 days
+                localNotification.repeatInterval = NSCalendarUnit.Weekday
             break;
             case 2: // Monthly
-                localNotification.repeatInterval = NSCalendarUnit.Month // Not sure where the start date is
+                localNotification.repeatInterval = NSCalendarUnit.Month
             break;
             case 3: // Yearly
-                localNotification.repeatInterval = NSCalendarUnit.Year // Not sure where the start date is
+                localNotification.repeatInterval = NSCalendarUnit.Year
             break;
             case 4: // Never
             break;
@@ -106,7 +106,7 @@ class RemindersViewController: UIViewController {
             default:
             break;
         }
-                
+        
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         
