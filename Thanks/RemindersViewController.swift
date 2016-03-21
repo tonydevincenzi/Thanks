@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class RemindersViewController: UIViewController {
 
@@ -17,7 +18,8 @@ class RemindersViewController: UIViewController {
     @IBOutlet weak var weeklyButton: UIButton!
     @IBOutlet weak var yearlyButton: UIButton!
     
-    
+    let parseService: ParseService = ParseService()
+    var notificatonFrequency:Int!
     
     //ViewDidLoad
     override func viewDidLoad() {
@@ -38,36 +40,88 @@ class RemindersViewController: UIViewController {
 
     
     @IBAction func onReminderEditingChanged(sender: AnyObject) {
+        
         if dailyButton.highlighted == true {
             dailyButton.selected = true
             weeklyButton.selected = false
             monthlyButton.selected = false
             yearlyButton.selected = false
+            notificatonFrequency = 0
+            parseService.updateUserReminderPreferences(notificatonFrequency)
+
         } else if weeklyButton.highlighted == true {
             dailyButton.selected = false
             weeklyButton.selected = true
             monthlyButton.selected = false
             yearlyButton.selected = false
+            notificatonFrequency = 1
+            parseService.updateUserReminderPreferences(notificatonFrequency)
+            
         } else if monthlyButton.highlighted == true {
             dailyButton.selected = false
             weeklyButton.selected = false
             monthlyButton.selected = true
             yearlyButton.selected = false
+            notificatonFrequency = 2
+            parseService.updateUserReminderPreferences(notificatonFrequency)
+            
         } else if yearlyButton.highlighted == true {
             dailyButton.selected = false
             weeklyButton.selected = false
             monthlyButton.selected = false
             yearlyButton.selected = true
+            notificatonFrequency = 3
+            parseService.updateUserReminderPreferences(notificatonFrequency)
+            
         }
         
     }
     
+    func establishNotificationsForUser() {
+        
+        //Ask for permission to send notifs
+        UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
+        
+        let localNotification:UILocalNotification = UILocalNotification()
+        localNotification.alertAction = "Time to say thanks..."
+        localNotification.alertBody = "Gentle reminder to say thank you to someone"
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 5)
+        
+        switch (notificatonFrequency) {
+            case 0: //Daily
+                localNotification.repeatInterval = NSCalendarUnit.Day
+            break;
+            case 1: // Weekly
+                localNotification.repeatInterval = NSCalendarUnit.Weekday // Not sure this is every 7 days
+            break;
+            case 2: // Monthly
+                localNotification.repeatInterval = NSCalendarUnit.Month // Not sure where the start date is
+            break;
+            case 3: // Yearly
+                localNotification.repeatInterval = NSCalendarUnit.Year // Not sure where the start date is
+            break;
+            case 4: // Never
+            break;
+
+            default:
+            break;
+        }
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        
+    }
     
-    
+    @IBAction func didTapSave(sender: AnyObject) {
+        establishNotificationsForUser()
+        performSegueWithIdentifier("showHome", sender: nil)
+    }
     
     
     //Dismissed reminder options
     @IBAction func didTapDismiss(sender: AnyObject) {
+        
+        //Set reminders to never
+        parseService.updateUserReminderPreferences(4)
         performSegueWithIdentifier("showHome", sender: nil)
     }
     

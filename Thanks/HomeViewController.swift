@@ -55,7 +55,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.collectionView.dataSource = self
  
         loadData()
-        registerNotifications()
     }
     
     //Shake to Undo
@@ -77,18 +76,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             self.presentViewController(alert, animated: true, completion: nil)
         }
-    }
-    
-    //Notifications
-    func registerNotifications() {
-        let localNotification:UILocalNotification = UILocalNotification()
-        localNotification.alertAction = "Time to say thanks..."
-        localNotification.alertBody = "Gentle reminder to say thank you to someone"
-        localNotification.fireDate = NSDate(timeIntervalSinceNow: 5)
-        
-        localNotification.repeatInterval = NSCalendarUnit.Day
-        
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     
     //Parse loads data

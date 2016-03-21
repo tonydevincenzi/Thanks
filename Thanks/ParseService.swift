@@ -77,9 +77,38 @@ final class ParseService {
         
     }
     
+    func updateUserReminderPreferences(frequency: Int) {
+        
+        var user = PFUser.currentUser()
+        
+        switch (frequency) {
+            case 0: // Daily
+                user!["reminderfrequency"] = frequency
+            break;
+            case 1: // Weekly
+                user!["reminderfrequency"] = frequency
+            break;
+            case 2: // Monthly
+                user!["reminderfrequency"] = frequency
+            break;
+            case 3: // Yearly
+                user!["reminderfrequency"] = frequency
+            break;
+            case 4: // Never
+            user!["reminderfrequency"] = frequency
+            break;
+
+            default:
+            break;
+        }
+        
+        user?.saveInBackground()
+    }
+    
     func requestUserPasswordReset() {
         print("Resetting password")
-        PFUser.requestPasswordResetForEmailInBackground("Tonydev@gmail.com")
+        //This is not working - may be realted to Parse Server
+        PFUser.requestPasswordResetForEmailInBackground("email@domain")
 
     }
     

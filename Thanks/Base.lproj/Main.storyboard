@@ -229,7 +229,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="R9e-Pp-7UG" kind="modal" identifier="showHome" modalTransitionStyle="crossDissolve" id="VHp-GH-L67"/>
+                                    <action selector="didTapSave:" destination="lpv-Tv-mmM" eventType="touchUpInside" id="jh6-tI-2G6"/>
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="label_reminders" id="P1w-UM-eIF">
@@ -327,6 +327,7 @@
                         <outlet property="monthlyButton" destination="KWg-uG-6Zf" id="AgM-JE-Uxb"/>
                         <outlet property="weeklyButton" destination="FaX-g4-8Ox" id="9m6-xf-dPj"/>
                         <outlet property="yearlyButton" destination="fOh-g9-WcY" id="lLf-7P-JoJ"/>
+                        <segue destination="R9e-Pp-7UG" kind="modal" identifier="showHome" modalTransitionStyle="crossDissolve" id="fdO-QG-lNY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0M-KR-QMu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -419,7 +420,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Puu-6b-gDT">
-                                <rect key="frame" x="163" y="191" width="48" height="30"/>
+                                <rect key="frame" x="163" y="319" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -428,8 +429,18 @@
                                     <action selector="didTapLogout:" destination="Pzm-g4-oO1" eventType="touchUpInside" id="6AL-62-Rsy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TQJ-5T-bCR">
+                                <rect key="frame" x="122" y="100" width="130" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change Reminders">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="lpv-Tv-mmM" kind="modal" id="DuJ-wv-aPu"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B53-0D-lp3">
-                                <rect key="frame" x="135" y="605" width="104" height="30"/>
+                                <rect key="frame" x="135" y="579" width="104" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Delete account">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -931,7 +942,8 @@
         <image name="trash_icon" width="21" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cvl-8I-BgK"/>
+        <segue reference="DuJ-wv-aPu"/>
+        <segue reference="fdO-QG-lNY"/>
         <segue reference="WjR-6L-uE6"/>
     </inferredMetricsTieBreakers>
 </document>
