@@ -107,23 +107,39 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func didTapDelete(sender: AnyObject) {
         
         //TODO: Show alert sheet
-        let parseService:ParseService = ParseService()
-        parseService.deleteOneCard(passedObjectId)
         
-        UIView.animateWithDuration(0.3, delay: 0, options: [], animations: { () -> Void in
-            
-            self.cardView.transform = CGAffineTransformScale(self.cardView.transform, 1.05, 1.05)
-            
-            }, completion: { (Bool) -> Void in
-                UIView.animateWithDuration(0.2, delay: 0, options: [], animations: { () -> Void in
-                    self.cardView.transform = CGAffineTransformScale(self.cardView.transform, 0.5, 0.5)
-                    self.cardView.alpha = 0
+        let alert = UIAlertController(title: "Are you sure you want to delete this card?", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Delete", style: .Default, handler: { action in
+            switch action.style{
+            case .Default:
+                let parseService:ParseService = ParseService()
+                parseService.deleteOneCard(self.passedObjectId)
+                
+                UIView.animateWithDuration(0.3, delay: 0, options: [], animations: { () -> Void in
+                    
+                    self.cardView.transform = CGAffineTransformScale(self.cardView.transform, 1.05, 1.05)
+                    
                     }, completion: { (Bool) -> Void in
-                        //self.cardView.removeFromSuperview()
-                        NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
-                        self.dismissViewControllerAnimated(true, completion: nil)
+                        UIView.animateWithDuration(0.2, delay: 0, options: [], animations: { () -> Void in
+                            self.cardView.transform = CGAffineTransformScale(self.cardView.transform, 0.5, 0.5)
+                            self.cardView.alpha = 0
+                            }, completion: { (Bool) -> Void in
+                                //self.cardView.removeFromSuperview()
+                                NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
+                                self.dismissViewControllerAnimated(true, completion: nil)
+                        })
                 })
-        })
+
+            case .Cancel:
+                print("cancel")
+            case .Destructive:
+                print("destructive")
+            }
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
     }
     
     
