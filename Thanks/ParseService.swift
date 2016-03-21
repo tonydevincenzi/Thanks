@@ -83,6 +83,7 @@ final class ParseService {
         if useLocalDataStore == true {
             query.fromLocalDatastore()
         }
+        query.whereKey("user", equalTo:PFUser.currentUser()!)
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             
             if error != nil {
@@ -120,7 +121,7 @@ final class ParseService {
         cardToSave["body"] = card.body
         cardToSave["author"] = card.author
         cardToSave["image"] = card.image
-
+        cardToSave["user"] = PFUser.currentUser()
         
         if useLocalDataStore == true {
             cardToSave.pinInBackground()
@@ -137,6 +138,7 @@ final class ParseService {
         if useLocalDataStore == true {
             query.fromLocalDatastore()
         }
+        query.whereKey("user", equalTo:PFUser.currentUser()!)
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             for object in objects! {
                 object.deleteEventually()
