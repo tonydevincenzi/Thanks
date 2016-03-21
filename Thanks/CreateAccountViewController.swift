@@ -258,8 +258,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     //The keyboard return key action - we can modify this later to show the input cells for email and password
     func nextStep(message: String?) {
         print(message)
-        //performSegueWithIdentifier("createAccount", sender: self)
-        //action events
+        performSegueWithIdentifier("showReminders", sender: self)
     }
     
     //Hide status bar

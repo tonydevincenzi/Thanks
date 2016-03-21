@@ -202,6 +202,7 @@
                         <outlet property="passwordField" destination="Ha6-RE-AVN" id="qpX-Lq-Ntp"/>
                         <outlet property="showLoginButton" destination="j9S-Hq-Jws" id="VIE-rZ-tjT"/>
                         <outlet property="skipButton" destination="O3y-zi-w1j" id="NZL-9z-bH0"/>
+                        <segue destination="lpv-Tv-mmM" kind="modal" identifier="showReminders" id="pBD-fu-iLu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvd-jU-8ZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -330,7 +331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0M-KR-QMu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2235.5" y="405.5"/>
+            <point key="canvasLocation" x="2247.5" y="405.5"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="7cV-9g-He3">
@@ -412,6 +413,16 @@
                                 <state key="normal" image="back_icon"/>
                                 <connections>
                                     <action selector="didTapBack:" destination="Pzm-g4-oO1" eventType="touchUpInside" id="i5f-DZ-ZDp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Puu-6b-gDT">
+                                <rect key="frame" x="163" y="319" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="Pzm-g4-oO1" eventType="touchUpInside" id="6AL-62-Rsy"/>
                                 </connections>
                             </button>
                         </subviews>
