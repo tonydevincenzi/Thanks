@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class SettingsViewController: UIViewController {
     
@@ -28,4 +29,23 @@ class SettingsViewController: UIViewController {
 
     }
 
+    @IBAction func didTapDeleteAccount(sender: AnyObject) {
+        
+        let alert = UIAlertController(title: "Are you sure you want to delete your account and all of your cards? This cannot be undone.", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Delete", style: .Default, handler: { action in
+            switch action.style{
+            case .Default:
+                let parseService:ParseService = ParseService()
+                parseService.deleteUser()
+                self.performSegueWithIdentifier("showOnboarding", sender: self)
+            case .Cancel:
+                print("cancel")
+            case .Destructive:
+                print("destructive")
+            }
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 }

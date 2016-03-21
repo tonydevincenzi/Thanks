@@ -76,6 +76,15 @@ final class ParseService {
         }
         
     }
+    
+    func deleteUser() {
+        //This is destructive and permanently delets the current user.
+        let user = PFUser.currentUser()
+        print("Deleting user: \(user)")
+        user?.deleteInBackground()
+        deleteAllCards()
+        logOutUser()
+    }
 
     func getCards(onComplete: ([Card]) -> ()) {
         
