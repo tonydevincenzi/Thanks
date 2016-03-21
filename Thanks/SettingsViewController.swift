@@ -20,9 +20,9 @@ class SettingsViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
-    
-    
-    
+    @IBAction func didTapLogout(sender: AnyObject) {
+        let parseService:ParseService = ParseService()
+        parseService.logOutUser()
+    }
 
 }
