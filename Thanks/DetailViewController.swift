@@ -26,11 +26,13 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     
     //Variables
     var passedImage: PFFile!
-
+    var passedObjectId: String!
     
     //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(passedObjectId)
         
         //Load passed image into cardImageView
         cardImageView.file = passedImage
@@ -42,9 +44,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         
     }
-    
-
-    
     
     @IBAction func didTapDone(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
@@ -107,6 +106,14 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     
+    @IBAction func didTapDelete(sender: AnyObject) {
+        
+        //TODO: Show alert sheet
+        let parseService:ParseService = ParseService()
+        parseService.deleteOneCard(passedObjectId)
+        dismissViewControllerAnimated(true, completion: nil)
+
+    }
     
     
     //Share Button

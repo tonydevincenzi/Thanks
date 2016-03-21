@@ -14,7 +14,7 @@ class CardCellView: UICollectionViewCell {
     
     //Outlets
     @IBOutlet weak var cardImage: PFImageView!
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
     }

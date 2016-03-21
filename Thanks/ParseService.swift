@@ -112,11 +112,13 @@ final class ParseService {
                 //Loop through the returned objects, and create and return a card per object
                 for object in returnedObjects {
                     
+                    let objectId = object.objectId
                     let body = object["body"] as! String
                     let author = object["author"] as! String
                     let image = object["image"] as! PFFile
                     
-                    let card = Card(body: body,
+                    let card = Card(objectId: objectId,
+                        body: body,
                         author:  author,
                         image: image)
                     
@@ -145,6 +147,17 @@ final class ParseService {
         }
 
         completion(result: card)
+    }
+    
+    func deleteOneCard(objectId: String) {
+        
+        query.whereKey("objectId", equalTo:objectId)
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            for object in objects! {
+                object.deleteEventually()
+            }
+        }
+        
     }
     
     func deleteAllCards() {

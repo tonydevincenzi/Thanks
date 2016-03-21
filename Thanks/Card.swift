@@ -10,7 +10,8 @@ import Foundation
 import Parse
 
 struct Card {
-    var body: String
+    var objectId: String?
+    var body: String?
     var author: String?
     var image: PFFile?
 }

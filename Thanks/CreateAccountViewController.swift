@@ -235,6 +235,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func didTapShowLogin(sender: AnyObject) {
         
+        emailField.becomeFirstResponder()
         currentState = states[0]
         backButton.hidden = false
         skipButton.hidden = true

@@ -720,7 +720,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         
         let imageData = UIImagePNGRepresentation(image)
         let savedImage = PFFile(name:"image.png", data:imageData!)
-        var card = Card(body: body, author: author, image: savedImage)
+        var card = Card(objectId: nil, body: body, author: author, image: savedImage)
         
         //Pass the card to ParseService, save, and return
         //TODO: Some error handling here

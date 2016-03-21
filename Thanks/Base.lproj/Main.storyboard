@@ -382,6 +382,9 @@
                                 <rect key="frame" x="329" y="18" width="46" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="trash_icon"/>
+                                <connections>
+                                    <action selector="didTapDelete:" destination="8f4-8X-iaW" eventType="touchUpInside" id="yUK-Xr-Cay"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>

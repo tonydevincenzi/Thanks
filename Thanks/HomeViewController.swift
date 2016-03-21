@@ -212,7 +212,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             let destinationViewController = segue.destinationViewController as! DetailViewController
             destinationViewController.passedImage = self.cards[indexPath.row].image!
-            
+            destinationViewController.passedObjectId = self.cards[indexPath.row].objectId!
             
             destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
             detailTransition = DetailTransition()
