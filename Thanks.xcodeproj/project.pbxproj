@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D5E3AF91C9F1EBA00B68A75 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5E3AF81C9F1EBA00B68A75 /* SettingsViewController.swift */; };
 		3D5E3B371C9F6ACA00B68A75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D5E3B361C9F6ACA00B68A75 /* Assets.xcassets */; };
+		3D5E3B391C9F714500B68A75 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5E3B381C9F714500B68A75 /* CreateAccountViewController.swift */; };
 		3D70BDF01C9CD78600014AC0 /* DetailTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D70BDEF1C9CD78600014AC0 /* DetailTransition.swift */; };
 		3D73D4631C9B09840074DB39 /* CustomCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */; };
 		5DFE360403C2AB029F34402D /* Pods_Thanks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A73399B9E41BA524E49DA89 /* Pods_Thanks.framework */; };
@@ -67,6 +68,7 @@
 		0A73399B9E41BA524E49DA89 /* Pods_Thanks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thanks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5E3AF81C9F1EBA00B68A75 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3D5E3B361C9F6ACA00B68A75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D5E3B381C9F714500B68A75 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		3D70BDEF1C9CD78600014AC0 /* DetailTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTransition.swift; sourceTree = "<group>"; };
 		3D73D4611C9B09840074DB39 /* CustomCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewFlowLayout.m; sourceTree = "<group>"; };
@@ -223,13 +225,14 @@
 			isa = PBXGroup;
 			children = (
 				EA3F2BCC1C8658A500AC0101 /* OnboardingViewController.swift */,
+				3D5E3B381C9F714500B68A75 /* CreateAccountViewController.swift */,
+				EA3F2BCE1C8658BB00AC0101 /* RemindersViewController.swift */,
 				EA3F2BC81C86588200AC0101 /* HomeViewController.swift */,
 				EA58D6DB1C99C24200593381 /* DetailViewController.swift */,
 				EABC9C851C9B5C92000ACA7E /* ChangeColorViewController.swift */,
 				EA3F2BC61C86587000AC0101 /* CreateCardViewController.swift */,
 				3D5E3AF81C9F1EBA00B68A75 /* SettingsViewController.swift */,
 				EA8BBC391C9B0EAE00FA2A1E /* AddEmojiViewController.swift */,
-				EA3F2BCE1C8658BB00AC0101 /* RemindersViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				EA8BBC3E1C9B12B000FA2A1E /* FadeTransition.swift in Sources */,
 				EA3F2BCD1C8658A500AC0101 /* OnboardingViewController.swift in Sources */,
 				EA3F2B991C86298700AC0101 /* AppDelegate.swift in Sources */,
+				3D5E3B391C9F714500B68A75 /* CreateAccountViewController.swift in Sources */,
 				EA3F2BC91C86588200AC0101 /* HomeViewController.swift in Sources */,
 				EA58D6DE1C99E19300593381 /* Share.swift in Sources */,
 				EABC9C861C9B5C92000ACA7E /* ChangeColorViewController.swift in Sources */,

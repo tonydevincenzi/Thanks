@@ -53,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="786.5" y="405.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Account View Controller-->
         <scene sceneID="ynB-8F-ula">
             <objects>
-                <viewController id="fZ7-xM-bwD" sceneMemberID="viewController">
+                <viewController id="fZ7-xM-bwD" customClass="CreateAccountViewController" customModule="Thanks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EL2-V6-zME">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -676,7 +676,7 @@
         <image name="trash_icon" width="21" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cvl-8I-BgK"/>
+        <segue reference="VHp-GH-L67"/>
         <segue reference="WjR-6L-uE6"/>
     </inferredMetricsTieBreakers>
 </document>
