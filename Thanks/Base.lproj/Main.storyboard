@@ -178,6 +178,13 @@
                                     <action selector="didTapDismiss:" destination="lpv-Tv-mmM" eventType="touchUpInside" id="x2y-mT-0K4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7rN-if-O9f">
+                                <rect key="frame" x="58" y="244" width="256" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Daily">
+                                    <color key="titleColor" red="0.89803921568627454" green="0.32156862745098036" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.32156862745098036" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
