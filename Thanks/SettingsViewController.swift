@@ -23,6 +23,9 @@ class SettingsViewController: UIViewController {
     @IBAction func didTapLogout(sender: AnyObject) {
         let parseService:ParseService = ParseService()
         parseService.logOutUser()
+        
+        performSegueWithIdentifier("showOnboarding", sender: self)
+
     }
 
 }
