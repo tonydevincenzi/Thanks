@@ -14,7 +14,7 @@ final class ParseService {
     var query = PFQuery(className: "cards")
     var cards: [Card] = []
     
-    func createAnonUser() {
+    func createAnonUser(onComplete: (state: String, error: NSError?) -> ()) {
         
         let currentUser = PFUser.currentUser()
         if currentUser != nil {
@@ -23,12 +23,58 @@ final class ParseService {
             PFAnonymousUtils.logInWithBlock {
                 (user: PFUser?, error: NSError?) -> Void in
                 if error != nil || user == nil {
-                    print("Anonymous login failed. \(error)")
+                    onComplete(state: "error", error: error)
                 } else {
-                    print("Anonymous user logged in.")
+                    onComplete(state: "success", error: nil)
                 }
             }
         }
+    }
+    
+    func logOutUser() {
+        print("Logging out user:\(PFUser.currentUser()?.objectId)")
+        PFUser.logOut()
+    }
+    
+    func loginUser(email: String, password: String, onComplete: (state: String, error: NSError?) -> ()) {
+        
+        print("Logging in – Username: \(email), Password: \(password)")
+        
+        //PFUser.loginWit
+        PFUser.logInWithUsernameInBackground(email, password:password) {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                onComplete(state: "success", error: nil)
+            } else {
+                onComplete(state: "error", error: error)
+            }
+        }
+    }
+    
+    func signUpUser(name: String, email: String, password: String, onComplete: (state: String, error: NSError?) -> ()) {
+        
+        //First check for a current user
+        var user = PFUser.currentUser()
+        
+        //If no current user, create a new user
+        if user == nil {
+            user = PFUser()
+        }
+        
+        user!["name"] = name
+        user!.username = email
+        user!.email = email
+        user!.password = password
+        
+        user!.signUpInBackgroundWithBlock {
+            (succeeded: Bool, error: NSError?) -> Void in
+            if let error = error {
+                onComplete(state: "error", error: error)
+            } else {
+                onComplete(state: "success", error: nil)
+            }
+        }
+        
     }
 
     func getCards(onComplete: ([Card]) -> ()) {

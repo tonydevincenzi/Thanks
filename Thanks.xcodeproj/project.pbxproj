@@ -176,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				EA58D6E31C99E62F00593381 /* Fonts */,
+				EACD318F1CA04910006B20CD /* Transitions */,
 				EA56B9441C8BB765005AF93C /* View Controllers */,
 				EA3F2B9C1C86298700AC0101 /* Main.storyboard */,
 				EA3F2B981C86298700AC0101 /* AppDelegate.swift */,
@@ -183,11 +184,6 @@
 				EA8BBC3F1C9B2A5F00FA2A1E /* Common.swift */,
 				93CFEFF81C8B984800CD37DC /* Card.swift */,
 				EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */,
-				EA58D6D91C99C1F200593381 /* ImageTransition.swift */,
-				3D70BDEF1C9CD78600014AC0 /* DetailTransition.swift */,
-				EA8BBC3D1C9B12B000FA2A1E /* FadeTransition.swift */,
-				EAB6F0F51C9C63D200605C86 /* SaveTransition.swift */,
-				EA58D6D71C99C1DD00593381 /* BaseTransition.swift */,
 				93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */,
 				3D73D4611C9B09840074DB39 /* CustomCollectionViewFlowLayout.h */,
 				3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */,
@@ -248,6 +244,18 @@
 				EAF8BE4A1C9A719D00A66071 /* foro_regular.3941226b.cache.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		EACD318F1CA04910006B20CD /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				EA58D6D91C99C1F200593381 /* ImageTransition.swift */,
+				3D70BDEF1C9CD78600014AC0 /* DetailTransition.swift */,
+				EA8BBC3D1C9B12B000FA2A1E /* FadeTransition.swift */,
+				EAB6F0F51C9C63D200605C86 /* SaveTransition.swift */,
+				EA58D6D71C99C1DD00593381 /* BaseTransition.swift */,
+			);
+			name = Transitions;
 			sourceTree = "<group>";
 		};
 		F100CB08556B9B7F9E68FDB9 /* Pods */ = {
@@ -330,7 +338,7 @@
 				TargetAttributes = {
 					EA3F2B941C86298700AC0101 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 59X4Y9UZMB;
+						DevelopmentTeam = U84M4VJLY3;
 					};
 					EA3F2BA81C86298700AC0101 = {
 						CreatedOnToolsVersion = 7.2.1;

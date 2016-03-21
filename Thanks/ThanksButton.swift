@@ -54,6 +54,13 @@ class ThanksButton: UIButton {
         setStyleLight()
     }
     
+    func setStyleWhite(textColor: String) {
+        self.setTitleColor(UIColor(hexString: textColor), forState: UIControlState.Normal)
+        self.layer.borderColor = UIColor(white: 1, alpha: 1).CGColor
+        self.backgroundColor = UIColor.whiteColor()
+
+    }
+    
     func setStyleLight () {
         self.setTitleColor(UIColor(white: 1, alpha: 0.5), forState: UIControlState.Normal)
         self.layer.borderColor = UIColor(white: 1, alpha: 0.2).CGColor

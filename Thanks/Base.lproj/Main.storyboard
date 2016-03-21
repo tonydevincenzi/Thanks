@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fUC-gB-enp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fZ7-xM-bwD">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -14,6 +14,9 @@
             <string>SinaNova-Italic</string>
         </mutableArray>
         <mutableArray key="sinanova_regular.34912673.cache.otf">
+            <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
             <string>SinaNova-Regular</string>
             <string>SinaNova-Regular</string>
             <string>SinaNova-Regular</string>
@@ -95,30 +98,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O3y-zi-w1j">
-                                <rect key="frame" x="307" y="20" width="58" height="27"/>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O3y-zi-w1j">
+                                <rect key="frame" x="307" y="20" width="58" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="next_button">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Skip">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lpv-Tv-mmM" kind="push" identifier="createAccount" id="2si-PG-57Y"/>
+                                    <action selector="didTapSkip:" destination="fZ7-xM-bwD" eventType="touchUpInside" id="p0i-2n-59p"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="label_name" id="xsj-Xq-7T4">
-                                <rect key="frame" x="82" y="72" width="211" height="28"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="separator" id="bPM-YB-oPc">
-                                <rect key="frame" x="61" y="189" width="253" height="1"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" id="7lP-rF-ByP">
-                                <rect key="frame" x="61" y="160" width="243" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your name?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h2e-5N-cm1">
+                                <rect key="frame" x="37" y="132" width="291" height="117"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
-                            </textField>
+                                <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="28"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="kQs-f7-i8b">
+                                <rect key="frame" x="41" y="227" width="283" height="323"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" id="Ha6-RE-AVN">
+                                        <rect key="frame" x="20" y="128" width="243" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.38416666669999999" green="0.090764563069999998" blue="0.1052793315" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" id="z4D-Ja-yXf">
+                                        <rect key="frame" x="20" y="74" width="243" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.38416666669999999" green="0.090764563069999998" blue="0.1052793315" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" id="7lP-rF-ByP">
+                                        <rect key="frame" x="20" y="20" width="243" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.38416666666666666" green="0.090764563069360829" blue="0.10527933154158543" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" alpha="0.29999999999999999" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="j9S-Hq-Jws">
+                                <rect key="frame" x="117" y="617" width="141" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Existing user? Login.">
+                                    <color key="titleColor" red="0.38416666669999999" green="0.090764563069999998" blue="0.1052793315" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapShowLogin:" destination="fZ7-xM-bwD" eventType="touchUpInside" id="wqG-Aa-2BS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KZc-ec-3G1">
+                                <rect key="frame" x="307" y="22" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapCreateAccount:" destination="fZ7-xM-bwD" eventType="touchUpInside" id="1N9-aR-Ozb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Hcc-ld-RPL">
+                                <rect key="frame" x="307" y="22" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapLogin:" destination="fZ7-xM-bwD" eventType="touchUpInside" id="N6t-hF-SW7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="rCk-bo-Wkt">
+                                <rect key="frame" x="1" y="17" width="38" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back_icon"/>
+                                <connections>
+                                    <action selector="didTapBack:" destination="fZ7-xM-bwD" eventType="touchUpInside" id="zvQ-cv-4AW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.87058823529411766" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -129,7 +192,16 @@
                     <navigationItem key="navigationItem" id="2HV-b2-Z8b"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="nameField" destination="7lP-rF-ByP" id="l4N-zh-een"/>
+                        <outlet property="backButton" destination="rCk-bo-Wkt" id="MAw-9x-n8p"/>
+                        <outlet property="createAccountButton" destination="KZc-ec-3G1" id="qOh-Q1-KAM"/>
+                        <outlet property="emailField" destination="z4D-Ja-yXf" id="iiD-NK-Lhh"/>
+                        <outlet property="fieldsContainer" destination="kQs-f7-i8b" id="2DQ-EZ-gcd"/>
+                        <outlet property="headerLabel" destination="h2e-5N-cm1" id="LEq-8l-XDj"/>
+                        <outlet property="loginButton" destination="Hcc-ld-RPL" id="Gz6-rm-bTJ"/>
+                        <outlet property="nameField" destination="7lP-rF-ByP" id="NhM-GG-kgs"/>
+                        <outlet property="passwordField" destination="Ha6-RE-AVN" id="qpX-Lq-Ntp"/>
+                        <outlet property="showLoginButton" destination="j9S-Hq-Jws" id="VIE-rZ-tjT"/>
+                        <outlet property="skipButton" destination="O3y-zi-w1j" id="NZL-9z-bH0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvd-jU-8ZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -814,17 +886,14 @@
         <image name="back_icon" width="12" height="21"/>
         <image name="closemodal" width="39" height="39"/>
         <image name="get_started_button" width="168" height="46"/>
-        <image name="label_name" width="211" height="28"/>
         <image name="label_reminders" width="199" height="92"/>
         <image name="new_card_icon" width="76" height="100"/>
-        <image name="next_button" width="30" height="10"/>
         <image name="onboarding1" width="286" height="242"/>
         <image name="onboarding2" width="251" height="207"/>
         <image name="onboarding3" width="292" height="201"/>
         <image name="reminder_cell" width="276" height="200"/>
         <image name="reminder_check_bg" width="156" height="33"/>
         <image name="save_button" width="32" height="11"/>
-        <image name="separator" width="253" height="1"/>
         <image name="settings_icon" width="100" height="100"/>
         <image name="share_button" width="264" height="95"/>
         <image name="share_button_large" width="401" height="95"/>
