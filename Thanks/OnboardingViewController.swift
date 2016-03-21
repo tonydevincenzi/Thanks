@@ -13,13 +13,15 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     //Outlets
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
-    
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var getStartedButton: UIButton!
     
     //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         scrollView.delegate = self
+        scrollView.contentSize = CGSize(width: 1125, height: 667)
 
         // Do any additional setup after loading the view.
     }
@@ -29,15 +31,32 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //Update UIPageControl
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        // Get the current page based on the scroll offset
         var page : Int = Int(round(scrollView.contentOffset.x / 320))
-        
-        // Set the current page, so the dots will update
         pageControl.currentPage = page
+        
+        //Condition to hide/show start and skip buttons
+        if(page == 2) {
+            self.skipButton.alpha = 0
+            UIView.animateWithDuration(0.3, animations: {
+                self.getStartedButton.alpha = 1
+                self.pageControl.hidden = true
+            })
+        }
+        else {
+            getStartedButton.alpha = 0
+            skipButton.alpha = 1
+            pageControl.hidden = false
+        }
+        
     }
 
+    //Start Button causing segue
+    @IBAction func didTapGetStarted(sender: AnyObject) {
+        performSegueWithIdentifier("showReminders", sender: nil)
+    }
+    
     
     
     
