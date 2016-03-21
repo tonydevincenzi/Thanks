@@ -26,6 +26,14 @@ class RemindersViewController: UIViewController {
         return true
     }
 
+    
+    //Dismissed reminder options
+    @IBAction func didTapDismiss(sender: AnyObject) {
+        performSegueWithIdentifier("showHome", sender: nil)
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
