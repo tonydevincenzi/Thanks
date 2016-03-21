@@ -178,12 +178,69 @@
                                     <action selector="didTapDismiss:" destination="lpv-Tv-mmM" eventType="touchUpInside" id="x2y-mT-0K4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7rN-if-O9f">
-                                <rect key="frame" x="58" y="244" width="256" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7rN-if-O9f">
+                                <rect key="frame" x="66" y="247" width="165" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Daily">
-                                    <color key="titleColor" red="0.89803921568627454" green="0.32156862745098036" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="      Daily">
+                                    <color key="titleColor" red="0.97647058823529409" green="0.83137254901960778" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="selected" title="      Daily" backgroundImage="reminder_check_bg">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" title="      Daily">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onReminderEditingChanged:" destination="lpv-Tv-mmM" eventType="touchUpInside" id="byc-hF-NMi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KWg-uG-6Zf">
+                                <rect key="frame" x="66" y="344" width="165" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="      Monthly">
+                                    <color key="titleColor" red="0.97647058819999999" green="0.83137254900000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected" title="      Monthly" backgroundImage="reminder_check_bg">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" title="      Monthly">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onReminderEditingChanged:" destination="lpv-Tv-mmM" eventType="touchUpInside" id="Bt7-ua-fMn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fOh-g9-WcY">
+                                <rect key="frame" x="66" y="392" width="165" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="      Yearly">
+                                    <color key="titleColor" red="0.97647058819999999" green="0.83137254900000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected" title="      Yearly" backgroundImage="reminder_check_bg">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" title="      Yearly">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onReminderEditingChanged:" destination="lpv-Tv-mmM" eventType="touchUpInside" id="Xzy-BE-kqs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FaX-g4-8Ox">
+                                <rect key="frame" x="66" y="294" width="165" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="      Weekly">
+                                    <color key="titleColor" red="0.97647058819999999" green="0.83137254900000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected" title="      Weekly" backgroundImage="reminder_check_bg">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" title="      Weekly">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onReminderEditingChanged:" destination="lpv-Tv-mmM" eventType="touchUpInside" id="TZJ-g6-NbO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.89803921568627454" green="0.32156862745098036" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
@@ -192,6 +249,12 @@
                         <barButtonItem key="rightBarButtonItem" title="next" id="4RI-uk-jw3"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="dailyButton" destination="7rN-if-O9f" id="KNG-N5-irv"/>
+                        <outlet property="monthlyButton" destination="KWg-uG-6Zf" id="AgM-JE-Uxb"/>
+                        <outlet property="weeklyButton" destination="FaX-g4-8Ox" id="9m6-xf-dPj"/>
+                        <outlet property="yearlyButton" destination="fOh-g9-WcY" id="lLf-7P-JoJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0M-KR-QMu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -759,6 +822,7 @@
         <image name="onboarding2" width="251" height="207"/>
         <image name="onboarding3" width="292" height="201"/>
         <image name="reminder_cell" width="276" height="200"/>
+        <image name="reminder_check_bg" width="156" height="33"/>
         <image name="save_button" width="32" height="11"/>
         <image name="separator" width="253" height="1"/>
         <image name="settings_icon" width="100" height="100"/>
