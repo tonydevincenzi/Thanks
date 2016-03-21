@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     
@@ -16,9 +17,16 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var getStartedButton: UIButton!
     
+    
+    
     //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (PFUser.currentUser() != nil) {
+            print(PFUser.currentUser())
+            performSegueWithIdentifier("showLoggedInHome", sender: self)
+        }
         
         scrollView.delegate = self
         scrollView.contentSize = CGSize(width: 1125, height: 667)

@@ -52,8 +52,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
 
         //Logout any existing PFUser
         //NOTE: This should be removed later if this view is reuused to convert the signup at a later point
-        let parseService = ParseService()
-        parseService.logOutUser()
+        //let parseService = ParseService()
+        //parseService.logOutUser()
     }
     
     override func viewDidAppear(animated: Bool) {

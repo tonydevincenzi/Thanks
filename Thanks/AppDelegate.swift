@@ -28,6 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             Parse.initializeWithConfiguration(configuration)
         }
+        
+        //If there is a current user, skip onboarding
+        if (PFUser.currentUser() != nil) {
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            var storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Home") as! UIViewController
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
+
+        
         return true
     }
 
