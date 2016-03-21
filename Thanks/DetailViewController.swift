@@ -85,8 +85,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView.contentOffset.y >= 70 {
             dismissViewControllerAnimated(true, completion: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
         } else if scrollView.contentOffset.y <= -70 {
             dismissViewControllerAnimated(true, completion: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
         } else if scrollView.contentOffset.y > 0 && scrollView.contentOffset.y < 70 {
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.backButton.alpha = 1
