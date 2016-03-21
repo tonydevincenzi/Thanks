@@ -46,6 +46,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     
     var saveTransition: SaveTransition!
     var tappedImage: UIImageView = UIImageView()
+    var objectId: String!
 
     var cardHasPhoto:Bool = false
     
@@ -270,7 +271,6 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     }
     
     func deleteEmoji(sender:UIButton!) {
-        print(sender)
         
         UIView.animateWithDuration(0.3, delay: 0, options: [], animations: { () -> Void in
             
@@ -724,14 +724,13 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         
         //Pass the card to ParseService, save, and return
         //TODO: Some error handling here
-        ParseService().saveCard(card) {
+        let parseService:ParseService = ParseService()
+        parseService.saveCard(card) {
             (result: Card) in
-            //self.dismissViewControllerAnimated(true, completion: nil)
+            self.tappedImage.image = image
+            self.objectId = result.objectId
+            self.performSegueWithIdentifier("showDetailFromSave", sender: self)
         }
-        
-        tappedImage.image = image
-        
-        performSegueWithIdentifier("showDetailFromSave", sender: self)
     }
     
     //Hide status bar
@@ -774,8 +773,9 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         
         if segue.identifier! == "showDetailFromSave" {
             let destinationViewController = segue.destinationViewController as! DetailViewController
-//            destinationViewController.cell = cardView
             
+            print("moving along with: \(objectId)")
+            destinationViewController.passedObjectId = objectId
             destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
             saveTransition = SaveTransition()
             destinationViewController.transitioningDelegate = saveTransition

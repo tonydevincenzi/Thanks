@@ -32,8 +32,6 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(passedObjectId)
-        
         //Load passed image into cardImageView
         cardImageView.file = passedImage
         
@@ -111,8 +109,20 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         //TODO: Show alert sheet
         let parseService:ParseService = ParseService()
         parseService.deleteOneCard(passedObjectId)
-        dismissViewControllerAnimated(true, completion: nil)
-
+        
+        UIView.animateWithDuration(0.3, delay: 0, options: [], animations: { () -> Void in
+            
+            self.cardView.transform = CGAffineTransformScale(self.cardView.transform, 1.05, 1.05)
+            
+            }, completion: { (Bool) -> Void in
+                UIView.animateWithDuration(0.2, delay: 0, options: [], animations: { () -> Void in
+                    self.cardView.transform = CGAffineTransformScale(self.cardView.transform, 0.5, 0.5)
+                    self.cardView.alpha = 0
+                    }, completion: { (Bool) -> Void in
+                        //self.cardView.removeFromSuperview()
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                })
+        })
     }
     
     

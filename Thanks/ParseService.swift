@@ -132,7 +132,7 @@ final class ParseService {
         }
     }
     
-    func saveCard(card: Card, completion: (result: Card) -> Void) {
+    func saveCard(var card: Card, completion: (result: Card) -> Void) {
         
         let cardToSave = PFObject(className: "cards")
         cardToSave["body"] = card.body
@@ -140,13 +140,15 @@ final class ParseService {
         cardToSave["image"] = card.image
         cardToSave["user"] = PFUser.currentUser()
         
-        if useLocalDataStore == true {
-            cardToSave.pinInBackground()
-        } else {
-            cardToSave.saveInBackground()
+        cardToSave.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                card.objectId = cardToSave.objectId
+                completion(result: card)
+            } else {
+                print("error saving card")
+            }
         }
-
-        completion(result: card)
     }
     
     func deleteOneCard(objectId: String) {
