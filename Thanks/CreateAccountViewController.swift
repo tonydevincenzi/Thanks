@@ -21,6 +21,10 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         
         //Text field delegate to be able to cause actions from keyboard return key
         self.nameField.delegate = self
+        
+        //Create an anonymous user
+        let parseService = ParseService()
+        parseService.createAnonUser()
     }
 
     

@@ -13,6 +13,23 @@ final class ParseService {
     
     var query = PFQuery(className: "cards")
     var cards: [Card] = []
+    
+    func createAnonUser() {
+        
+        let currentUser = PFUser.currentUser()
+        if currentUser != nil {
+            print("Logged in as:\(PFUser.currentUser()?.objectId)")
+        } else {
+            PFAnonymousUtils.logInWithBlock {
+                (user: PFUser?, error: NSError?) -> Void in
+                if error != nil || user == nil {
+                    print("Anonymous login failed. \(error)")
+                } else {
+                    print("Anonymous user logged in.")
+                }
+            }
+        }
+    }
 
     func getCards(onComplete: ([Card]) -> ()) {
         
