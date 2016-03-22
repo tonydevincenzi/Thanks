@@ -78,55 +78,69 @@ class DetailTransition: BaseTransition {
         //Cast the VCs
         let detailViewController = fromViewController as! DetailViewController
         let homeViewController = toViewController as! HomeViewController
+        
+        print("!!!! Making transition !!!!")
+        print(detailViewController.dismissType)
 
-        //Clone the image
-        let movingImageView = PFImageView()
-        
-        //Set frame for moving view
-        movingImageView.frame = detailViewController.cardView.frame
-        
-        //Assign the image through using the tappedCellData PFFile
-        movingImageView.file = homeViewController.tappedCellData
-        
-        //Set destination for moving frame
-        var destinationViewFrame = homeViewController.tappedCellFrame
-        destinationViewFrame.origin.x -= homeViewController.collectionView.contentOffset.x
-        
-        //Set the origin of the cloned image before the animation to be according to scroll on Detail VC
-        movingImageView.frame.origin.y -= detailViewController.scrollView.contentOffset.y
-        
-        
-        //Add cloned image
-        containerView.addSubview(movingImageView)
-        
-        //Show the destination VC
-        fromViewController.view.alpha = 1
-        
-        //Temporarily hide initial and final images
-        detailViewController.cardView.hidden = true
-        homeViewController.tappedCell.hidden = true
-        
-        
-        //Animate
-        UIView.animateWithDuration(duration, animations: {
+        if detailViewController.dismissType == "standard" {
+            //Clone the image
+            let movingImageView = PFImageView()
             
-            //Hide the original VC
-            fromViewController.view.alpha = 0
+            //Set frame for moving view
+            movingImageView.frame = detailViewController.cardView.frame
             
-            //Animate the cloned view to its position
-            movingImageView.frame = destinationViewFrame
+            //Assign the image through using the tappedCellData PFFile
+            movingImageView.file = homeViewController.tappedCellData
             
-            }) { (finished: Bool) -> Void in
+            //Set destination for moving frame
+            var destinationViewFrame = homeViewController.tappedCellFrame
+            destinationViewFrame.origin.x -= homeViewController.collectionView.contentOffset.x
+            
+            //Set the origin of the cloned image before the animation to be according to scroll on Detail VC
+            movingImageView.frame.origin.y -= detailViewController.scrollView.contentOffset.y
+            
+            
+            //Add cloned image
+            containerView.addSubview(movingImageView)
+            
+            //Show the destination VC
+            fromViewController.view.alpha = 1
+            
+            //Temporarily hide initial and final images
+            detailViewController.cardView.hidden = true
+            homeViewController.tappedCell.hidden = true
+            
+            
+            //Animate
+            UIView.animateWithDuration(duration, animations: {
                 
-                //Complete by unhiding the temporarily 
-                homeViewController.tappedCell.hidden = false
+                //Hide the original VC
+                fromViewController.view.alpha = 0
                 
-                //And hide the cloned image
-                movingImageView.removeFromSuperview()
+                //Animate the cloned view to its position
+                movingImageView.frame = destinationViewFrame
                 
-                self.finish()
+                }) { (finished: Bool) -> Void in
+                    
+                    //Complete by unhiding the temporarily
+                    homeViewController.tappedCell.hidden = false
+                    
+                    //And hide the cloned image
+                    movingImageView.removeFromSuperview()
+                    
+                    self.finish()
+            }
+        } else if detailViewController.dismissType == "delete" {
+            
+            UIView.animateWithDuration(duration, animations: {
+                
+                fromViewController.view.alpha = 0
+        
+                }) { (finished: Bool) -> Void in
+                    homeViewController.tappedCell.hidden = false
+                    self.finish()
+            }
+            
         }
     }
-    
-
 }

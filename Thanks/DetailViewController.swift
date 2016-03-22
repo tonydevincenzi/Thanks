@@ -27,6 +27,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     //Variables
     var passedImage: PFFile!
     var passedObjectId: String!
+    var dismissType = "standard"
     
     //ViewDidLoad
     override func viewDidLoad() {
@@ -125,12 +126,12 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                             self.cardView.transform = CGAffineTransformScale(self.cardView.transform, 0.5, 0.5)
                             self.cardView.alpha = 0
                             }, completion: { (Bool) -> Void in
-                                //self.cardView.removeFromSuperview()
                                 
                                 if let i = cards.indexOf({$0.objectId == self.passedObjectId}) {
                                     cards.removeAtIndex(i)
                                 }
                                 
+                                self.dismissType = "delete"
                                 NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
                                 self.dismissViewControllerAnimated(true, completion: nil)
                         })

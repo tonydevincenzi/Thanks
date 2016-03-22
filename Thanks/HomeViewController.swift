@@ -102,12 +102,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //Refresh
     func refreshCollection(notification: NSNotification){
         print("refreshing...")
-                
         //Rather than reloading data, just reddraw the collection view
         self.numberOfCards = cards.count
         self.collectionView.reloadData()
-        
-        //loadData()
     }
     
     
@@ -133,9 +130,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
         
         //Set the cardImage (which is a PFImageView) to the PFFile returned by parse
-        
-        print(cards[indexPath.row].image!)
-        
         cell.cardImage?.file = cards[indexPath.row].image!
         cell.cardImage.loadInBackground()
         
@@ -168,7 +162,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        print(collectionView.contentOffset.x)
+        //print(collectionView.contentOffset.x)
         
     }
     
