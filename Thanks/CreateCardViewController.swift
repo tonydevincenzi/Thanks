@@ -728,7 +728,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         parseService.saveCard(card) {
             (result: Card) in
             card = Card(objectId: result.objectId, body: body, author: author, image: savedImage)
-            cards.append(card)
+            cards.insert(card, atIndex: 0)
             self.tappedImage.image = image
             self.objectId = result.objectId
             self.performSegueWithIdentifier("showDetailFromSave", sender: self)
