@@ -111,7 +111,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //Refresh
     func refreshCollection(notification: NSNotification){
         print("refreshing...")
+        //We can receive three types - standard, delete, and new
+        if String(notification.object!) == "new" {
+            UIView.animateWithDuration(0.5) {
+                self.collectionView.contentOffset = CGPoint(x: 375, y: 0)
+            }
+        }
         //Rather than reloading data, just reddraw the collection view
+       
         self.numberOfCards = cards.count
         self.collectionView.reloadData()
     }

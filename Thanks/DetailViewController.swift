@@ -45,7 +45,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func didTapDone(sender: AnyObject) {
-        NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: dismissType)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -86,10 +86,10 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView.contentOffset.y >= 70 {
             dismissViewControllerAnimated(true, completion: nil)
-            NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: dismissType)
         } else if scrollView.contentOffset.y <= -70 {
             dismissViewControllerAnimated(true, completion: nil)
-            NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: dismissType)
         } else if scrollView.contentOffset.y > 0 && scrollView.contentOffset.y < 70 {
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.backButton.alpha = 1
@@ -132,7 +132,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                                 }
                                 
                                 self.dismissType = "delete"
-                                NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
+                                NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: self.dismissType)
                                 self.dismissViewControllerAnimated(true, completion: nil)
                         })
                 })
