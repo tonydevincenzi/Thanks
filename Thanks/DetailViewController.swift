@@ -127,6 +127,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                             self.cardView.alpha = 0
                             }, completion: { (Bool) -> Void in
                                 
+                                //TODO: If we want a smooth animation, probably better to remove the card from the collectionView as well, and not call reloadData()
                                 if let i = cards.indexOf({$0.objectId == self.passedObjectId}) {
                                     cards.removeAtIndex(i)
                                 }

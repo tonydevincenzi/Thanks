@@ -120,7 +120,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //Rather than reloading data, just reddraw the collection view
        
         self.numberOfCards = cards.count
-        self.collectionView.reloadData()
+        
+        
+        UIView.animateWithDuration(0.5, animations: {
+            self.collectionView.reloadData()
+            
+        })
+
+//        self.collectionView.reloadData()
     }
     
     
