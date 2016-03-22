@@ -75,6 +75,15 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let parseService:ParseService = ParseService()
+        let currentUser = parseService.getUser()
+        
+        if currentUser["name"] != nil {
+            nameTextField.text = "– " + String(currentUser["name"])
+        } else {
+            nameTextField.text = "– Your Name"
+        }
+        
         bodyTextView.delegate = self;
         cardView.layer.cornerRadius = 6
         emojiContainer.layer.cornerRadius = 6
@@ -380,7 +389,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         if bodyTextView.text.characters.count > 0 {
             placeholderLabel.hidden = true
         } else {
-            placeholderLabel.hidden = false
+            placeholderLabel.hidden = true
             nameTextField.frame.origin.y = placeholderLabel.frame.origin.y + placeholderLabel.frame.height
         }
     }

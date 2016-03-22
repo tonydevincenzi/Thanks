@@ -221,7 +221,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
 
         //User skipped sign up, create an anonymous user
         let parseService = ParseService()
-        parseService.createAnonUser() { (state, error) in
+        parseService.createAnonUser(nameField.text!) { (state, error) in
             //Completion handler returns cards, assign them and redraw
             if state == "success" {
                 self.nextStep("Anonymous user created!")
