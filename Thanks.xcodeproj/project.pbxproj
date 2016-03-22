@@ -12,6 +12,7 @@
 		3D5E3B391C9F714500B68A75 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5E3B381C9F714500B68A75 /* CreateAccountViewController.swift */; };
 		3D70BDF01C9CD78600014AC0 /* DetailTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D70BDEF1C9CD78600014AC0 /* DetailTransition.swift */; };
 		3D73D4631C9B09840074DB39 /* CustomCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */; };
+		3DB8E2651CA196AB0074BC18 /* CreateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8E2641CA196AB0074BC18 /* CreateViewCell.swift */; };
 		5DFE360403C2AB029F34402D /* Pods_Thanks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A73399B9E41BA524E49DA89 /* Pods_Thanks.framework */; };
 		93CFEFF91C8B984800CD37DC /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFEFF81C8B984800CD37DC /* Card.swift */; };
 		93CFEFFB1C8B9A3A00CD37DC /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */; };
@@ -72,6 +73,7 @@
 		3D70BDEF1C9CD78600014AC0 /* DetailTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTransition.swift; sourceTree = "<group>"; };
 		3D73D4611C9B09840074DB39 /* CustomCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		3DB8E2641CA196AB0074BC18 /* CreateViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewCell.swift; sourceTree = "<group>"; };
 		93CFEFF81C8B984800CD37DC /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseService.swift; sourceTree = "<group>"; };
 		B0E13387BC4327216A6BBDE9 /* Pods-Thanks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thanks.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thanks/Pods-Thanks.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +143,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DB8E2661CA196CB0074BC18 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */,
+				3DB8E2641CA196AB0074BC18 /* CreateViewCell.swift */,
+				EA8BBC3B1C9B0F5600FA2A1E /* EmojiCell.swift */,
+				EABC9C871C9B642D000ACA7E /* ColorCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		A99E9801E6AF7A43B4A280D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,20 +191,18 @@
 				EA58D6E31C99E62F00593381 /* Fonts */,
 				EACD318F1CA04910006B20CD /* Transitions */,
 				EA56B9441C8BB765005AF93C /* View Controllers */,
+				3DB8E2661CA196CB0074BC18 /* Cells */,
 				EA3F2B9C1C86298700AC0101 /* Main.storyboard */,
 				EA3F2B981C86298700AC0101 /* AppDelegate.swift */,
 				EA58D6DD1C99E19300593381 /* Share.swift */,
 				EA8BBC3F1C9B2A5F00FA2A1E /* Common.swift */,
 				93CFEFF81C8B984800CD37DC /* Card.swift */,
-				EADEBF7A1C88F6C10065DA0F /* CardCellView.swift */,
 				93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */,
-				3D73D4611C9B09840074DB39 /* CustomCollectionViewFlowLayout.h */,
-				3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */,
 				EA1D00F91C9AFC01007A5814 /* ThanksButton.swift */,
-				EA8BBC3B1C9B0F5600FA2A1E /* EmojiCell.swift */,
-				EABC9C871C9B642D000ACA7E /* ColorCell.swift */,
 				EA8BBC371C9B0DB500FA2A1E /* EmojiList.swift */,
 				EABC9C831C9B5367000ACA7E /* PassThroughView.swift */,
+				3D73D4611C9B09840074DB39 /* CustomCollectionViewFlowLayout.h */,
+				3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */,
 				EA3F2BA11C86298700AC0101 /* LaunchScreen.storyboard */,
 				EA3F2BA41C86298700AC0101 /* Info.plist */,
 				3D5E3B361C9F6ACA00B68A75 /* Assets.xcassets */,
@@ -476,6 +487,7 @@
 				EA8BBC3E1C9B12B000FA2A1E /* FadeTransition.swift in Sources */,
 				EA3F2BCD1C8658A500AC0101 /* OnboardingViewController.swift in Sources */,
 				EA3F2B991C86298700AC0101 /* AppDelegate.swift in Sources */,
+				3DB8E2651CA196AB0074BC18 /* CreateViewCell.swift in Sources */,
 				3D5E3B391C9F714500B68A75 /* CreateAccountViewController.swift in Sources */,
 				EA3F2BC91C86588200AC0101 /* HomeViewController.swift in Sources */,
 				EA58D6DE1C99E19300593381 /* Share.swift in Sources */,

@@ -115,28 +115,46 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     
+    //Divide collectionView into two sections, one of which will show the static card
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    
     //Required to specify how many items are in the collection, make number dynamic later
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard numberOfCards != nil else {
-            print("Not loaded yet")
+        
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            guard numberOfCards != nil else {
+                print("Not loaded yet")
+                return 0
+            }
+            return numberOfCards
+        } else {
             return 0
         }
-        return numberOfCards
     }
     
     //Required to specify the unique settings of the cell
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
         
-        //Set the cardImage (which is a PFImageView) to the PFFile returned by parse
-        cell.cardImage?.file = cards[indexPath.row].image!
-        cell.cardImage.loadInBackground()
-        
-        
-        
-        
-        return cell
+        if indexPath.section == 0 {
+            let createCell = collectionView.dequeueReusableCellWithReuseIdentifier("createCell", forIndexPath: indexPath) as! CreateViewCell
+            createCell.imageView.image = UIImage(named: "new_card_cell")
+            return createCell
+        } else {
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
+            
+            //Set the cardImage (which is a PFImageView) to the PFFile returned by parse
+            cell.cardImage?.file = cards[indexPath.row].image!
+            cell.cardImage.loadInBackground()
+            
+            return cell
+        }
+
     }
     
     
