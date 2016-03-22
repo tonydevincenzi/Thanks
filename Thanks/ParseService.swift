@@ -14,7 +14,7 @@ final class ParseService {
     var query = PFQuery(className: "cards")
     var cards: [Card] = []
     
-    func createAnonUser(onComplete: (state: String, error: NSError?) -> ()) {
+    func createAnonUser(name: String, onComplete: (state: String, error: NSError?) -> ()) {
         
         let currentUser = PFUser.currentUser()
         if currentUser != nil {
@@ -26,9 +26,15 @@ final class ParseService {
                     onComplete(state: "error", error: error)
                 } else {
                     onComplete(state: "success", error: nil)
+                    user!["name"] = name
+                    user?.saveInBackground()
                 }
             }
         }
+    }
+    
+    func getUser() -> PFUser {
+        return PFUser.currentUser()!
     }
     
     func logOutUser() {
