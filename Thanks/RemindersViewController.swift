@@ -26,6 +26,7 @@ class RemindersViewController: UIViewController {
         super.viewDidLoad()
         
         dailyButton.selected = true
+        notificatonFrequency = 0
 
         // Do any additional setup after loading the view.
     }
