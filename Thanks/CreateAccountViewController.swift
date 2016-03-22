@@ -50,10 +50,6 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
 
-        //Logout any existing PFUser
-        //NOTE: This should be removed later if this view is reuused to convert the signup at a later point
-        //let parseService = ParseService()
-        //parseService.logOutUser()
     }
     
     override func viewDidAppear(animated: Bool) {

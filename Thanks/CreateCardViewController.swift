@@ -21,6 +21,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
 
     
     @IBOutlet weak var cardComponentsContainerView: UIView!
+    @IBOutlet weak var editableFieldsContainer: UIView!
     @IBOutlet weak var bodyTextView: UITextView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var dateLabelView: UILabel!
@@ -59,10 +60,14 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     
     var createdEmojiOriginalCenter: CGPoint!
     var cardOriginalCenter: CGPoint!
+    var bodyTextOriginalCenter: CGPoint!
+    var placeholderLabelOriginalCenter: CGPoint!
+    var nameTextFieldOriginalCenter: CGPoint!
     var createdEmoji: UILabel!
     var rotation = CGFloat(0)
 
     var fadeTransition: FadeTransition!
+    
     
     let cardButtonContainer: UIView = PassThroughView()
     let addEmojiButton:ThanksButton = ThanksButton()
@@ -126,6 +131,12 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
+        let panBodyTextView: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "panBodyTextView:")
+        bodyTextView.addGestureRecognizer(panBodyTextView)
+        
+        let tapDateLabel: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "didTapDateLabel:")
+        dateLabelView.addGestureRecognizer(tapDateLabel)
+        
         //Uncomment to allow card to pan
         //let panCardView: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: "panCardView:")
         //cardView.addGestureRecognizer(panCardView)
@@ -162,6 +173,39 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
             })
         }
     }
+    
+    func didTapDateLabel(sender: UITapGestureRecognizer) {
+        print("Tapped date")
+    }
+    
+    
+    func panBodyTextView(sender: UIPanGestureRecognizer) {
+        
+        let translation = sender.translationInView(view)
+        //let velocity = sender.velocityInView(view)
+        
+        if sender.state == UIGestureRecognizerState.Began {
+            bodyTextOriginalCenter = bodyTextView.center
+            placeholderLabelOriginalCenter = placeholderLabel.center
+            nameTextFieldOriginalCenter = nameTextField.center
+        } else if sender.state == UIGestureRecognizerState.Changed {
+            bodyTextView.center = CGPoint(x: bodyTextOriginalCenter.x, y: bodyTextOriginalCenter.y + (translation.y))
+            placeholderLabel.center = CGPoint(x: placeholderLabelOriginalCenter.x, y: placeholderLabelOriginalCenter.y + (translation.y))
+            nameTextField.center = CGPoint(x: nameTextFieldOriginalCenter.x, y: nameTextFieldOriginalCenter.y + (translation.y))
+
+            if -50...50 ~= translation.y {
+                print(translation.y)
+                
+            } else {
+                //dismissKeyboard()
+            }
+            
+        } else if sender.state == UIGestureRecognizerState.Ended {
+            
+            
+        }
+    }
+    
     
     func changeColorOfCard(notification: NSNotification) {
         
