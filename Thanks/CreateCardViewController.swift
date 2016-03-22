@@ -727,6 +727,8 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         let parseService:ParseService = ParseService()
         parseService.saveCard(card) {
             (result: Card) in
+            card = Card(objectId: result.objectId, body: body, author: author, image: savedImage)
+            cards.append(card)
             self.tappedImage.image = image
             self.objectId = result.objectId
             self.performSegueWithIdentifier("showDetailFromSave", sender: self)
@@ -774,7 +776,6 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         if segue.identifier! == "showDetailFromSave" {
             let destinationViewController = segue.destinationViewController as! DetailViewController
             
-            print("moving along with: \(objectId)")
             destinationViewController.passedObjectId = objectId
             destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
             saveTransition = SaveTransition()

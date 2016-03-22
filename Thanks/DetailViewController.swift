@@ -126,6 +126,11 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
                             self.cardView.alpha = 0
                             }, completion: { (Bool) -> Void in
                                 //self.cardView.removeFromSuperview()
+                                
+                                if let i = cards.indexOf({$0.objectId == self.passedObjectId}) {
+                                    cards.removeAtIndex(i)
+                                }
+                                
                                 NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
                                 self.dismissViewControllerAnimated(true, completion: nil)
                         })

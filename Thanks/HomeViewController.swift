@@ -23,6 +23,8 @@ var globalAnimationSpeed:NSTimeInterval = 0.8
 var globalSpringDampening:CGFloat = 0.7
 var globalSpringVelocity:CGFloat = 1
 
+var cards: [Card] = []
+
 /*                */
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -32,7 +34,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var collectionView: UICollectionView!
 
     //Variables
-    var cards: [Card] = []
 
     var numberOfCards: Int!
     var detailTransition: DetailTransition!
@@ -66,7 +67,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 switch action.style{
                 case .Default:
                     ParseService().deleteAllCards()
-                    NSNotificationCenter.defaultCenter().postNotificationName("refresh", object: nil)
                 case .Cancel:
                     print("cancel")
                 case .Destructive:
@@ -88,7 +88,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         parseService.getCards { (returnedCards) in
             //Completion handler returns cards, assign them and redraw
-            self.cards = returnedCards
+            cards = returnedCards
             self.numberOfCards = returnedCards.count
             self.collectionView.reloadData()
         }
@@ -102,7 +102,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //Refresh
     func refreshCollection(notification: NSNotification){
         print("refreshing...")
-        loadData()
+                
+        //Rather than reloading data, just reddraw the collection view
+        self.numberOfCards = cards.count
+        self.collectionView.reloadData()
+        
+        //loadData()
     }
     
     
@@ -199,8 +204,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let indexPath = indexPaths[0] as NSIndexPath
             
             let destinationViewController = segue.destinationViewController as! DetailViewController
-            destinationViewController.passedImage = self.cards[indexPath.row].image!
-            destinationViewController.passedObjectId = self.cards[indexPath.row].objectId!
+            destinationViewController.passedImage = cards[indexPath.row].image!
+            destinationViewController.passedObjectId = cards[indexPath.row].objectId!
             
             destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
             detailTransition = DetailTransition()
