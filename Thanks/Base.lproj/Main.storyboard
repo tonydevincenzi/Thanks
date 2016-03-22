@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fUC-gB-enp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fUC-gB-enp">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="foro_regular.3941226b.cache.otf">
@@ -357,7 +357,7 @@
                                         </subviews>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.14901960780000001" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iG0-wj-jSJ">
                                 <rect key="frame" x="1" y="17" width="38" height="36"/>
@@ -469,86 +469,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HGa-76-Fkh">
-                                <rect key="frame" x="164" y="42" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MJv-Nv-KcE">
+                                <rect key="frame" x="162" y="588" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create"/>
+                                <state key="normal" image="icon-share"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="qLX-sI-bqZ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewLayout key="collectionViewLayout" id="rTF-Tx-TDS" customClass="CustomCollectionViewFlowLayout"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCellView" id="1AH-0J-dbm" customClass="CardCellView" customModule="Thanks" customModuleProvider="target">
-                                        <rect key="frame" x="35" y="0.0" width="305" height="407"/>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCellView" id="1AH-0J-dbm" customClass="CardCellView" customModule="Thanks" customModuleProvider="target">
+                                        <rect key="frame" x="23" y="0.0" width="330" height="440"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="305" height="407"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="330" height="440"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="dpA-lF-x1n" customClass="PFImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="305" height="407"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="330" height="440"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <size key="customSize" width="305" height="407"/>
+                                        <size key="customSize" width="330" height="440"/>
                                         <connections>
                                             <outlet property="cardImage" destination="dpA-lF-x1n" id="588-FE-LmO"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="createCell" id="bwl-pv-5Cy" customClass="CreateViewCell" customModule="Thanks" customModuleProvider="target">
-                                        <rect key="frame" x="35" y="417" width="305" height="407"/>
+                                        <rect key="frame" x="23" y="450" width="330" height="440"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="305" height="407"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="330" height="440"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="s6U-NS-1Fd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="305" height="407"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="330" height="440"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <size key="customSize" width="305" height="407"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <size key="customSize" width="330" height="440"/>
                                         <connections>
                                             <outlet property="imageView" destination="s6U-NS-1Fd" id="vLX-sk-6YG"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="usr-kX-4Zs">
-                                <rect key="frame" x="12" y="25" width="25" height="25"/>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="usr-kX-4Zs">
+                                <rect key="frame" x="10" y="30" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="settings_icon"/>
+                                <state key="normal" image="icon-gear"/>
                                 <connections>
                                     <segue destination="Pzm-g4-oO1" kind="modal" identifier="settingsSegue" id="DDX-5R-JsH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Deh-H4-tQX">
-                                <rect key="frame" x="342" y="25" width="19" height="25"/>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Deh-H4-tQX">
+                                <rect key="frame" x="340" y="30" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="new_card_icon"/>
+                                <state key="normal" image="icon-new-circle"/>
                                 <connections>
                                     <segue destination="t7N-kt-Mnd" kind="modal" identifier="newCard" id="Ym9-Uz-327"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NNT-es-lSd">
-                                <rect key="frame" x="153" y="28" width="68" height="19"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="title-logo" id="Wu2-yC-yJd">
+                                <rect key="frame" x="138" y="30" width="99" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="thanks_logo"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MJv-Nv-KcE">
-                                <rect key="frame" x="121" y="564" width="132" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="share_button"/>
-                            </button>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.13725490196078433" green="0.60392156862745094" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home View" id="ckt-xb-Mdj">
                         <barButtonItem key="leftBarButtonItem" title="Create" id="0JH-t1-IXA"/>
@@ -946,19 +942,19 @@
         <image name="back_icon" width="12" height="21"/>
         <image name="closemodal" width="39" height="39"/>
         <image name="get_started_button" width="168" height="46"/>
+        <image name="icon-gear" width="50" height="50"/>
+        <image name="icon-new-circle" width="50" height="50"/>
+        <image name="icon-share" width="100" height="100"/>
         <image name="label_reminders" width="199" height="92"/>
-        <image name="new_card_icon" width="76" height="100"/>
         <image name="onboarding1" width="286" height="242"/>
         <image name="onboarding2" width="251" height="207"/>
         <image name="onboarding3" width="292" height="201"/>
         <image name="reminder_cell" width="276" height="200"/>
         <image name="reminder_check_bg" width="244" height="38"/>
         <image name="save_button" width="32" height="11"/>
-        <image name="settings_icon" width="100" height="100"/>
-        <image name="share_button" width="264" height="95"/>
         <image name="share_button_large" width="401" height="95"/>
         <image name="skip_button" width="29" height="13"/>
-        <image name="thanks_logo" width="135" height="37"/>
+        <image name="title-logo" width="198" height="54"/>
         <image name="trash_icon" width="21" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>

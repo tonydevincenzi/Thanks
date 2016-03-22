@@ -14,11 +14,11 @@
 //Manually set cell attributes
 - (void)awakeFromNib
 {
-    self.itemSize = CGSizeMake(305.0, 407.0);
-    self.minimumInteritemSpacing = 20.0;
+    self.itemSize = CGSizeMake(330.0, 440.0);
+    self.minimumInteritemSpacing = 25.0;
     self.minimumLineSpacing = 10.0;
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.sectionInset = UIEdgeInsetsMake(0, 35.0, 0.0, 35.0);
+    self.sectionInset = UIEdgeInsetsMake(0, 25.0, 0.0, 25.0);
 }
 
 

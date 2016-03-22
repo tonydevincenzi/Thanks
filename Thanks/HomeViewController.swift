@@ -54,8 +54,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //Collection views require you set both delegate and datasource for self, just like table views
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
  
         loadData()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.Default
+        
     }
     
     //Shake to Undo
@@ -143,7 +152,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if indexPath.section == 0 {
             let createCell = collectionView.dequeueReusableCellWithReuseIdentifier("createCell", forIndexPath: indexPath) as! CreateViewCell
-            createCell.imageView.image = UIImage(named: "new_card_cell")
+            createCell.imageView.image = UIImage(named: "new_card_cell_v2")
+            createCell.layer.shadowColor = UIColor.blackColor().CGColor
+            createCell.layer.shadowOffset = CGSize(width: 0, height: 15)
+            createCell.layer.shadowOpacity = 0.2
+            createCell.layer.shadowRadius = 20
+            createCell.layer.cornerRadius = 6
+            createCell.clipsToBounds = false
             return createCell
         } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
@@ -151,7 +166,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             //Set the cardImage (which is a PFImageView) to the PFFile returned by parse
             cell.cardImage?.file = cards[indexPath.row].image!
             cell.cardImage.loadInBackground()
-            
+            cell.layer.shadowColor = UIColor.blackColor().CGColor
+            cell.layer.shadowOffset = CGSize(width: 0, height: 15)
+            cell.layer.shadowOpacity = 0.2
+            cell.layer.shadowRadius = 20
             return cell
         }
 
@@ -231,5 +249,4 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         
     }
-
 }
