@@ -79,9 +79,8 @@ class DetailTransition: BaseTransition {
         let detailViewController = fromViewController as! DetailViewController
         let homeViewController = toViewController as! HomeViewController
         
-        print("!!!! Making transition !!!!")
-        print(detailViewController.dismissType)
-
+        //If there has been a newly created card, set the collection view offset to 0
+                
         if detailViewController.dismissType == "standard" {
             //Clone the image
             let movingImageView = PFImageView()

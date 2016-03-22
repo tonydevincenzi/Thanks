@@ -711,8 +711,11 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         
         //capture the image from the view
         //Hide UI, capture the picture
+        
         cardButtonContainer.hidden = true
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(cardView.frame.width, cardView.frame.height), false, 0);
+        
+        //TODO: Fix the flash coming from afterScreenUpdates
         self.cardView.drawViewHierarchyInRect(CGRectMake(0,0,cardView.bounds.size.width,cardView.bounds.size.height), afterScreenUpdates: true)
         let image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
         //Image captured, Return UI
