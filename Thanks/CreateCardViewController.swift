@@ -96,6 +96,8 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         photoContainerView.layer.cornerRadius = 6
         photoContainerView.clipsToBounds = true
         photoContainerView.hidden = true
+        
+        bodyTextOriginalCenter = CGPoint(x: bodyTextView.frame.origin.x, y: bodyTextView.frame.origin.y)
         setDate()
         
         nameTextField.frame.origin.y = placeholderLabel.frame.origin.y + placeholderLabel.frame.height
@@ -202,7 +204,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
             
         } else if sender.state == UIGestureRecognizerState.Ended {
             
-            
+            bodyTextOriginalCenter = bodyTextView.center
         }
     }
     
@@ -396,15 +398,16 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     }
     
     func resizeTextView() {
+                
         let fixedWidth = bodyTextView.frame.size.width
         bodyTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
         let newSize = bodyTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
         var newFrame = bodyTextView.frame
         newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
         bodyTextView.frame = newFrame;
-        bodyTextView.frame.origin.y = cardView.frame.height/2 - bodyTextView.frame.height/2 - 25
+        bodyTextView.frame.origin.y = bodyTextOriginalCenter.y - bodyTextView.frame.height/2 + 15
         
-        placeholderLabel.frame.origin.y = bodyTextView.frame.origin.y + 4
+        placeholderLabel.frame.origin.y = bodyTextView.frame.origin.y
     }
     
     func setDate() {
