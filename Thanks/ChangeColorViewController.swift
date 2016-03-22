@@ -14,10 +14,11 @@ class ChangeColorViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var collectionView: UICollectionView!
     
     let allColors = [
+        ["28AFFA"],["877DD7"],["2DD7AA"],
+        ["7DDD10"],["DDD210"],["DD8210"],
+        ["DD3510"],["444444"],["000000"],
         ["D71F62","7A23BA"],["1FD7BC","7A23BA"],["8DD71F","BA6023"],
-        ["26D71F","BA9D23"],["D7801F","BA2323"],["1FD7CC","A2BA23"],
-        ["2991C8"],["DE4A4A"],["6BEFB6"],
-        ["CF28E4"],["2FE741"],["EBDF45"]
+        ["26D71F","BA9D23"],["D7801F","BA2323"],["1FD7CC","A2BA23"]
     ]
     
     override func viewDidLoad() {
