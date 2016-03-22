@@ -724,12 +724,19 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         
         //Pass the card to ParseService, save, and return
         //TODO: Some error handling here
+        
+        saveButton.enabled = false
+        saveButton.alpha = 0.5
+        
         let parseService:ParseService = ParseService()
         parseService.saveCard(card) {
             (result: Card) in
             card = Card(objectId: result.objectId, body: body, author: author, image: savedImage)
             cards.insert(card, atIndex: 0)
             self.tappedImage.image = image
+            self.saveButton.enabled = true
+            self.saveButton.alpha = 0
+
             self.objectId = result.objectId
             self.performSegueWithIdentifier("showDetailFromSave", sender: self)
         }
