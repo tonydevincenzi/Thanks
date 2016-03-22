@@ -144,6 +144,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
             }
         }))
         
+        self.presentViewController(alert, animated: true, completion: nil)
         
     }
     
