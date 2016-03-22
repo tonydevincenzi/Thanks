@@ -252,7 +252,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7rN-if-O9f">
-                                <rect key="frame" x="66" y="247" width="165" height="34"/>
+                                <rect key="frame" x="66" y="247" width="244" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="      Daily">
                                     <color key="titleColor" red="0.97647058823529409" green="0.83137254901960778" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
@@ -268,7 +268,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KWg-uG-6Zf">
-                                <rect key="frame" x="66" y="344" width="165" height="34"/>
+                                <rect key="frame" x="66" y="344" width="244" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="      Monthly">
                                     <color key="titleColor" red="0.97647058819999999" green="0.83137254900000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -284,7 +284,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fOh-g9-WcY">
-                                <rect key="frame" x="66" y="392" width="165" height="34"/>
+                                <rect key="frame" x="66" y="392" width="244" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="      Yearly">
                                     <color key="titleColor" red="0.97647058819999999" green="0.83137254900000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -300,7 +300,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FaX-g4-8Ox">
-                                <rect key="frame" x="66" y="294" width="165" height="34"/>
+                                <rect key="frame" x="66" y="294" width="244" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="      Weekly">
                                     <color key="titleColor" red="0.97647058819999999" green="0.83137254900000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -943,7 +943,7 @@
         <image name="trash_icon" width="21" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cvl-8I-BgK"/>
+        <segue reference="fdO-QG-lNY"/>
         <segue reference="pBD-fu-iLu"/>
         <segue reference="WjR-6L-uE6"/>
     </inferredMetricsTieBreakers>
