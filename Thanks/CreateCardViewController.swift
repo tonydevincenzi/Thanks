@@ -726,7 +726,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         //TODO: Some error handling here
         
         saveButton.enabled = false
-        saveButton.alpha = 0.5
+        saveButton.alpha = 0.3
         
         let parseService:ParseService = ParseService()
         parseService.saveCard(card) {
