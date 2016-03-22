@@ -569,11 +569,43 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     }
     
     func requestPhotoPicker() {
+        
         let vc = UIImagePickerController()
-        vc.delegate = self
-        vc.allowsEditing = false
-        vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(vc, animated: true, completion: nil)
+        
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Take a Photo", style: .Default, handler: { action in
+            
+            switch action.style{
+            case .Default:
+                vc.delegate = self
+                vc.allowsEditing = false
+                vc.sourceType = UIImagePickerControllerSourceType.Camera
+                self.presentViewController(vc, animated: true, completion: nil)
+            case .Cancel:
+                print("cancel")
+            case .Destructive:
+                print("destructive")
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Choose from Camera Roll", style: .Default, handler: { action in
+            
+            switch action.style{
+            case .Default:
+                vc.delegate = self
+                vc.allowsEditing = false
+                vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+                self.presentViewController(vc, animated: true, completion: nil)
+            case .Cancel:
+                print("cancel")
+            case .Destructive:
+                print("destructive")
+            }
+        }))
+
+        self.presentViewController(alert, animated: true, completion: nil)
+
+        
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
