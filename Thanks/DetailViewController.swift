@@ -109,7 +109,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         //TODO: Show alert sheet
         
-        let alert = UIAlertController(title: "Are you sure you want to delete this card?", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Delete", style: .Default, handler: { action in
             switch action.style{
