@@ -97,6 +97,9 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         photoContainerView.clipsToBounds = true
         photoContainerView.hidden = true
         
+        bodyTextView.spellCheckingType = .No
+        nameTextField.spellCheckingType = .No
+        
         bodyTextOriginalCenter = CGPoint(x: bodyTextView.frame.origin.x, y: bodyTextView.frame.origin.y)
         setDate()
         
@@ -398,7 +401,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     }
     
     func resizeTextView() {
-                
+        
         let fixedWidth = bodyTextView.frame.size.width
         bodyTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
         let newSize = bodyTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
@@ -772,11 +775,14 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(cardView.frame.width, cardView.frame.height), false, 0);
         
         //TODO: Fix the flash coming from afterScreenUpdates
+        bodyTextView.resignFirstResponder()
+        nameTextField.resignFirstResponder()
+
         self.cardView.drawViewHierarchyInRect(CGRectMake(0,0,cardView.bounds.size.width,cardView.bounds.size.height), afterScreenUpdates: true)
         let image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
         //Image captured, Return UI
         cardButtonContainer.hidden = false
-        
+
         let imageData = UIImagePNGRepresentation(image)
         let savedImage = PFFile(name:"image.png", data:imageData!)
         var card = Card(objectId: nil, body: body, author: author, image: savedImage)
