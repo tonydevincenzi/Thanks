@@ -24,6 +24,8 @@ class RemindersViewController: UIViewController {
     //ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dailyButton.selected = true
 
         // Do any additional setup after loading the view.
     }

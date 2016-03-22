@@ -133,6 +133,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cell.cardImage?.file = cards[indexPath.row].image!
         cell.cardImage.loadInBackground()
         
+        
+        
+        
         return cell
     }
     

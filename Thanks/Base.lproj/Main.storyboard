@@ -202,7 +202,7 @@
                         <outlet property="passwordField" destination="Ha6-RE-AVN" id="qpX-Lq-Ntp"/>
                         <outlet property="showLoginButton" destination="j9S-Hq-Jws" id="VIE-rZ-tjT"/>
                         <outlet property="skipButton" destination="O3y-zi-w1j" id="NZL-9z-bH0"/>
-                        <segue destination="lpv-Tv-mmM" kind="modal" identifier="showReminders" id="pBD-fu-iLu"/>
+                        <segue destination="lpv-Tv-mmM" kind="push" identifier="showReminders" id="pBD-fu-iLu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvd-jU-8ZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -943,8 +943,8 @@
         <image name="trash_icon" width="21" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WjR-6L-uE6"/>
         <segue reference="Cvl-8I-BgK"/>
-        <segue reference="DuJ-wv-aPu"/>
+        <segue reference="pBD-fu-iLu"/>
+        <segue reference="WjR-6L-uE6"/>
     </inferredMetricsTieBreakers>
 </document>
