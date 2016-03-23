@@ -19,18 +19,21 @@ class CreateTransition: BaseTransition {
         
         //Clone the image view
         let movingImageView = UIImageView()
+//        let movingPlaceholderLabel = UILabel()
         
         //Set destination for moving view
         let destinationViewFrame = createCardViewController.cardView.frame
+//        let destinationLabelFrame = createCardViewController.placeholderLabel.frame
         
         //Set the frame for the moving view from the tapped cell
         movingImageView.frame = homeViewController.tappedCellFrame
+//        movingPlaceholderLabel.frame = homeViewController.
         
         //Set the origin of the selectedImage according to scroll
         movingImageView.frame.origin.x -= homeViewController.collectionView.contentOffset.x
         
         //Assign the image through using the tappedCellData PFFile
-        movingImageView.image = UIImage(named:"new_card_cell_v2")
+        movingImageView.image = UIImage(named:"new_card_cell_v5")
         
         //Add cloned image to view
         containerView.addSubview(movingImageView)
@@ -41,6 +44,8 @@ class CreateTransition: BaseTransition {
         
         //Temporarily hide the destination VC
         toViewController.view.alpha = 0
+        
+        createCardViewController.nameTextField.hidden = true
         
         
         //Animate
@@ -55,11 +60,13 @@ class CreateTransition: BaseTransition {
             
         }) { (finished: Bool) -> Void in
             
-            //Complete by unhiding the temporarily hidden cardView
-            createCardViewController.cardView.hidden = false
-            
-            //And hide the cloned image
-            movingImageView.removeFromSuperview()
+                //Complete by unhiding the temporarily hidden cardView
+                createCardViewController.cardView.hidden = false
+                createCardViewController.nameTextField.hidden = false
+                
+                //And hide the cloned image
+                movingImageView.removeFromSuperview()
+
             
             self.finish()
         }
@@ -79,7 +86,7 @@ class CreateTransition: BaseTransition {
         movingImageView.frame = createCardViewController.cardView.frame
         
         //Assign the image through using the tappedCellData PFFile
-        movingImageView.image = UIImage(named: "new_card_cell_v2")
+        movingImageView.image = UIImage(named: "new_card_cell_v5")
         
         //Set destination for moving frame
         var destinationViewFrame = homeViewController.tappedCellFrame

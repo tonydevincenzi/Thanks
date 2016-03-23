@@ -63,6 +63,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         UIApplication.sharedApplication().statusBarStyle = .LightContent
  
         loadData()
+        
+        
+
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -181,13 +184,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if indexPath.section == 0 {
             let createCell = collectionView.dequeueReusableCellWithReuseIdentifier("createCell", forIndexPath: indexPath) as! CreateViewCell
-            createCell.imageView.image = UIImage(named: "new_card_cell_v2")
+            createCell.imageView.image = UIImage(named: "new_card_cell_v5")
             createCell.layer.shadowColor = UIColor.blackColor().CGColor
             createCell.layer.shadowOffset = CGSize(width: 0, height: 15)
             createCell.layer.shadowOpacity = 0.2
             createCell.layer.shadowRadius = 20
             createCell.layer.cornerRadius = 6
-//            createCell.clipsToBounds = false
             return createCell
         } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
@@ -206,8 +208,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     
-
-    
     
     
     //Segue for Cell
@@ -223,7 +223,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             //Save the selected cell's frame, you cannot infer this from the saved cell (tappedCell), you have to save via layoutAttributesForItemAtIndexPath... see *cellAttributes* above
             tappedCellFrame = frame
-            
+                        
             self.performSegueWithIdentifier("newCardFromCell", sender: self)
             
         } else {
@@ -247,11 +247,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     
+    
+    //Scroll
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        
         //print(collectionView.contentOffset.x)
         
     }
+    
+    
+    
+
     
 
     //Passing data in Segue

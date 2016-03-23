@@ -14,6 +14,8 @@ class CreateViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var dateLabelView: UILabel!
+    @IBOutlet weak var placeholderLabel: UILabel!
     
 
 }

@@ -20,6 +20,10 @@
             <string>SinaNova-Regular</string>
             <string>SinaNova-Regular</string>
             <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -420,19 +424,10 @@
                                     <action selector="didTapBack:" destination="Pzm-g4-oO1" eventType="touchUpInside" id="i5f-DZ-ZDp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Puu-6b-gDT">
-                                <rect key="frame" x="163" y="319" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapLogout:" destination="Pzm-g4-oO1" eventType="touchUpInside" id="6AL-62-Rsy"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TQJ-5T-bCR">
-                                <rect key="frame" x="122" y="100" width="130" height="30"/>
+                                <rect key="frame" x="51" y="207" width="272" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
                                 <state key="normal" title="Change Reminders">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -441,17 +436,29 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B53-0D-lp3">
-                                <rect key="frame" x="135" y="579" width="104" height="30"/>
+                                <rect key="frame" x="51" y="382" width="272" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
                                 <state key="normal" title="Delete account">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapDeleteAccount:" destination="Pzm-g4-oO1" eventType="touchUpInside" id="LVw-q0-vh8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Puu-6b-gDT">
+                                <rect key="frame" x="51" y="302" width="272" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="Pzm-g4-oO1" eventType="touchUpInside" id="6AL-62-Rsy"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.14901960780000001" green="0.1529411765" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1764705882352941" green="0.84313725490196079" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -513,13 +520,29 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What are you thankful for?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oQs-9p-Xhp">
+                                                    <rect key="frame" x="23" y="189" width="292" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
+                                                    <color key="textColor" red="0.73725490199999999" green="0.73725490199999999" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QAw-f4-GH3">
+                                                    <rect key="frame" x="15" y="11" width="297" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                                    <color key="textColor" red="0.14901960780000001" green="0.1529411765" blue="0.16862745100000001" alpha="0.2491947115" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <size key="customSize" width="330" height="440"/>
                                         <connections>
+                                            <outlet property="dateLabelView" destination="QAw-f4-GH3" id="yuW-Sd-tI5"/>
                                             <outlet property="imageView" destination="s6U-NS-1Fd" id="vLX-sk-6YG"/>
+                                            <outlet property="placeholderLabel" destination="oQs-9p-Xhp" id="JS5-YK-vcD"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -973,6 +996,6 @@
         <segue reference="sLT-mR-Wgb"/>
         <segue reference="Cvl-8I-BgK"/>
         <segue reference="bnl-DM-yLh"/>
-        <segue reference="pBD-fu-iLu"/>
+        <segue reference="DuJ-wv-aPu"/>
     </inferredMetricsTieBreakers>
 </document>
