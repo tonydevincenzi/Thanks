@@ -348,7 +348,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="JFa-hS-7OZ">
-                                        <rect key="frame" x="12" y="58" width="350" height="466"/>
+                                        <rect key="frame" x="12" y="75" width="350" height="466"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Ls0-rc-Uae" customClass="PFImageView">
@@ -361,7 +361,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iG0-wj-jSJ">
-                                <rect key="frame" x="1" y="17" width="38" height="36"/>
+                                <rect key="frame" x="1" y="25" width="38" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="back_icon">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -381,7 +381,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ANx-6z-ji5">
-                                <rect key="frame" x="329" y="18" width="46" height="36"/>
+                                <rect key="frame" x="329" y="24" width="46" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="trash_icon"/>
                                 <connections>
@@ -971,8 +971,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="sLT-mR-Wgb"/>
-        <segue reference="fdO-QG-lNY"/>
-        <segue reference="pBD-fu-iLu"/>
+        <segue reference="Cvl-8I-BgK"/>
         <segue reference="bnl-DM-yLh"/>
+        <segue reference="pBD-fu-iLu"/>
     </inferredMetricsTieBreakers>
 </document>

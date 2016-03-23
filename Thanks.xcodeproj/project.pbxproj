@@ -264,10 +264,10 @@
 			children = (
 				EA58D6D91C99C1F200593381 /* ImageTransition.swift */,
 				3D70BDEF1C9CD78600014AC0 /* DetailTransition.swift */,
+				3DD2C1ED1CA316690045ABD8 /* CreateTransition.swift */,
 				EA8BBC3D1C9B12B000FA2A1E /* FadeTransition.swift */,
 				EAB6F0F51C9C63D200605C86 /* SaveTransition.swift */,
 				EA58D6D71C99C1DD00593381 /* BaseTransition.swift */,
-				3DD2C1ED1CA316690045ABD8 /* CreateTransition.swift */,
 			);
 			name = Transitions;
 			sourceTree = "<group>";
