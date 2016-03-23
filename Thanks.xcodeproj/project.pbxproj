@@ -13,6 +13,7 @@
 		3D70BDF01C9CD78600014AC0 /* DetailTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D70BDEF1C9CD78600014AC0 /* DetailTransition.swift */; };
 		3D73D4631C9B09840074DB39 /* CustomCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */; };
 		3DB8E2651CA196AB0074BC18 /* CreateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8E2641CA196AB0074BC18 /* CreateViewCell.swift */; };
+		3DD2C1EE1CA316690045ABD8 /* CreateTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2C1ED1CA316690045ABD8 /* CreateTransition.swift */; };
 		5DFE360403C2AB029F34402D /* Pods_Thanks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A73399B9E41BA524E49DA89 /* Pods_Thanks.framework */; };
 		93CFEFF91C8B984800CD37DC /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFEFF81C8B984800CD37DC /* Card.swift */; };
 		93CFEFFB1C8B9A3A00CD37DC /* ParseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */; };
@@ -74,6 +75,7 @@
 		3D73D4611C9B09840074DB39 /* CustomCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		3DB8E2641CA196AB0074BC18 /* CreateViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewCell.swift; sourceTree = "<group>"; };
+		3DD2C1ED1CA316690045ABD8 /* CreateTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTransition.swift; sourceTree = "<group>"; };
 		93CFEFF81C8B984800CD37DC /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		93CFEFFA1C8B9A3A00CD37DC /* ParseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseService.swift; sourceTree = "<group>"; };
 		B0E13387BC4327216A6BBDE9 /* Pods-Thanks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thanks.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thanks/Pods-Thanks.release.xcconfig"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				EA8BBC3D1C9B12B000FA2A1E /* FadeTransition.swift */,
 				EAB6F0F51C9C63D200605C86 /* SaveTransition.swift */,
 				EA58D6D71C99C1DD00593381 /* BaseTransition.swift */,
+				3DD2C1ED1CA316690045ABD8 /* CreateTransition.swift */,
 			);
 			name = Transitions;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				EAB6F0F61C9C63D200605C86 /* SaveTransition.swift in Sources */,
 				EA3F2BCF1C8658BB00AC0101 /* RemindersViewController.swift in Sources */,
 				EA8BBC3E1C9B12B000FA2A1E /* FadeTransition.swift in Sources */,
+				3DD2C1EE1CA316690045ABD8 /* CreateTransition.swift in Sources */,
 				EA3F2BCD1C8658A500AC0101 /* OnboardingViewController.swift in Sources */,
 				EA3F2B991C86298700AC0101 /* AppDelegate.swift in Sources */,
 				3DB8E2651CA196AB0074BC18 /* CreateViewCell.swift in Sources */,

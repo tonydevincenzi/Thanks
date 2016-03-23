@@ -38,6 +38,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var numberOfCards: Int!
     var detailTransition: DetailTransition!
     var fadeTransition: FadeTransition!
+    var createTransition: CreateTransition!
     var tappedCell: UIView!
     var tappedCellData: PFFile!
     var tappedCellFrame: CGRect!
@@ -211,22 +212,42 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //Segue for Cell
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        let cell: UICollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath)!
-        let cellAttributes: UICollectionViewLayoutAttributes = self.collectionView.layoutAttributesForItemAtIndexPath(indexPath)!
-        let frame = cellAttributes.frame
-        
-        let data: PFFile = cards[indexPath.row].image!
-        
-        //Save the selected cell's PFData
-        tappedCellData = data
-        
-        //Save the actual selected cell
-        tappedCell = cell
-        
-        //Save the selected cell's frame, you cannot infer this from the saved cell (tappedCell), you have to save via layoutAttributesForItemAtIndexPath... see *cellAttributes* above
-        tappedCellFrame = frame
-        
-        self.performSegueWithIdentifier("showDetail", sender: self)
+        if indexPath.section == 0 {
+            let createCell: UICollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath)!
+            let cellAttributes: UICollectionViewLayoutAttributes = self.collectionView.layoutAttributesForItemAtIndexPath(indexPath)!
+            let frame = cellAttributes.frame
+            
+//            let data = [indexPath.row].image!
+//            
+//            //Save the selected cell's PFData
+//            tappedCellData = data
+//            
+            //Save the actual selected cell
+            tappedCell = createCell
+            
+            //Save the selected cell's frame, you cannot infer this from the saved cell (tappedCell), you have to save via layoutAttributesForItemAtIndexPath... see *cellAttributes* above
+            tappedCellFrame = frame
+            
+            self.performSegueWithIdentifier("newCardFromCell", sender: self)
+            
+        } else {
+            let cell: UICollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath)!
+            let cellAttributes: UICollectionViewLayoutAttributes = self.collectionView.layoutAttributesForItemAtIndexPath(indexPath)!
+            let frame = cellAttributes.frame
+            
+            let data: PFFile = cards[indexPath.row].image!
+            
+            //Save the selected cell's PFData
+            tappedCellData = data
+            
+            //Save the actual selected cell
+            tappedCell = cell
+            
+            //Save the selected cell's frame, you cannot infer this from the saved cell (tappedCell), you have to save via layoutAttributesForItemAtIndexPath... see *cellAttributes* above
+            tappedCellFrame = frame
+            
+            self.performSegueWithIdentifier("showDetail", sender: self)
+        }
     }
     
     
@@ -240,7 +261,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //Passing data in Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        //This lets us use the newCard segue without using the DetailView code below
+        //Segue to CreateCardVC via icon in nav bar
         if segue.identifier == "newCard" {
             
             let destinationViewController = segue.destinationViewController as! CreateCardViewController
@@ -250,7 +271,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             fadeTransition.duration = 0.3
         }
         
-        //Settings Segue
+        
+        //Segue to CreateCardVC via new card cell in section 1 of collectionView
+        if segue.identifier == "newCardFromCell" {
+            
+            let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
+            let indexPath = indexPaths[0] as NSIndexPath
+            
+            let destinationViewController = segue.destinationViewController as! CreateCardViewController
+            destinationViewController.modalPresentationStyle = UIModalPresentationStyle.Custom
+            createTransition = CreateTransition()
+            destinationViewController.transitioningDelegate = createTransition
+            createTransition.duration = 0.3
+        }
+        
+        
+        
+        //Segue to SettingsVC
         if segue.identifier == "settingsSegue" {
             
             let destinationViewController = segue.destinationViewController as! SettingsViewController
@@ -261,7 +298,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
         
-        //Segue to Detail View Controller
+        
+        //Segue to DetailViewVC
         if segue.identifier == "showDetail" {
             
             let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
