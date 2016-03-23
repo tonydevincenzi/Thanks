@@ -172,7 +172,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             createCell.layer.shadowOpacity = 0.2
             createCell.layer.shadowRadius = 20
             createCell.layer.cornerRadius = 6
-            createCell.clipsToBounds = false
+//            createCell.clipsToBounds = false
             return createCell
         } else {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
@@ -184,6 +184,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             cell.layer.shadowOffset = CGSize(width: 0, height: 15)
             cell.layer.shadowOpacity = 0.2
             cell.layer.shadowRadius = 20
+            cell.layer.cornerRadius = 6
             return cell
         }
 
