@@ -60,9 +60,12 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         
     }
 
-    //Start Button causing segue
+    
+    
+    
+    //Skip or GetStarted buttons causing segue
     @IBAction func didTapGetStarted(sender: AnyObject) {
-        performSegueWithIdentifier("showReminders", sender: nil)
+        performSegueWithIdentifier("showCreateAccount", sender: nil)
     }
     
     
