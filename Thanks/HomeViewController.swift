@@ -43,7 +43,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var tappedCellFrame: CGRect!
     
     let sectionInsets1 = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0)  //Todo: the 25 left is hacked, should be 35, don't know where 10 are added
-    let sectionInsets2 = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 35)
+    let sectionInsets2 = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 25)
     
     
     
