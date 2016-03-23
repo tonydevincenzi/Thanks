@@ -42,6 +42,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var tappedCell: UIView!
     var tappedCellData: PFFile!
     var tappedCellFrame: CGRect!
+    var createCellImage: UIImageView!
     
     let sectionInsets1 = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0)  //Todo: the 25 left is hacked, should be 35, don't know where 10 are added
     let sectionInsets2 = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 25)
@@ -213,17 +214,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.section == 0 {
-            let createCell: UICollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath)!
+            let cell: UICollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath)!
             let cellAttributes: UICollectionViewLayoutAttributes = self.collectionView.layoutAttributesForItemAtIndexPath(indexPath)!
             let frame = cellAttributes.frame
             
-//            let data = [indexPath.row].image!
-//            
-//            //Save the selected cell's PFData
-//            tappedCellData = data
-//            
             //Save the actual selected cell
-            tappedCell = createCell
+            tappedCell = cell
             
             //Save the selected cell's frame, you cannot infer this from the saved cell (tappedCell), you have to save via layoutAttributesForItemAtIndexPath... see *cellAttributes* above
             tappedCellFrame = frame
