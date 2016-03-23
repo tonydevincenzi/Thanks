@@ -42,6 +42,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var tappedCellData: PFFile!
     var tappedCellFrame: CGRect!
     
+    let sectionInsets1 = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0)  //Todo: the 25 left is hacked, should be 35, don't know where 10 are added
+    let sectionInsets2 = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 35)
+    
     
     
     //View Did Load
@@ -160,6 +163,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    //Set custom insets per section
+    func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        if section == 0 {
+            return sectionInsets1
+        } else {
+            return sectionInsets2
+        }
+    }
+    
+    
     //Required to specify the unique settings of the cell
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -189,6 +202,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
 
     }
+    
+    
+
     
     
     
