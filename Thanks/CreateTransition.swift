@@ -44,7 +44,6 @@ class CreateTransition: BaseTransition {
         movingNameLabel.frame = homeViewController.tappedCellNameLabel.frame
         movingNameLabel.text = homeViewController.tappedCellNameLabel.text
         movingNameLabel.font = homeViewController.tappedCellNameLabel.font
-        movingPlaceholderLabel.textColor = UIColor(hex: 0xBEFFE4)
         
         movingNameLabel.frame.origin.y -= 200
         movingNameLabel.frame.origin.x -= 0
