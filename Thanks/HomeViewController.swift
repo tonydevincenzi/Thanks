@@ -42,6 +42,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var tappedCell: UIView!
     var tappedCellData: PFFile!
     var tappedCellFrame: CGRect!
+    var tappedCellLabel: UILabel!
     var createCellImage: UIImageView!
     
     let sectionInsets1 = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0)  //Todo: the 25 left is hacked, should be 35, don't know where 10 are added
@@ -184,7 +185,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if indexPath.section == 0 {
             let createCell = collectionView.dequeueReusableCellWithReuseIdentifier("createCell", forIndexPath: indexPath) as! CreateViewCell
-            createCell.imageView.image = UIImage(named: "new_card_cell_v5")
+            createCell.imageView.image = UIImage(named: "new_card_cell_v4")
             createCell.layer.shadowColor = UIColor.blackColor().CGColor
             createCell.layer.shadowOffset = CGSize(width: 0, height: 15)
             createCell.layer.shadowOpacity = 0.2
@@ -215,12 +216,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.section == 0 {
-            let cell: UICollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath)!
+            let cell: CreateViewCell = collectionView.cellForItemAtIndexPath(indexPath)! as! CreateViewCell
             let cellAttributes: UICollectionViewLayoutAttributes = self.collectionView.layoutAttributesForItemAtIndexPath(indexPath)!
             let frame = cellAttributes.frame
             
             //Save the actual selected cell
             tappedCell = cell
+            tappedCellLabel = cell.placeholderLabel
             
             //Save the selected cell's frame, you cannot infer this from the saved cell (tappedCell), you have to save via layoutAttributesForItemAtIndexPath... see *cellAttributes* above
             tappedCellFrame = frame
