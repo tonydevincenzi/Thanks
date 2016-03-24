@@ -9,7 +9,6 @@
 import UIKit
 import Parse
 import ParseUI
-import AFNetworking
 
 class DetailViewController: UIViewController, UIScrollViewDelegate {
     
