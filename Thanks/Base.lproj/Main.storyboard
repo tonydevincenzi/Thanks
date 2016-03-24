@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fUC-gB-enp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Y5C-6z-0Fy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -11,6 +11,7 @@
             <string>ForoRounded-Regular</string>
         </mutableArray>
         <mutableArray key="sinanova_italic.9508db81.cache.otf">
+            <string>SinaNova-Italic</string>
             <string>SinaNova-Italic</string>
             <string>SinaNova-Italic</string>
         </mutableArray>
@@ -505,7 +506,7 @@
                                 <collectionViewLayout key="collectionViewLayout" id="rTF-Tx-TDS" customClass="CustomCollectionViewFlowLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCellView" id="1AH-0J-dbm" customClass="CardCellView" customModule="Thanks" customModuleProvider="target">
-                                        <rect key="frame" x="22.5" y="0.0" width="330" height="440"/>
+                                        <rect key="frame" x="23" y="0.0" width="330" height="440"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="330" height="440"/>
@@ -525,7 +526,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="createCell" id="bwl-pv-5Cy" customClass="CreateViewCell" customModule="Thanks" customModuleProvider="target">
-                                        <rect key="frame" x="22.5" y="450" width="330" height="440"/>
+                                        <rect key="frame" x="23" y="450" width="330" height="440"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="330" height="440"/>
@@ -634,11 +635,11 @@
                                     <size key="itemSize" width="82" height="81"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="55" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="com.thanks.EmojiCell" id="1Ag-Zi-EZm" customClass="EmojiCell" customModule="Thanks" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="82" height="81"/>
+                                        <rect key="frame" x="0.0" y="55" width="82" height="81"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="82" height="81"/>
@@ -660,6 +661,23 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tP6-dc-66Z">
+                                <rect key="frame" x="137" y="601" width="102" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="closemodal"/>
+                                <connections>
+                                    <action selector="didTapDismiss:" destination="lIi-MJ-sNI" eventType="touchUpInside" id="R4G-bX-3Ht"/>
+                                    <action selector="didTapDone:" destination="Y5C-6z-0Fy" eventType="touchUpInside" id="kKZ-bI-sD3"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="BOA-7N-btw">
+                                <rect key="frame" x="8" y="25" width="359" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.26118990384615387" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -667,6 +685,7 @@
                     <connections>
                         <outlet property="collectionView" destination="D6g-OB-X8z" id="5ac-Vu-0nE"/>
                         <outlet property="overlayView" destination="86K-f0-eiB" id="FRu-Et-oBZ"/>
+                        <outlet property="searchField" destination="BOA-7N-btw" id="tmj-NO-MJL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VM9-nt-BOY" userLabel="First Responder" sceneMemberID="firstResponder"/>
