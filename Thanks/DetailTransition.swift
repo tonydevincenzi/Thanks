@@ -107,14 +107,14 @@ class DetailTransition: BaseTransition {
             
             //Temporarily hide initial and final images
             detailViewController.cardView.hidden = true
-            homeViewController.tappedCell.hidden = true
             
+            homeViewController.tappedCell.hidden = true
             
             //Animate
             UIView.animateWithDuration(duration, animations: {
                 
                 //Hide the original VC
-                fromViewController.view.alpha = 0
+                detailViewController.view.alpha = 0
                 
                 //Animate the cloned view to its position
                 movingImageView.frame = destinationViewFrame
