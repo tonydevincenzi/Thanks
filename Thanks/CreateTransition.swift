@@ -20,6 +20,7 @@ class CreateTransition: BaseTransition {
         //Clone the image view
         let movingImageView = UIImageView()
         let movingPlaceholderLabel = UILabel()
+        let movingNameLabel = UILabel()
         
         //Set destination for moving view
         let destinationViewFrame = createCardViewController.cardView.frame
@@ -37,6 +38,19 @@ class CreateTransition: BaseTransition {
         
         movingPlaceholderLabel.frame.origin.y += 114
         movingPlaceholderLabel.frame.origin.x += 25
+        
+        
+        
+        movingNameLabel.frame = homeViewController.tappedCellNameLabel.frame
+        movingNameLabel.text = homeViewController.tappedCellNameLabel.text
+        movingNameLabel.font = homeViewController.tappedCellNameLabel.font
+        movingPlaceholderLabel.textColor = UIColor(hex: 0xBEFFE4)
+        
+        movingNameLabel.frame.origin.y -= 200
+        movingNameLabel.frame.origin.x -= 0
+        
+        
+        
 
         
         print("TAPPEDCELLLABEL +\(homeViewController.tappedCellLabel.frame)")

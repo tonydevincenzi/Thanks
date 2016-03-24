@@ -43,6 +43,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var tappedCellData: PFFile!
     var tappedCellFrame: CGRect!
     var tappedCellLabel: UILabel!
+    var tappedCellNameLabel: UILabel!
     var createCellImage: UIImageView!
     
     let sectionInsets1 = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0)  //Todo: the 25 left is hacked, should be 35, don't know where 10 are added
@@ -64,6 +65,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         UIApplication.sharedApplication().statusBarStyle = .LightContent
  
         loadData()
+        
+        
+        let parse: ParseService = ParseService()
+        let currentUser = parse.getUser()
+        
+//        tappedCellNameLabel.text = String(currentUser.username)
         
         
 
@@ -223,6 +230,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             //Save the actual selected cell
             tappedCell = cell
             tappedCellLabel = cell.placeholderLabel
+            tappedCellNameLabel = cell.nameLabel
             
             //Save the selected cell's frame, you cannot infer this from the saved cell (tappedCell), you have to save via layoutAttributesForItemAtIndexPath... see *cellAttributes* above
             tappedCellFrame = frame

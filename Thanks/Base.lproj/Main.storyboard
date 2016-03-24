@@ -12,6 +12,7 @@
         </mutableArray>
         <mutableArray key="sinanova_italic.9508db81.cache.otf">
             <string>SinaNova-Italic</string>
+            <string>SinaNova-Italic</string>
         </mutableArray>
         <mutableArray key="sinanova_regular.34912673.cache.otf">
             <string>SinaNova-Regular</string>
@@ -527,11 +528,18 @@
                                                     <color key="textColor" red="0.73725490199999999" green="0.73725490199999999" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QAw-f4-GH3">
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QAw-f4-GH3">
                                                     <rect key="frame" x="15" y="11" width="297" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                                     <color key="textColor" red="0.14901960780000001" green="0.1529411765" blue="0.16862745100000001" alpha="0.2491947115" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b3b-sU-c1I">
+                                                    <rect key="frame" x="25" y="215" width="310" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SinaNova-Italic" family="Sina Nova" pointSize="18"/>
+                                                    <color key="textColor" red="0.74509803921568629" green="1" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -542,6 +550,7 @@
                                         <connections>
                                             <outlet property="dateLabelView" destination="QAw-f4-GH3" id="yuW-Sd-tI5"/>
                                             <outlet property="imageView" destination="s6U-NS-1Fd" id="vLX-sk-6YG"/>
+                                            <outlet property="nameLabel" destination="b3b-sU-c1I" id="ZP9-AM-zXH"/>
                                             <outlet property="placeholderLabel" destination="oQs-9p-Xhp" id="JS5-YK-vcD"/>
                                         </connections>
                                     </collectionViewCell>
@@ -876,7 +885,7 @@
                                                         <rect key="frame" x="25" y="335" width="310" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <color key="textColor" red="0.74622921300746814" green="1" blue="0.8933924483498713" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="textColor" red="0.74509803921568629" green="1" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="SinaNova-Italic" family="Sina Nova" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
