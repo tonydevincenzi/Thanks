@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fUC-gB-enp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fUC-gB-enp">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,6 +15,7 @@
             <string>SinaNova-Italic</string>
         </mutableArray>
         <mutableArray key="sinanova_regular.34912673.cache.otf">
+            <string>SinaNova-Regular</string>
             <string>SinaNova-Regular</string>
             <string>SinaNova-Regular</string>
             <string>SinaNova-Regular</string>
@@ -425,18 +426,15 @@
                                     <action selector="didTapBack:" destination="Pzm-g4-oO1" eventType="touchUpInside" id="i5f-DZ-ZDp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TQJ-5T-bCR">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TQJ-5T-bCR">
                                 <rect key="frame" x="51" y="207" width="272" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
                                 <state key="normal" title="Change Reminders">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="lpv-Tv-mmM" kind="modal" id="DuJ-wv-aPu"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B53-0D-lp3">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B53-0D-lp3">
                                 <rect key="frame" x="51" y="382" width="272" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
@@ -447,7 +445,7 @@
                                     <action selector="didTapDeleteAccount:" destination="Pzm-g4-oO1" eventType="touchUpInside" id="LVw-q0-vh8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Puu-6b-gDT">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Puu-6b-gDT">
                                 <rect key="frame" x="51" y="302" width="272" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
@@ -458,12 +456,29 @@
                                     <action selector="didTapLogout:" destination="Pzm-g4-oO1" eventType="touchUpInside" id="6AL-62-Rsy"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LZd-TQ-fay">
+                                <rect key="frame" x="1" y="84" width="374" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user@email.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kSs-qn-8UB">
+                                <rect key="frame" x="1" y="119" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SinaNova-Italic" family="Sina Nova" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1764705882352941" green="0.84313725490196079" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="emailLabel" destination="kSs-qn-8UB" id="Okl-xT-RN0"/>
+                        <outlet property="userLabel" destination="LZd-TQ-fay" id="XGG-Of-Hy8"/>
                         <segue destination="fUC-gB-enp" kind="modal" identifier="showOnboarding" id="HD2-do-rE4"/>
+                        <segue destination="lpv-Tv-mmM" kind="modal" identifier="showReminders" id="VQS-9y-tqT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ouu-kz-TmB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1002,9 +1017,9 @@
         <image name="trash_icon" width="21" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sLT-mR-Wgb"/>
         <segue reference="Cvl-8I-BgK"/>
+        <segue reference="sLT-mR-Wgb"/>
         <segue reference="bnl-DM-yLh"/>
-        <segue reference="DuJ-wv-aPu"/>
+        <segue reference="VQS-9y-tqT"/>
     </inferredMetricsTieBreakers>
 </document>
