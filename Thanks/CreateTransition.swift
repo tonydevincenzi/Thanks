@@ -165,7 +165,7 @@ class CreateTransition: BaseTransition {
             
             //And hide the cloned image
             movingImageView.removeFromSuperview()
-//            movingPlaceholderLabel.removeFromSuperview()
+            movingPlaceholderLabel.removeFromSuperview()
             
             self.finish()
         }
