@@ -7,6 +7,7 @@ target 'Thanks' do
 pod "Parse"
 pod “SwiftHEXColors”
 pod “ParseUI”
+pod 'EmojiKit', '~> 0.0.1'
 end
 
 target 'ThanksTests' do

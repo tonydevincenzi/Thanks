@@ -1,5 +1,6 @@
 PODS:
   - Bolts/Tasks (1.6.0)
+  - EmojiKit (0.0.1)
   - Parse (1.12.0):
     - Bolts/Tasks (~> 1.5)
   - ParseUI (1.2.0):
@@ -8,12 +9,14 @@ PODS:
   - SwiftHEXColors (1.0.2)
 
 DEPENDENCIES:
+  - EmojiKit (~> 0.0.1)
   - Parse
   - ParseUI
   - SwiftHEXColors
 
 SPEC CHECKSUMS:
   Bolts: f52a250053bb517ca874523c3913776359ab3def
+  EmojiKit: 5e544c85753b1027f7335a75168e5bfade705f06
   Parse: de2c52a9a1421b91ae7594ab8ce191afd184f19b
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
   SwiftHEXColors: 1238ce6ee5c698ef9caf00fad72876602ecd9df6
