@@ -123,7 +123,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if String(notification.object!) == "new" {
             UIView.animateWithDuration(0.5) {
-                self.collectionView.contentOffset = CGPoint(x: 375, y: 0)
+                self.collectionView.contentOffset = CGPoint(x: 340, y: 0)
             }
         }
        
