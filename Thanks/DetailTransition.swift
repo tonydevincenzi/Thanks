@@ -31,6 +31,8 @@ class DetailTransition: BaseTransition {
         
         //Assign the image through using the tappedCellData PFFile
         movingImageView.file = homeViewController.tappedCellData
+        movingImageView.layer.cornerRadius = 6
+        movingImageView.clipsToBounds = true
         
         //Add cloned image to view
         containerView.addSubview(movingImageView)
@@ -90,6 +92,8 @@ class DetailTransition: BaseTransition {
             
             //Assign the image through using the tappedCellData PFFile
             movingImageView.file = homeViewController.tappedCellData
+            movingImageView.layer.cornerRadius = 6
+            movingImageView.clipsToBounds = true
             
             //Set destination for moving frame
             var destinationViewFrame = homeViewController.tappedCellFrame

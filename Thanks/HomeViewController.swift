@@ -214,11 +214,14 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             //Set the cardImage (which is a PFImageView) to the PFFile returned by parse
             cell.cardImage?.file = cards[indexPath.row].image!
             cell.cardImage.loadInBackground()
+            
+            cell.viewContainer.layer.cornerRadius = 6
             cell.layer.shadowColor = UIColor.blackColor().CGColor
             cell.layer.shadowOffset = CGSize(width: 0, height: 15)
             cell.layer.shadowOpacity = 0.2
             cell.layer.shadowRadius = 20
-            cell.layer.cornerRadius = 6
+            
+            cell.clipsToBounds = false
             return cell
         }
 

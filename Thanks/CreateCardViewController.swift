@@ -809,6 +809,10 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         //TODO: Fix the flash coming from afterScreenUpdates
         bodyTextView.resignFirstResponder()
         nameTextField.resignFirstResponder()
+        
+        cardView.layer.cornerRadius = 0
+        gradientView.layer.cornerRadius = 0
+        photoContainerView.layer.cornerRadius = 0
 
         self.cardView.drawViewHierarchyInRect(CGRectMake(0,0,cardView.bounds.size.width,cardView.bounds.size.height), afterScreenUpdates: true)
         let image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
