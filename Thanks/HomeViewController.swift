@@ -189,7 +189,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             createCell.layer.shadowOffset = CGSize(width: 0, height: 15)
             createCell.layer.shadowOpacity = 0.2
             createCell.layer.shadowRadius = 20
-            //createCell.layer.cornerRadius = 6
+            createCell.layer.cornerRadius = 6
             createCell.clipsToBounds = false
             
             //Set nameLabel in CreateCell to username
