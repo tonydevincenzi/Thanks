@@ -185,11 +185,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if indexPath.section == 0 {
             let createCell = collectionView.dequeueReusableCellWithReuseIdentifier("createCell", forIndexPath: indexPath) as! CreateViewCell
             createCell.imageView.image = UIImage(named: "new_card_cell_v4")
+            createCell.viewContainer.layer.cornerRadius = 6
+            
             createCell.layer.shadowColor = UIColor.blackColor().CGColor
             createCell.layer.shadowOffset = CGSize(width: 0, height: 15)
             createCell.layer.shadowOpacity = 0.2
             createCell.layer.shadowRadius = 20
-            createCell.layer.cornerRadius = 6
+            
             createCell.clipsToBounds = false
             
             //Set nameLabel in CreateCell to username
