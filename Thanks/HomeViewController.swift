@@ -66,14 +66,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
  
         loadData()
         
-        
-        let parse: ParseService = ParseService()
-        let currentUser = parse.getUser()
-        
-//        tappedCellNameLabel.text = String(currentUser.username)
-        
-        
-
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -189,7 +181,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //Required to specify the unique settings of the cell
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        
+        //Create section 0 to hold CreateCell
         if indexPath.section == 0 {
             let createCell = collectionView.dequeueReusableCellWithReuseIdentifier("createCell", forIndexPath: indexPath) as! CreateViewCell
             createCell.imageView.image = UIImage(named: "new_card_cell_v4")
@@ -199,8 +191,22 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             createCell.layer.shadowRadius = 20
             //createCell.layer.cornerRadius = 6
             createCell.clipsToBounds = false
+            
+            //Set nameLabel in CreateCell to username
+            let parseService:ParseService = ParseService()
+            let currentUser = parseService.getUser()
+            
+            if currentUser["name"] != nil {
+                createCell.nameLabel.text = "– " + String(currentUser["name"])
+            } else {
+                createCell.nameLabel.text = "– Your Name"
+            }
+            
             return createCell
+            
         } else {
+            
+            //Create section 1 to hold cards array
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cardCellView", forIndexPath: indexPath) as! CardCellView
             
             //Set the cardImage (which is a PFImageView) to the PFFile returned by parse
