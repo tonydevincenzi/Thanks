@@ -17,22 +17,21 @@ class CreateTransition: BaseTransition {
         let homeViewController = fromViewController as! HomeViewController
         let createCardViewController = toViewController as! CreateCardViewController
         
-        //Clone the image view
+        //Clone the image and labels
         let movingImageView = UIImageView()
         let movingPlaceholderLabel = UILabel()
         let movingNameLabel = UILabel()
         
-        //Set destination for moving view
+        //Set parameters for cloned view
         let destinationViewFrame = createCardViewController.cardView.frame
-//        let destinationLabelFrame = createCardViewController.placeholderLabel.frame
-        
-        //Set the frame for the moving view from the tapped cell
         movingImageView.frame = homeViewController.tappedCellFrame
+        movingImageView.image = UIImage(named:"new_card_cell_v4")
+        movingImageView.frame.origin.x -= homeViewController.collectionView.contentOffset.x
+
         
-        
+        //Set parameters for cloned placeholderLabel
         movingPlaceholderLabel.frame = homeViewController.tappedCellLabel.frame
         movingPlaceholderLabel.text = homeViewController.tappedCellLabel.text
-
         movingPlaceholderLabel.font = homeViewController.tappedCellLabel.font
         movingPlaceholderLabel.textColor = UIColor(hex: 0xBCBCBC)
         
@@ -40,30 +39,21 @@ class CreateTransition: BaseTransition {
         movingPlaceholderLabel.frame.origin.x += 25
         
         
-        
+        //Set parameters for cloned nameLabel
         movingNameLabel.frame = homeViewController.tappedCellNameLabel.frame
         movingNameLabel.text = homeViewController.tappedCellNameLabel.text
         movingNameLabel.font = homeViewController.tappedCellNameLabel.font
+        movingNameLabel.textColor = UIColor(hex: 0xBCBCBC)
         
-        movingNameLabel.frame.origin.y -= 200
-        movingNameLabel.frame.origin.x -= 0
+        movingNameLabel.frame.origin.y += 114
+        movingNameLabel.frame.origin.x += 25
         
         
-        
-
-        
-        print("TAPPEDCELLLABEL +\(homeViewController.tappedCellLabel.frame)")
-        print("DESTINATIONLABELFRAME +\(createCardViewController.placeholderLabel.frame)")
-        
-        //Set the origin of the selectedImage according to scroll
-        movingImageView.frame.origin.x -= homeViewController.collectionView.contentOffset.x
-        
-        //Assign the image through using the tappedCellData PFFile
-        movingImageView.image = UIImage(named:"new_card_cell_v4")
-        
-        //Add cloned image to view
+        //Add cloned images and labels to view
         containerView.addSubview(movingImageView)
         containerView.addSubview(movingPlaceholderLabel)
+        containerView.addSubview(movingNameLabel)
+        
         
         //Temporarily hide the initial and final images
         homeViewController.tappedCell.hidden = true
@@ -79,11 +69,13 @@ class CreateTransition: BaseTransition {
             //Show the destination VC again
             toViewController.view.alpha = 1
             
-            //Animate the cloned image to its position
+            //Animate the cloned image and labels to their target position
             movingImageView.frame = destinationViewFrame
-//            movingPlaceholderLabel.frame = destinationLabelFrame
             movingPlaceholderLabel.frame.origin.y -= 60
             movingPlaceholderLabel.frame.origin.x -= 13
+            
+            movingNameLabel.frame.origin.y -= 61
+            movingNameLabel.frame.origin.x -= 16
             
             
         }) { (finished: Bool) -> Void in
@@ -95,6 +87,7 @@ class CreateTransition: BaseTransition {
                 //And hide the cloned image
                 movingImageView.removeFromSuperview()
                 movingPlaceholderLabel.removeFromSuperview()
+                movingNameLabel.removeFromSuperview()
             
             self.finish()
         }

@@ -266,7 +266,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     
-    
 
     
 
@@ -327,7 +326,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             detailTransition.duration = 0.3
         }
         
-        
-        
     }
+    
+
+    
 }
