@@ -77,26 +77,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     
-    //Shake to Undo
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if motion == .MotionShake {
-            let alert = UIAlertController(title: "Delete all Cards?", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "Delete", style: .Default, handler: { action in
-                switch action.style{
-                case .Default:
-                    ParseService().deleteAllCards()
-                case .Cancel:
-                    print("cancel")
-                case .Destructive:
-                    print("destructive")
-                }
-            }))
-            
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-    }
-    
     //Parse loads data
     func loadData() {
         
