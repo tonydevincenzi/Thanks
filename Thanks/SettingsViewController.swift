@@ -25,7 +25,9 @@ class SettingsViewController: UIViewController {
         let parseService: ParseService = ParseService()
         let currentUser = parseService.getUser()
         
-        userLabel.text = currentUser.username
+        print(currentUser)
+        
+        userLabel.text = String(currentUser["name"])
         emailLabel.text = currentUser.email
         
         remindersButton.format("Change Reminders", image: nil, tag: 0, xpos: self.view.frame.width/2 - 100, ypos: 220, width: 200, height: 30, shadow: false)
