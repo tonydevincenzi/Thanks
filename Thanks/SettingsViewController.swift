@@ -66,7 +66,7 @@ class SettingsViewController: UIViewController {
     
     func didTapUserLabel(sender: UITapGestureRecognizer) {
         
-        let alertController = UIAlertController(title: "Change you rname", message: "Enter the name you wish to use:", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Change your name", message: "Enter the name you wish to use:", preferredStyle: .Alert)
         
         let confirmAction = UIAlertAction(title: "Confirm", style: .Default) { (_) in
             if let field = alertController.textFields![0] as? UITextField {
