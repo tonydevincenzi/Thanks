@@ -9,6 +9,16 @@
 import UIKit
 import EmojiKit
 
+extension String {
+    func replace(string:String, replacement:String) -> String {
+        return self.stringByReplacingOccurrencesOfString(string, withString: replacement, options: NSStringCompareOptions.LiteralSearch, range: nil)
+    }
+    
+    func removeWhitespace() -> String {
+        return self.replace(" ", replacement: "")
+    }
+}
+
 class AddEmojiViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -44,12 +54,17 @@ class AddEmojiViewController: UIViewController, UICollectionViewDelegate, UIColl
         overlayView.addSubview(blurEffectView)
     }
     
+    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         view.endEditing(true)
     }
     
     func textFieldDidChange(textField: UITextField) {
-        //print(textField.text)
+        
+        let text = textField.text?.removeWhitespace()
+        
+        print(text)
+        
         let fetcher = EmojiFetcher()
         
         
@@ -57,7 +72,9 @@ class AddEmojiViewController: UIViewController, UICollectionViewDelegate, UIColl
 
         if searchField.text?.characters.count > 0 {
             //self.collectionView.hidden = true
-            fetcher.query(textField.text!) { emojiResults in
+            self.searchEmojis.removeAll()
+
+            fetcher.query(text!) { emojiResults in
                 for emoji in emojiResults {
                     self.searchEmojis.append(emoji.character)
                     self.collectionView.reloadData()
@@ -67,6 +84,7 @@ class AddEmojiViewController: UIViewController, UICollectionViewDelegate, UIColl
                 }
             }
         } else {
+            self.searchEmojis.removeAll()
             searchEmojis = allEmojis
             collectionView.reloadData()
         }
@@ -83,9 +101,18 @@ class AddEmojiViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("com.thanks.EmojiCell", forIndexPath: indexPath) as! EmojiCell
-        let emoji = String(searchEmojis[indexPath.row])
         
-        print("Loading cell")
+        print(searchEmojis.count)
+        
+        var emoji = ""
+        
+        if searchEmojis.count > 0 {
+            emoji = String(searchEmojis[indexPath.row])
+        } else {
+            print("Making an X")
+            emoji = String([""])
+        }
+        
         cell.emojiLabel.text = emoji
         
         return cell
