@@ -15,6 +15,7 @@
 - (void)awakeFromNib
 {
     self.itemSize = CGSizeMake(330.0, 438.0);
+//    self.estimatedItemSize = CGSizeMake(330.0, 438.0);
     self.minimumInteritemSpacing = 25.0;
     self.minimumLineSpacing = 10.0;
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;

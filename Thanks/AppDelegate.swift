@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Parse.initializeWithConfiguration(configuration)
         }
         
+        print(PFUser.currentUser())
+        
         //If there is a current user, skip onboarding
         if (PFUser.currentUser() != nil) {
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -39,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
         }
-        
+                
         return true
     }
 

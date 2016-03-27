@@ -139,6 +139,7 @@ final class ParseService {
         if useLocalDataStore == true {
             query.fromLocalDatastore()
         }
+        
         query.whereKey("user", equalTo:PFUser.currentUser()!)
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             
