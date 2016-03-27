@@ -37,6 +37,12 @@ final class ParseService {
         return PFUser.currentUser()!
     }
     
+    func updateUserName(name: String) {
+        var user = PFUser.currentUser()
+        user!["name"] = name
+        user?.saveInBackground()
+    }
+    
     func logOutUser() {
         print("Logging out user:\(PFUser.currentUser()?.objectId)")
         PFUser.logOut()
