@@ -573,7 +573,9 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         let vc = UIImagePickerController()
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { action in
+            self.resetStyleButton(self.previousCardStyle)
+        } ))
         alert.addAction(UIAlertAction(title: "Take a Photo", style: .Default, handler: { action in
             
             switch action.style{
