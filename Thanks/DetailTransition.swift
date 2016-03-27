@@ -31,6 +31,7 @@ class DetailTransition: BaseTransition {
         
         //Assign the image through using the tappedCellData PFFile
         movingImageView.file = homeViewController.tappedCellData
+        movingImageView.loadInBackground()
         movingImageView.layer.cornerRadius = 6
         movingImageView.clipsToBounds = true
         

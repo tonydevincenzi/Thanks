@@ -36,6 +36,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
         
         //Load passed image into cardImageView
         cardImageView.file = passedImage
+        cardImageView.loadInBackground()
         
         //Set scrollView content size
         scrollView.contentSize = CGSize(width: 375, height: 667)
