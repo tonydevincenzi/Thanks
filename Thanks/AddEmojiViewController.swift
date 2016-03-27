@@ -54,16 +54,14 @@ class AddEmojiViewController: UIViewController, UICollectionViewDelegate, UIColl
         overlayView.addSubview(blurEffectView)
     }
     
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         view.endEditing(true)
     }
+    
     
     func textFieldDidChange(textField: UITextField) {
         
         let text = textField.text?.removeWhitespace()
-        
-        print(text)
         
         let fetcher = EmojiFetcher()
         
@@ -102,14 +100,11 @@ class AddEmojiViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("com.thanks.EmojiCell", forIndexPath: indexPath) as! EmojiCell
         
-        print(searchEmojis.count)
-        
         var emoji = ""
         
         if searchEmojis.count > 0 {
             emoji = String(searchEmojis[indexPath.row])
         } else {
-            print("Making an X")
             emoji = String([""])
         }
         
