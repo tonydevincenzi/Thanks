@@ -277,7 +277,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    
     @IBAction func didTapShare(sender: AnyObject) {
         
         let indexPath = NSIndexPath(forItem: Int(currentPage - 1), inSection: 1)
@@ -285,6 +284,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let share:ShareCard = ShareCard()
         share.shareCard(cell!, targetView: self)
+    }
+
+    //Automatically set cell size based on aspect ratio
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        // 330 x 438 for iPhone 6
+        let aspectRatio = CGFloat(330.0 / 438)
+        
+        let width = collectionView.frame.size.width
+        let height = width / aspectRatio
+        
+        return CGSize(width: width*0.87, height: height)
     }
     
 

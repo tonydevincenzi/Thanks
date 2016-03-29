@@ -131,19 +131,19 @@
                                         <rect key="frame" x="20" y="128" width="243" height="36"/>
                                         <color key="textColor" red="0.38416666669999999" green="0.090764563069999998" blue="0.1052793315" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z4D-Ja-yXf">
                                         <rect key="frame" x="20" y="74" width="243" height="36"/>
                                         <color key="textColor" red="0.38416666669999999" green="0.090764563069999998" blue="0.1052793315" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7lP-rF-ByP">
                                         <rect key="frame" x="20" y="20" width="243" height="36"/>
                                         <color key="textColor" red="0.38416666666666666" green="0.090764563069360829" blue="0.10527933154158543" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -488,53 +488,65 @@
                                 <collectionViewLayout key="collectionViewLayout" id="rTF-Tx-TDS" customClass="CustomCollectionViewFlowLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCellView" id="1AH-0J-dbm" customClass="CardCellView" customModule="Thanks" customModuleProvider="target">
-                                        <rect key="frame" x="163" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="23" y="0.0" width="330" height="438"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="330" height="438"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6l-y4-fkN">
                                                     <rect key="frame" x="0.0" y="0.0" width="330" height="438"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dpA-lF-x1n" customClass="PFImageView">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dpA-lF-x1n" customClass="PFImageView">
                                                             <rect key="frame" x="0.0" y="0.0" width="330" height="438"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="dpA-lF-x1n" secondAttribute="trailing" constant="-8" id="6oo-yW-LlH"/>
+                                                        <constraint firstItem="dpA-lF-x1n" firstAttribute="leading" secondItem="C6l-y4-fkN" secondAttribute="leadingMargin" constant="-8" id="YCu-bD-TDm"/>
+                                                        <constraint firstItem="dpA-lF-x1n" firstAttribute="top" secondItem="C6l-y4-fkN" secondAttribute="topMargin" constant="-8" id="YyG-pf-oDr"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="dpA-lF-x1n" secondAttribute="bottom" constant="-8" id="kM1-dA-19C"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="C6l-y4-fkN" secondAttribute="trailing" constant="-280" id="4Lm-qF-5hl"/>
-                                            <constraint firstAttribute="bottom" secondItem="C6l-y4-fkN" secondAttribute="bottom" constant="-388" id="QOL-4P-1fk"/>
-                                            <constraint firstItem="C6l-y4-fkN" firstAttribute="top" secondItem="1AH-0J-dbm" secondAttribute="top" id="iGe-jh-emz"/>
-                                            <constraint firstItem="C6l-y4-fkN" firstAttribute="leading" secondItem="1AH-0J-dbm" secondAttribute="leading" id="uud-1d-xZX"/>
+                                            <constraint firstAttribute="bottom" secondItem="C6l-y4-fkN" secondAttribute="bottom" id="2TS-Z4-lli"/>
+                                            <constraint firstAttribute="trailing" secondItem="C6l-y4-fkN" secondAttribute="trailing" id="FOJ-z7-LcG"/>
+                                            <constraint firstItem="C6l-y4-fkN" firstAttribute="leading" secondItem="1AH-0J-dbm" secondAttribute="leading" id="d9x-GN-r4z"/>
+                                            <constraint firstItem="C6l-y4-fkN" firstAttribute="top" secondItem="1AH-0J-dbm" secondAttribute="top" id="q2p-tE-czW"/>
                                         </constraints>
-                                        <size key="customSize" width="50" height="50"/>
+                                        <size key="customSize" width="330" height="438"/>
                                         <connections>
                                             <outlet property="cardImage" destination="dpA-lF-x1n" id="588-FE-LmO"/>
                                             <outlet property="viewContainer" destination="C6l-y4-fkN" id="ISs-u0-v4K"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="createCell" id="bwl-pv-5Cy" customClass="CreateViewCell" customModule="Thanks" customModuleProvider="target">
-                                        <rect key="frame" x="23" y="60" width="330" height="438"/>
+                                        <rect key="frame" x="23" y="448" width="330" height="438"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="330" height="438"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2G-Os-3TP">
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2G-Os-3TP">
                                                     <rect key="frame" x="0.0" y="0.0" width="330" height="438"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6U-NS-1Fd">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s6U-NS-1Fd">
                                                             <rect key="frame" x="0.0" y="0.0" width="330" height="438"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="s6U-NS-1Fd" firstAttribute="top" secondItem="z2G-Os-3TP" secondAttribute="topMargin" constant="-8" id="bSt-gg-Arm"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="s6U-NS-1Fd" secondAttribute="trailing" constant="-8" id="jLc-Sz-Ooy"/>
+                                                        <constraint firstItem="s6U-NS-1Fd" firstAttribute="leading" secondItem="z2G-Os-3TP" secondAttribute="leadingMargin" constant="-8" id="kmi-K1-CeI"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="s6U-NS-1Fd" secondAttribute="bottom" constant="-8" id="uMc-Zi-MOx"/>
+                                                    </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What are you thankful for?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQs-9p-Xhp">
                                                     <rect key="frame" x="23" y="189" width="292" height="34"/>
@@ -558,6 +570,12 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="z2G-Os-3TP" firstAttribute="top" secondItem="bwl-pv-5Cy" secondAttribute="top" id="0Mf-eP-PEf"/>
+                                            <constraint firstItem="z2G-Os-3TP" firstAttribute="leading" secondItem="bwl-pv-5Cy" secondAttribute="leading" id="D0C-M1-A8Y"/>
+                                            <constraint firstAttribute="trailing" secondItem="z2G-Os-3TP" secondAttribute="trailing" id="ES1-8V-Isc"/>
+                                            <constraint firstAttribute="bottom" secondItem="z2G-Os-3TP" secondAttribute="bottom" id="X6f-FP-CBc"/>
+                                        </constraints>
                                         <size key="customSize" width="330" height="438"/>
                                         <connections>
                                             <outlet property="dateLabelView" destination="QAw-f4-GH3" id="yuW-Sd-tI5"/>
@@ -1051,6 +1069,6 @@
         <segue reference="Cvl-8I-BgK"/>
         <segue reference="sLT-mR-Wgb"/>
         <segue reference="bnl-DM-yLh"/>
-        <segue reference="VQS-9y-tqT"/>
+        <segue reference="pBD-fu-iLu"/>
     </inferredMetricsTieBreakers>
 </document>
