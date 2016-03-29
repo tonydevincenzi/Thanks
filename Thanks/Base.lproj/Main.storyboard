@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fUC-gB-enp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fUC-gB-enp">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -482,21 +482,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJv-Nv-KcE">
-                                <rect key="frame" x="162" y="588" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="8xd-1K-JrG"/>
-                                    <constraint firstAttribute="width" constant="50" id="aqj-8Y-waT"/>
-                                </constraints>
-                                <state key="normal" image="icon-share"/>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qLX-sI-bqZ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewLayout key="collectionViewLayout" id="rTF-Tx-TDS" customClass="CustomCollectionViewFlowLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cardCellView" id="1AH-0J-dbm" customClass="CardCellView" customModule="Thanks" customModuleProvider="target">
-                                        <rect key="frame" x="162.5" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="163" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -528,7 +520,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="createCell" id="bwl-pv-5Cy" customClass="CreateViewCell" customModule="Thanks" customModuleProvider="target">
-                                        <rect key="frame" x="22.5" y="60" width="330" height="438"/>
+                                        <rect key="frame" x="23" y="60" width="330" height="438"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="330" height="438"/>
@@ -606,6 +598,17 @@
                                     <constraint firstAttribute="height" constant="27" id="SVp-gX-Zg6"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJv-Nv-KcE">
+                                <rect key="frame" x="162" y="588" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8xd-1K-JrG"/>
+                                    <constraint firstAttribute="width" constant="50" id="aqj-8Y-waT"/>
+                                </constraints>
+                                <state key="normal" image="icon-share"/>
+                                <connections>
+                                    <action selector="didTapShare:" destination="R9e-Pp-7UG" eventType="touchUpInside" id="JfN-Al-Oyy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.13725490196078433" green="0.60392156862745094" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -634,6 +637,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="qLX-sI-bqZ" id="Yw8-nT-VaC"/>
+                        <outlet property="shareButton" destination="MJv-Nv-KcE" id="N58-eX-8Us"/>
                         <segue destination="8f4-8X-iaW" kind="modal" identifier="showDetail" id="bnl-DM-yLh"/>
                         <segue destination="t7N-kt-Mnd" kind="modal" identifier="newCardFromCell" id="sLT-mR-Wgb"/>
                     </connections>
@@ -1044,8 +1048,8 @@
         <image name="trash_icon" width="21" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sLT-mR-Wgb"/>
         <segue reference="Cvl-8I-BgK"/>
+        <segue reference="sLT-mR-Wgb"/>
         <segue reference="bnl-DM-yLh"/>
         <segue reference="VQS-9y-tqT"/>
     </inferredMetricsTieBreakers>
