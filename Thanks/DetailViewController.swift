@@ -32,7 +32,7 @@ class DetailViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cardImageView.layer.cornerRadius = 6
+        cardImageView.layer.cornerRadius = 0
         
         //Load passed image into cardImageView
         cardImageView.file = passedImage

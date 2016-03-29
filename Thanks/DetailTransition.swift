@@ -58,6 +58,7 @@ class DetailTransition: BaseTransition {
             
             //Animate the cloned image to its position
             movingImageView.frame = destinationViewFrame
+            movingImageView.layer.cornerRadius = 0
             
             //Show the buttons  
             detailViewController.backButton.alpha = 1
