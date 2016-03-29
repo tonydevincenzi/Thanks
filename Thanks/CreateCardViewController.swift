@@ -797,6 +797,14 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         bounceCardWithAnimation()
     }
     
+    func imageWithView(view: UIView) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        var img: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img
+    }
+    
     @IBAction func didTapSave(sender: AnyObject) {
         
         let body = bodyTextView.text!
@@ -805,24 +813,18 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         //capture the image from the view
         //Hide UI, capture the picture
         
+        gradientView.layer.cornerRadius = 0
+        photoContainerView.layer.cornerRadius = 0
+        cardView.layer.cornerRadius = 0
         cardButtonContainer.hidden = true
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(cardView.frame.width, cardView.frame.height), false, 0);
         
-        //TODO: Fix the flash coming from afterScreenUpdates
         bodyTextView.resignFirstResponder()
         nameTextField.resignFirstResponder()
         
-        self.cardView.drawViewHierarchyInRect(CGRectMake(0,0,cardView.bounds.size.width,cardView.bounds.size.height), afterScreenUpdates: true)
-        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
-        //Image captured, Return UI
-        cardButtonContainer.hidden = false
-
+        let image:UIImage = imageWithView(cardView)
         let imageData = UIImagePNGRepresentation(image)
         let savedImage = PFFile(name:"image.png", data:imageData!)
         var card = Card(objectId: nil, body: body, author: author, image: savedImage)
-        
-        //Pass the card to ParseService, save, and return
-        //TODO: Some error handling here
         
         saveButton.enabled = false
         saveButton.alpha = 0.3
@@ -837,8 +839,10 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
             self.saveButton.alpha = 0
 
             self.objectId = result.objectId
-            self.performSegueWithIdentifier("showDetailFromSave", sender: self)
         }
+        
+        self.tappedImage.image = image
+        self.performSegueWithIdentifier("showDetailFromSave", sender: self)
     }
     
     //Hide status bar
