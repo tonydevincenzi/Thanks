@@ -45,6 +45,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var tappedCellLabel: UILabel!
     var tappedCellNameLabel: UILabel!
     var createCellImage: UIImageView!
+    var currentPage: Double!
+    @IBOutlet weak var shareButton: UIButton!
     
     let sectionInsets1 = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0)  //Todo: the 25 left is hacked, should be 35, don't know where 10 are added
     let sectionInsets2 = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 25)
@@ -57,7 +59,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Notification stuff?
+        currentPage = 0
+        
+        shareButton.alpha = 0
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshCollection:", name:"refresh", object: nil)
 
         //Collection views require you set both delegate and datasource for self, just like table views
@@ -215,6 +220,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //Segue for Cell
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        print(indexPath.row)
+        
         if indexPath.section == 0 {
             let cell: CreateViewCell = collectionView.cellForItemAtIndexPath(indexPath)! as! CreateViewCell
             let cellAttributes: UICollectionViewLayoutAttributes = self.collectionView.layoutAttributesForItemAtIndexPath(indexPath)!
@@ -254,12 +261,31 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //Scroll
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        //print(collectionView.contentOffset.x)
+        //let screenWidth = view.frame.width
+        //TODO: Fix this to work with auto layout when implimented
         
+        let hardCodedWidth = CGFloat(340)
+        currentPage = Double(round(collectionView.contentOffset.x / hardCodedWidth))
+        if currentPage >= 1 {
+            UIView.animateWithDuration(0.1, animations: {
+                self.shareButton.alpha = 1
+            })
+        } else {
+            UIView.animateWithDuration(0.1, animations: {
+                self.shareButton.alpha = 0
+            })
+        }
     }
     
     
-
+    @IBAction func didTapShare(sender: AnyObject) {
+        
+        let indexPath = NSIndexPath(forItem: Int(currentPage - 1), inSection: 1)
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        
+        let share:ShareCard = ShareCard()
+        share.shareCard(cell!, targetView: self)
+    }
     
 
     //Passing data in Segue
@@ -300,8 +326,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             destinationViewController.transitioningDelegate = fadeTransition
             fadeTransition.duration = 0.3
         }
-        
-        
+
         
         //Segue to DetailViewVC
         if segue.identifier == "showDetail" {
