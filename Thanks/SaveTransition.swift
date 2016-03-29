@@ -17,6 +17,8 @@ class SaveTransition: BaseTransition {
         var detailViewController = toViewController as! DetailViewController
         let destinationViewFrame = detailViewController.cardView.frame
         
+        detailViewController.trashButton.hidden = true
+        
         let movingImageView = UIImageView()
         
         movingImageView.frame = createViewController.cardView.frame
