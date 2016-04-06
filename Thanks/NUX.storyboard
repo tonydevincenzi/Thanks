@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="sinanova_regular.34912673.cache.otf">
+            <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
+            <string>SinaNova-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Onboarding-->
+        <scene sceneID="ANz-a0-rt1">
+            <objects>
+                <viewController id="wkl-K8-QNe" customClass="OnboardingViewController" customModule="Thanks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5ds-E0-lMV">
+                        <rect key="frame" x="0.0" y="0.0" width="1125" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="zyY-cR-FFN">
+                                <rect key="frame" x="168" y="423" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="h6B-tw-biQ">
+                                <rect key="frame" x="307" y="20" width="58" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="skip_button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapGetStarted:" destination="wkl-K8-QNe" eventType="touchUpInside" id="TB0-BB-UNd"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="PN3-9t-WQW">
+                                <rect key="frame" x="0.0" y="0.0" width="1125" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" image="onboarding1" id="Mej-cs-zbO">
+                                        <rect key="frame" x="0.0" y="132" width="375" height="242"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding2" id="06e-BI-2uG">
+                                        <rect key="frame" x="375" y="132" width="375" height="242"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding3" id="A2g-S9-wL8">
+                                        <rect key="frame" x="750" y="132" width="375" height="242"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bft-JW-bmP">
+                                        <rect key="frame" x="826" y="418" width="222" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="get_started_button"/>
+                                        <connections>
+                                            <action selector="didTapGetStarted:" destination="wkl-K8-QNe" eventType="touchUpInside" id="m3f-We-RDD"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know that expressing gratitude has been scientifically proven to increase happiness?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" id="3xH-W2-XaP">
+                                        <rect key="frame" x="37" y="210" width="300" height="154"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="emoji_kiss" id="qzk-8w-zLb">
+                                        <rect key="frame" x="155" y="129" width="64" height="59"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Say Thanks to improve your physical and psychological health. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" id="eAe-Md-S95">
+                                        <rect key="frame" x="412" y="210" width="300" height="154"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="emoji_smile" id="az6-2o-zd4">
+                                        <rect key="frame" x="536" y="129" width="64" height="59"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Say Thanks to strengthen your relationships or even build new ones." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="15" id="wbV-5a-QlX">
+                                        <rect key="frame" x="787" y="210" width="300" height="154"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="emoji_couple" id="WXO-dQ-jNQ">
+                                        <rect key="frame" x="912" y="132" width="64" height="59"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.52941176469999995" green="0.49019607840000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Onboarding" id="xHq-K4-g9e">
+                        <barButtonItem key="rightBarButtonItem" title="next" id="Gxu-yw-nn8"/>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1125" height="667"/>
+                    <connections>
+                        <outlet property="getStartedButton" destination="Bft-JW-bmP" id="UDP-xp-Y7N"/>
+                        <outlet property="pageControl" destination="zyY-cR-FFN" id="PvK-Xc-2EJ"/>
+                        <outlet property="scrollView" destination="PN3-9t-WQW" id="JE4-fT-Fby"/>
+                        <outlet property="skipButton" destination="h6B-tw-biQ" id="bqe-NA-HER"/>
+                        <segue destination="Wn9-mK-hsW" kind="push" identifier="showCreateAccount" id="70X-oJ-tM8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jp3-RK-PGS" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764.5" y="389.5"/>
+        </scene>
+        <!--Create Account View Controller-->
+        <scene sceneID="ZZa-Re-Sk9">
+            <objects>
+                <viewController id="Wn9-mK-hsW" customClass="CreateAccountViewController" customModule="Thanks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SDK-gu-QSo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MFc-f4-t24">
+                                <rect key="frame" x="307" y="20" width="58" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapSkip:" destination="Wn9-mK-hsW" eventType="touchUpInside" id="6th-LE-kfH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your name?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4fS-VS-seD">
+                                <rect key="frame" x="37" y="132" width="291" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="28"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="VhC-lj-BpW">
+                                <rect key="frame" x="41" y="227" width="283" height="323"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" id="PGw-YY-Rr4">
+                                        <rect key="frame" x="20" y="128" width="243" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.38416666669999999" green="0.090764563069999998" blue="0.1052793315" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" id="8ax-qJ-4lo">
+                                        <rect key="frame" x="20" y="74" width="243" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.38416666669999999" green="0.090764563069999998" blue="0.1052793315" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" id="lam-pN-URZ">
+                                        <rect key="frame" x="20" y="20" width="243" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.38416666669999999" green="0.090764563069999998" blue="0.1052793315" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SinaNova-Regular" family="Sina Nova" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" alpha="0.30000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AlT-c7-dyx">
+                                <rect key="frame" x="117" y="617" width="141" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Existing user? Login.">
+                                    <color key="titleColor" red="0.38416666669999999" green="0.090764563069999998" blue="0.1052793315" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapShowLogin:" destination="Wn9-mK-hsW" eventType="touchUpInside" id="GhC-27-fgJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rRa-NM-Zfo">
+                                <rect key="frame" x="307" y="22" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapCreateAccount:" destination="Wn9-mK-hsW" eventType="touchUpInside" id="nLQ-Yi-jyQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bws-mL-4cx">
+                                <rect key="frame" x="307" y="22" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapLogin:" destination="Wn9-mK-hsW" eventType="touchUpInside" id="v3R-MN-T55"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="s0h-DI-tUf">
+                                <rect key="frame" x="1" y="17" width="38" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back_icon"/>
+                                <connections>
+                                    <action selector="didTapBack:" destination="Wn9-mK-hsW" eventType="touchUpInside" id="a3L-gv-EhY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.87058823529999996" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="aWv-MF-9sE" appends="YES" id="WxT-o4-xs5"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="lW5-T0-XaW"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="backButton" destination="s0h-DI-tUf" id="cSf-Xe-Q4X"/>
+                        <outlet property="createAccountButton" destination="rRa-NM-Zfo" id="wlU-rt-3sb"/>
+                        <outlet property="emailField" destination="8ax-qJ-4lo" id="gRi-fP-gOb"/>
+                        <outlet property="fieldsContainer" destination="VhC-lj-BpW" id="reJ-KW-ff1"/>
+                        <outlet property="headerLabel" destination="4fS-VS-seD" id="kj6-n4-svG"/>
+                        <outlet property="loginButton" destination="bws-mL-4cx" id="7PX-UL-luX"/>
+                        <outlet property="nameField" destination="lam-pN-URZ" id="gQO-fC-VwP"/>
+                        <outlet property="passwordField" destination="PGw-YY-Rr4" id="BWR-d8-tpn"/>
+                        <outlet property="showLoginButton" destination="AlT-c7-dyx" id="9EZ-y2-MGj"/>
+                        <outlet property="skipButton" destination="MFc-f4-t24" id="OF1-hj-vez"/>
+                        <segue destination="vKO-TO-ipS" kind="push" identifier="showReminders" id="nEb-DN-wHK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4jy-b4-YgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="aWv-MF-9sE">
+                    <connections>
+                        <action selector="tappedView:" destination="Wn9-mK-hsW" id="3HO-Ff-QuS"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1564.5" y="-144.5"/>
+        </scene>
+        <!--Reminders-->
+        <scene sceneID="Csu-Er-frl">
+            <objects>
+                <viewController id="vKO-TO-ipS" customClass="RemindersViewController" customModule="Thanks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U61-sG-keX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="label_reminders" id="K5d-2W-Tc4">
+                                <rect key="frame" x="88" y="72" width="199" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="reminder_cell" id="FrL-mu-w9i">
+                                <rect key="frame" x="49" y="234" width="276" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="elh-gK-3Ai">
+                                <rect key="frame" x="107" y="612" width="161" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Don't remind me">
+                                    <color key="titleColor" red="0.56470588239999997" green="0.17254901959999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapDismiss:" destination="vKO-TO-ipS" eventType="touchUpInside" id="pLW-Cw-eyB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RJX-ek-OGH">
+                                <rect key="frame" x="66" y="247" width="244" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="      Daily">
+                                    <color key="titleColor" red="0.97647058819999999" green="0.83137254900000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected" title="      Daily" backgroundImage="reminder_check_bg">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" title="      Daily">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onReminderEditingChanged:" destination="vKO-TO-ipS" eventType="touchUpInside" id="rYX-qG-vM4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="86Z-Xd-wGB">
+                                <rect key="frame" x="66" y="344" width="244" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="      Monthly">
+                                    <color key="titleColor" red="0.97647058819999999" green="0.83137254900000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected" title="      Monthly" backgroundImage="reminder_check_bg">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" title="      Monthly">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onReminderEditingChanged:" destination="vKO-TO-ipS" eventType="touchUpInside" id="Ixz-n9-15r"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ks5-zx-NeJ">
+                                <rect key="frame" x="66" y="392" width="244" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="      Yearly">
+                                    <color key="titleColor" red="0.97647058819999999" green="0.83137254900000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected" title="      Yearly" backgroundImage="reminder_check_bg">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" title="      Yearly">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onReminderEditingChanged:" destination="vKO-TO-ipS" eventType="touchUpInside" id="8Vk-U5-4cU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QtM-oh-jkS">
+                                <rect key="frame" x="66" y="294" width="244" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="      Weekly">
+                                    <color key="titleColor" red="0.97647058819999999" green="0.83137254900000002" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected" title="      Weekly" backgroundImage="reminder_check_bg">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted" title="      Weekly">
+                                    <color key="titleColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onReminderEditingChanged:" destination="vKO-TO-ipS" eventType="touchUpInside" id="h4D-VN-IQg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xNe-Ii-FYU">
+                                <rect key="frame" x="307" y="20" width="58" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="save_button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapSave:" destination="vKO-TO-ipS" eventType="touchUpInside" id="eXI-JK-AfR"/>
+                                    <segue destination="hFu-sL-yUq" kind="modal" id="CHF-eq-Rhg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.8980392157" green="0.32156862749999998" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reminders" id="DmK-lT-jTD">
+                        <barButtonItem key="rightBarButtonItem" title="next" id="mG6-Qs-IeM"/>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="dailyButton" destination="RJX-ek-OGH" id="Daf-Dk-3ro"/>
+                        <outlet property="monthlyButton" destination="86Z-Xd-wGB" id="De9-0j-xLm"/>
+                        <outlet property="weeklyButton" destination="QtM-oh-jkS" id="0up-gE-lTA"/>
+                        <outlet property="yearlyButton" destination="ks5-zx-NeJ" id="o9X-45-UAX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q2w-uD-UT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820.5" y="383.5"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="Jv0-WU-BOA">
+            <objects>
+                <viewControllerPlaceholder id="hFu-sL-yUq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KVK-0c-28E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1374.6666666666667" y="384.34666666666664"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oez-dD-PmJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Euq-bN-gq7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="81J-Cu-m0v"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="h55-BC-i0j">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="wkl-K8-QNe" kind="relationship" relationship="rootViewController" id="0EK-Aw-TIW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s20-U5-R9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-48.5" y="389.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back_icon" width="12" height="21"/>
+        <image name="emoji_couple" width="160" height="160"/>
+        <image name="emoji_kiss" width="160" height="160"/>
+        <image name="emoji_smile" width="160" height="160"/>
+        <image name="get_started_button" width="168" height="46"/>
+        <image name="label_reminders" width="199" height="92"/>
+        <image name="onboarding1" width="286" height="242"/>
+        <image name="onboarding2" width="251" height="207"/>
+        <image name="onboarding3" width="292" height="201"/>
+        <image name="reminder_cell" width="276" height="200"/>
+        <image name="reminder_check_bg" width="244" height="38"/>
+        <image name="save_button" width="32" height="11"/>
+        <image name="skip_button" width="29" height="13"/>
+    </resources>
+</document>

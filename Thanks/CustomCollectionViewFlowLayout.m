@@ -14,7 +14,8 @@
 //Manually set cell attributes
 - (void)awakeFromNib
 {
-//    self.itemSize = CGSizeMake(330.0, 438.0);
+    self.itemSize = CGSizeMake(330.0, 438.0);
+    self.itemSize = CGSizeMake(360, 438.0);
 //    self.estimatedItemSize = CGSizeMake(330.0, 438.0);
     self.minimumInteritemSpacing = 25.0;
     self.minimumLineSpacing = 10.0;
@@ -24,7 +25,15 @@
 
 //Enable pagination for cells
 - (CGFloat)pageWidth {
-    return self.itemSize.width + self.minimumLineSpacing;
+    // 330 x 438 for iPhone 6
+    CGFloat aspectRatio = 330.0 / 438;
+    
+    CGFloat width = self.collectionView.frame.size.width * 0.87;
+    CGFloat height = width / aspectRatio;
+    
+    CGSize size = CGSizeMake(width, height);
+    
+    return size.width + self.minimumLineSpacing;
 }
 
 - (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
@@ -40,6 +49,8 @@
     } else {
         proposedContentOffset.x = round(rawPageValue) * self.pageWidth;
     }
+    
+    NSLog(@"Proposed content offset: %@", NSStringFromCGPoint(proposedContentOffset));
     
     return proposedContentOffset;
 }

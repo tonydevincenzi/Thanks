@@ -27,7 +27,7 @@ var cards: [Card] = []
 
 /*                */
 
-class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
     //Outlets
@@ -155,7 +155,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    //Set custom insets per section
+//    //Set custom insets per section
     func collectionView(collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         if section == 0 {
             return sectionInsets1
@@ -275,6 +275,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.shareButton.alpha = 0
             })
         }
+        
+        print(scrollView.contentOffset.x)
     }
     
     @IBAction func didTapShare(sender: AnyObject) {
@@ -291,10 +293,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // 330 x 438 for iPhone 6
         let aspectRatio = CGFloat(330.0 / 438)
         
-        let width = collectionView.frame.size.width
+        let width = collectionView.frame.size.width * 0.87
         let height = width / aspectRatio
         
-        return CGSize(width: width*0.87, height: height)
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        let width = collectionView.frame.size.width
+        let cardWidth = collectionView.frame.size.width * 0.87
+        
+        let interItemSpacing = (width - cardWidth - 20) / 2 + 10
+        
+        print("Interitem spaceing: \(interItemSpacing)")
+        return (width - cardWidth - 20) / 2 + 10
     }
     
 

@@ -16,6 +16,7 @@
 		3D73D4631C9B09840074DB39 /* CustomCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */; };
 		3DB8E2651CA196AB0074BC18 /* CreateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8E2641CA196AB0074BC18 /* CreateViewCell.swift */; };
 		3DD2C1EE1CA316690045ABD8 /* CreateTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD2C1ED1CA316690045ABD8 /* CreateTransition.swift */; };
+		3DE6D3961CAB5D2000A0C613 /* NUX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DE6D3951CAB5D2000A0C613 /* NUX.storyboard */; };
 		55851834FDEE92DBB38D7F1F /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D620C9C4A2323F23BD781B0 /* BuddyBuildSDK.framework */; };
 		5DFE360403C2AB029F34402D /* Pods_Thanks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A73399B9E41BA524E49DA89 /* Pods_Thanks.framework */; };
 		84DB0EDF9DE95E9EC85FD28A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A9A2F60E91C112E9238DF37 /* CoreText.framework */; };
@@ -85,6 +86,7 @@
 		3D73D4621C9B09840074DB39 /* CustomCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		3DB8E2641CA196AB0074BC18 /* CreateViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewCell.swift; sourceTree = "<group>"; };
 		3DD2C1ED1CA316690045ABD8 /* CreateTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTransition.swift; sourceTree = "<group>"; };
+		3DE6D3951CAB5D2000A0C613 /* NUX.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NUX.storyboard; sourceTree = "<group>"; };
 		4D620C9C4A2323F23BD781B0 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		7E8765ACC952BEB145943A48 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		93CFEFF81C8B984800CD37DC /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				EA56B9441C8BB765005AF93C /* View Controllers */,
 				3DB8E2661CA196CB0074BC18 /* Cells */,
 				EA3F2B9C1C86298700AC0101 /* Main.storyboard */,
+				3DE6D3951CAB5D2000A0C613 /* NUX.storyboard */,
 				EA3F2B981C86298700AC0101 /* AppDelegate.swift */,
 				EA58D6DD1C99E19300593381 /* Share.swift */,
 				EA8BBC3F1C9B2A5F00FA2A1E /* Common.swift */,
@@ -417,6 +420,7 @@
 			files = (
 				EAF8BE521C9A71BE00A66071 /* sinanova_regular.34912673.cache.otf in Resources */,
 				EA3F2BA31C86298700AC0101 /* LaunchScreen.storyboard in Resources */,
+				3DE6D3961CAB5D2000A0C613 /* NUX.storyboard in Resources */,
 				EAF8BE4D1C9A719D00A66071 /* foro_bold.1d3a4711.cache.otf in Resources */,
 				EAF8BE511C9A71BE00A66071 /* sinanova_italic.9508db81.cache.otf in Resources */,
 				EAF8BE4C1C9A719D00A66071 /* equip_regular.4da3acb5.cache.otf in Resources */,
