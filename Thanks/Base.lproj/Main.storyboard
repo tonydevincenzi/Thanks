@@ -992,7 +992,7 @@
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BHk-aV-SsW">
-                                                        <rect key="frame" x="25" y="335" width="310" height="30"/>
+                                                        <rect key="frame" x="25" y="235" width="310" height="30"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" red="0.74509803921568629" green="1" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="SinaNova-Italic" family="Sina Nova" pointSize="18"/>
@@ -1111,9 +1111,9 @@
         <image name="trash_icon" width="21" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pBD-fu-iLu"/>
-        <segue reference="fdO-QG-lNY"/>
-        <segue reference="bnl-DM-yLh"/>
+        <segue reference="Cvl-8I-BgK"/>
         <segue reference="sLT-mR-Wgb"/>
+        <segue reference="WjR-6L-uE6"/>
+        <segue reference="pBD-fu-iLu"/>
     </inferredMetricsTieBreakers>
 </document>
