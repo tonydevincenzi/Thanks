@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jp3-RK-PGS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764.5" y="389.5"/>
+            <point key="canvasLocation" x="594.5" y="447.5"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="ZZa-Re-Sk9">
@@ -239,7 +239,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1564.5" y="-144.5"/>
+            <point key="canvasLocation" x="1421.5" y="447.5"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="Csu-Er-frl">
@@ -367,7 +367,7 @@
                 <viewControllerPlaceholder id="hFu-sL-yUq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KVK-0c-28E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1374.6666666666667" y="384.34666666666664"/>
+            <point key="canvasLocation" x="1526.5" y="748"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oez-dD-PmJ">
