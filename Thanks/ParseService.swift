@@ -53,7 +53,7 @@ final class ParseService {
         print("Logging in – Username: \(email), Password: \(password)")
         
         //PFUser.loginWit
-        PFUser.logInWithUsernameInBackground(email, password:password) {
+        PFUser.logInWithUsernameInBackground(String(email).lowercaseString, password:password) {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 onComplete(state: "success", error: nil)
@@ -74,8 +74,8 @@ final class ParseService {
         }
         
         user!["name"] = name
-        user!.username = email
-        user!.email = email
+        user!.username = String(email).lowercaseString
+        user!.email = String(email).lowercaseString
         user!.password = password
         
         user!.signUpInBackgroundWithBlock {
