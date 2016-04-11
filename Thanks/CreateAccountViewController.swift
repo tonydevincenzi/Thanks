@@ -86,6 +86,7 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     func doCreateAccount(sender:UIButton?) {
         
+        
         if nameField.text == "" {
             showAlert("Not so fast! What's your name?")
             return
@@ -101,12 +102,15 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        createAccountButton.enabled = false
+        
         let parseService = ParseService()
         parseService.signUpUser(nameField.text!, email: emailField.text!, password: passwordField.text!) { (state, error) in
             //Completion handler returns cards, assign them and redraw
             if state == "success" {
                 self.nextStep("New user created!")
             } else {
+                self.createAccountButton.enabled = true
                 print(error!.userInfo["error"])
                 let message:String = String(error!.userInfo["error"]!)
                 self.showAlert(message)
@@ -215,6 +219,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func didTapSkip(sender: AnyObject) {
 
+        skipButton.enabled = false
+        
         //User skipped sign up, create an anonymous user
         let parseService = ParseService()
         parseService.createAnonUser(nameField.text!) { (state, error) in
