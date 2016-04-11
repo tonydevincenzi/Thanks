@@ -135,6 +135,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
+        loginButton.enabled = false
+        
         let parseService = ParseService()
         parseService.loginUser(emailField.text!, password: passwordField.text!) { (state, error) in
             //Completion handler returns cards, assign them and redraw
@@ -144,6 +146,8 @@ class CreateAccountViewController: UIViewController, UITextFieldDelegate {
                 print(error!.userInfo["error"])
                 let message:String = String(error!.userInfo["error"]!)
                 self.showAlert(message)
+                self.loginButton.enabled = true
+
             }
         }
         
