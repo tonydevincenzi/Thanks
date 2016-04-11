@@ -90,7 +90,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         }
         
         bodyTextView.delegate = self;
-        cardView.layer.cornerRadius = 6
+        //cardView.layer.cornerRadius = 6
         emojiContainer.layer.cornerRadius = 6
         gradientView.layer.cornerRadius = 6
         photoContainerView.layer.cornerRadius = 6

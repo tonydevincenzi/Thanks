@@ -26,7 +26,7 @@ class CreateTransition: BaseTransition {
         let destinationViewFrame = createCardViewController.cardView.frame
         movingImageView.frame = homeViewController.tappedCellFrame
         movingImageView.image = UIImage(named:"new_card_cell_v4")
-        movingImageView.layer.cornerRadius = 6
+        //movingImageView.layer.cornerRadius = 6
         movingImageView.clipsToBounds = true
         movingImageView.frame.origin.x -= homeViewController.collectionView.contentOffset.x
         
@@ -69,6 +69,14 @@ class CreateTransition: BaseTransition {
         //Temporarily hide the destination VC
         toViewController.view.alpha = 0
         
+        //Special animation for corner radius
+        let animation = CABasicAnimation(keyPath: "cornerRadius")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.fromValue = 6
+        animation.toValue = 0
+        animation.duration = duration
+        movingImageView.layer.addAnimation(animation, forKey: "cornerRadius")
+        
         
         //Animate
         UIView.animateWithDuration(duration, animations: {
@@ -87,6 +95,7 @@ class CreateTransition: BaseTransition {
             
             movingPlaceholderLabel.frame.origin.y = placeholderLabeldestinationYPos
             movingPlaceholderLabel.frame.origin.x = placeholderLabeldestinationXPos
+            
             
             let nameLabelDestinationYPos = destinationName.convertPoint(destinationName.frame.origin, toView: nil).y - destinationName.frame.origin.y
             let nameLabelDestinationXPos = destinationName.convertPoint(destinationName.frame.origin, toView: nil).x - destinationName.frame.origin.x
@@ -134,7 +143,7 @@ class CreateTransition: BaseTransition {
         //Set parameters for cloned image
         movingImageView.frame = createCardViewController.cardView.frame
         movingImageView.image = UIImage(named: "new_card_cell_v4")
-        movingImageView.layer.cornerRadius = 6
+        movingImageView.layer.cornerRadius = 0
         movingImageView.clipsToBounds = true
         var destinationViewFrame = homeViewController.tappedCellFrame
         destinationViewFrame.origin.x -= homeViewController.collectionView.contentOffset.x
@@ -173,6 +182,14 @@ class CreateTransition: BaseTransition {
         //Temporarily hide initial and final images
         createCardViewController.cardView.hidden = true
         homeViewController.tappedCell.hidden = true
+        
+        let animation = CABasicAnimation(keyPath: "cornerRadius")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.fromValue = 0
+        animation.toValue = 6
+        animation.duration = duration
+        movingImageView.layer.addAnimation(animation, forKey: "cornerRadius")
+        
         
         
         //Animate
