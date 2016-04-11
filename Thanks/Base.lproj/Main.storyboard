@@ -998,6 +998,11 @@
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whh-zo-j8d" customClass="PassThroughView" customModule="Thanks" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="20" width="350" height="465"/>
+                                                <subviews>
+                                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="z3x-0U-fIm">
+                                                        <rect key="frame" x="157" y="214" width="37" height="37"/>
+                                                    </activityIndicatorView>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>
@@ -1031,6 +1036,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="bodyTextView" destination="6Wa-R7-fhh" id="WMA-g1-ksg"/>
+                        <outlet property="buttonCancel" destination="cWL-94-xO0" id="rOc-I6-OPf"/>
                         <outlet property="buttonsContainerView" destination="e6F-Kn-lGT" id="4Bf-A2-S1G"/>
                         <outlet property="cardComponentsContainerView" destination="vGd-KM-jzp" id="IW4-dg-TEI"/>
                         <outlet property="cardView" destination="BUk-Wq-BeB" id="4HX-th-sea"/>
@@ -1040,6 +1046,7 @@
                         <outlet property="editableFieldsContainer" destination="T1C-5v-xo9" id="9ps-Rc-6YE"/>
                         <outlet property="emojiContainer" destination="whh-zo-j8d" id="CaW-Hx-Qgg"/>
                         <outlet property="gradientView" destination="pHc-G8-fDb" id="uB0-vX-xYA"/>
+                        <outlet property="loadingIndicator" destination="z3x-0U-fIm" id="kvF-mb-krJ"/>
                         <outlet property="maskedPhotoView" destination="VuV-ii-xbr" id="gbX-Si-qMg"/>
                         <outlet property="nameTextField" destination="BHk-aV-SsW" id="a2D-6q-8c7"/>
                         <outlet property="photoButton" destination="UBm-z5-3AR" id="2dy-Xd-Q0n"/>
@@ -1106,9 +1113,9 @@
         <image name="trash_icon" width="21" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fdO-QG-lNY"/>
-        <segue reference="pBD-fu-iLu"/>
+        <segue reference="Cvl-8I-BgK"/>
         <segue reference="sLT-mR-Wgb"/>
-        <segue reference="bnl-DM-yLh"/>
+        <segue reference="WjR-6L-uE6"/>
+        <segue reference="pBD-fu-iLu"/>
     </inferredMetricsTieBreakers>
 </document>

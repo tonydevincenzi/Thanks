@@ -42,6 +42,9 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
     @IBOutlet weak var colorButton: UIButton!
     @IBOutlet weak var colorLabel: UILabel!
     
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var buttonCancel: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var photoNextButton: UIButton!
     
@@ -88,6 +91,8 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         } else {
             nameTextField.text = "– Your Name"
         }
+        
+        loadingIndicator.stopAnimating()
         
         bodyTextView.delegate = self;
         //cardView.layer.cornerRadius = 6
@@ -810,6 +815,7 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         let body = bodyTextView.text!
         let author = nameTextField.text
         
+        
         //capture the image from the view
         //Hide UI, capture the picture
         
@@ -817,6 +823,8 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         photoContainerView.layer.cornerRadius = 0
         cardView.layer.cornerRadius = 0
         cardButtonContainer.hidden = true
+        
+        
         
         bodyTextView.resignFirstResponder()
         nameTextField.resignFirstResponder()
@@ -827,7 +835,16 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
         var card = Card(objectId: nil, body: body, author: author, image: savedImage)
         
         saveButton.enabled = false
-        saveButton.alpha = 0.3
+        
+        loadingIndicator.startAnimating()
+    
+        UIView.animateWithDuration(0.3) {
+            self.buttonsContainerView.alpha = 0
+            self.buttonCancel.alpha = 0
+            self.saveButton.alpha = 0
+            self.cardView.alpha = 0.75
+        }
+
         
         let parseService:ParseService = ParseService()
         parseService.saveCard(card) {
@@ -837,12 +854,14 @@ class CreateCardViewController: UIViewController, UITextViewDelegate, UITextFiel
             self.tappedImage.image = image
             self.saveButton.enabled = true
             self.saveButton.alpha = 0
+            self.cardView.alpha = 1
+            self.performSegueWithIdentifier("showDetailFromSave", sender: self)
+            self.loadingIndicator.stopAnimating()
 
             self.objectId = result.objectId
         }
         
         self.tappedImage.image = image
-        self.performSegueWithIdentifier("showDetailFromSave", sender: self)
     }
     
     //Hide status bar
