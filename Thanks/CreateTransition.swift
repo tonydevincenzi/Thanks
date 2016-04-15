@@ -26,7 +26,6 @@ class CreateTransition: BaseTransition {
         let destinationViewFrame = createCardViewController.cardView.frame
         movingImageView.frame = homeViewController.tappedCellFrame
         movingImageView.image = UIImage(named:"new_card_cell_v4")
-        //movingImageView.layer.cornerRadius = 6
         movingImageView.clipsToBounds = true
         movingImageView.frame.origin.x -= homeViewController.collectionView.contentOffset.x
         
@@ -45,7 +44,7 @@ class CreateTransition: BaseTransition {
         
         //Set parameters for cloned nameLabel
         movingNameLabel.frame = homeViewController.tappedCellNameLabel.frame
-        movingNameLabel.text = createCardViewController.nameTextField.text
+        movingNameLabel.text = homeViewController.tappedCellNameLabel.text
         movingNameLabel.font = homeViewController.tappedCellNameLabel.font
         movingNameLabel.textColor = UIColor(hex: 0x9B9B9B)
         
@@ -84,33 +83,25 @@ class CreateTransition: BaseTransition {
             //Show the destination VC again
             toViewController.view.alpha = 1
             
-            //Animate the cloned image and labels to their target position
             movingImageView.frame = destinationViewFrame
             
+            //Animate the cloned text label
             let destinationLabel = createCardViewController.placeholderLabel
-            let destinationName = createCardViewController.nameTextField
             
             let placeholderLabeldestinationYPos = destinationLabel.convertPoint(destinationLabel.frame.origin, toView: nil).y - destinationLabel.frame.origin.y
             let placeholderLabeldestinationXPos = destinationLabel.convertPoint(destinationLabel.frame.origin, toView: nil).x - destinationLabel.frame.origin.x
             
             movingPlaceholderLabel.frame.origin.y = placeholderLabeldestinationYPos
             movingPlaceholderLabel.frame.origin.x = placeholderLabeldestinationXPos
+
+            //Animate the cloned name label
+            let destinationNameLabel = createCardViewController.nameTextField
             
+            let nameLabeldestinationYPos = destinationNameLabel.convertPoint(destinationNameLabel.frame.origin, toView: nil).y - destinationNameLabel.frame.origin.y
+            let nameLabeldestinationXPos = destinationNameLabel.convertPoint(destinationNameLabel.frame.origin, toView: nil).x - destinationNameLabel.frame.origin.x
             
-            let nameLabelDestinationYPos = destinationName.convertPoint(destinationName.frame.origin, toView: nil).y - destinationName.frame.origin.y
-            let nameLabelDestinationXPos = destinationName.convertPoint(destinationName.frame.origin, toView: nil).x - destinationName.frame.origin.x
-            
-            movingNameLabel.frame.origin.y = nameLabelDestinationYPos
-            movingNameLabel.frame.origin.x = nameLabelDestinationXPos
-            
-            print(nameLabelOriginXPos)
-            print(nameLabelOriginYPos)
-            
-            //Todo: Figure out why calculated destinationPos isn't equal to nameTextField position
-            print(nameLabelDestinationXPos)
-            print(nameLabelDestinationYPos)
-            print(createCardViewController.nameTextField.frame.origin.x)
-            print(createCardViewController.nameTextField.frame.origin.y)
+            movingNameLabel.frame.origin.y = nameLabeldestinationYPos
+            movingNameLabel.frame.origin.x = nameLabeldestinationXPos
             
             
         }) { (finished: Bool) -> Void in
@@ -121,7 +112,7 @@ class CreateTransition: BaseTransition {
                 //And hide the cloned image
                 movingImageView.removeFromSuperview()
                 movingPlaceholderLabel.removeFromSuperview()
-                movingNameLabel.removeFromSuperview()
+//                movingNameLabel.removeFromSuperview()
             
             self.finish()
         }
